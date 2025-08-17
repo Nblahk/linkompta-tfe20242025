@@ -30,4 +30,6 @@ urlpatterns = [
     path("api/documents/", include("documents.urls")),
     path("api/factures/", include("factures.urls")),
     path("api/messagerie/", include("messagerie.urls")),
+    path("api/rendezvous/", include("rendezvous.urls")),
+
 ]
