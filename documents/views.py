@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from rest_framework import generics
+from rest_framework import generics, status
+from rest_framework.response import Response
 from .models import Document
 from .serializers import DocumentSerializer
 from .permissions import IsAdmin, IsComptable, IsClient
@@ -20,17 +21,20 @@ class ClientDocumentListView(generics.ListAPIView):
     def get_queryset(self):
         return Document.objects.filter(client__user=self.request.user)
 
-# COMPTABLE : voir tous les documents de ses clients (simplifié: tous les clients pour l'instant)
+# COMPTABLE : voir uniquement les documents de SES clients
 class ComptableDocumentListView(generics.ListAPIView):
-    queryset = Document.objects.all()
     serializer_class = DocumentSerializer
     permission_classes = [IsComptable]
+
+    def get_queryset(self):
+        return Document.objects.filter(client__comptable=self.request.user)
 
 # ADMIN : voir tous les documents
 class AdminDocumentListView(generics.ListAPIView):
     queryset = Document.objects.all()
     serializer_class = DocumentSerializer
     permission_classes = [IsAdmin]
+
 # COMPTABLE : mise à jour du statut d’un document
 class ComptableDocumentUpdateStatusView(generics.UpdateAPIView):
     queryset = Document.objects.all()
@@ -39,6 +43,14 @@ class ComptableDocumentUpdateStatusView(generics.UpdateAPIView):
 
     def update(self, request, *args, **kwargs):
         document = self.get_object()
+
+        # Vérifie que le document appartient bien à un client du comptable connecté
+        if document.client.comptable != request.user:
+            return Response(
+                {"error": "Vous ne pouvez modifier que les documents de vos propres clients."},
+                status=status.HTTP_403_FORBIDDEN
+            )
+
         new_status = request.data.get("status")
 
         if new_status not in ["recu", "en_cours", "traite"]:
@@ -53,4 +65,3 @@ class ComptableDocumentUpdateStatusView(generics.UpdateAPIView):
         return Response(
             {"message": f"Statut du document '{document.title}' mis à jour en {new_status}."}
         )
-    

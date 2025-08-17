@@ -10,11 +10,13 @@ class AdminClientListView(generics.ListAPIView):
     serializer_class = ClientSerializer
     permission_classes = [IsAdmin]
 
-# COMPTABLE : voir seulement ses clients (on simplifie pour l’instant → tous les clients)
+# COMPTABLE : voir uniquement ses propres clients
 class ComptableClientListView(generics.ListAPIView):
-    queryset = Client.objects.all()  
     serializer_class = ClientSerializer
     permission_classes = [IsComptable]
+
+    def get_queryset(self):
+        return Client.objects.filter(comptable=self.request.user)
 
 # CLIENT : voir son propre profil
 class ClientDetailView(generics.RetrieveAPIView):

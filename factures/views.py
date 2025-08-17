@@ -17,6 +17,14 @@ class ClientFactureListView(generics.ListAPIView):
     def get_queryset(self):
         return Facture.objects.filter(client__user=self.request.user)
 
+# COMPTABLE : voir uniquement les factures de SES clients
+class ComptableFactureListView(generics.ListAPIView):
+    serializer_class = FactureSerializer
+    permission_classes = [IsComptable]
+
+    def get_queryset(self):
+        return Facture.objects.filter(client__comptable=self.request.user)
+
 # ADMIN : voir toutes les factures
 class AdminFactureListView(generics.ListAPIView):
     queryset = Facture.objects.all()
@@ -41,23 +49,3 @@ class FacturePaiementView(generics.UpdateAPIView):
             return Response({"error": "Facture déjà payée."}, status=400)
 
         # Change statut en payée
-        facture.statut = "payee"
-        facture.save()
-
-        # Crée un paiement lié
-        paiement = Paiement.objects.create(
-            facture=facture,
-            client=facture.client,
-            methode=request.data.get("methode", "bancontact"),  # par défaut Bancontact
-            montant=facture.montant_tvac
-        )
-
-        return Response({
-            "message": f"Facture {facture.id} payée avec succès via {paiement.methode}.",
-            "paiement": PaiementSerializer(paiement).data
-        }, status=status.HTTP_200_OK)
-    
-class AdminPaiementListView(generics.ListAPIView):
-    queryset = Paiement.objects.all().order_by("-date_paiement")
-    serializer_class = PaiementSerializer
-    permission_classes = [IsAdmin]
