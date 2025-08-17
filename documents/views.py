@@ -31,7 +31,6 @@ class AdminDocumentListView(generics.ListAPIView):
     queryset = Document.objects.all()
     serializer_class = DocumentSerializer
     permission_classes = [IsAdmin]
-    
 # COMPTABLE : mise à jour du statut d’un document
 class ComptableDocumentUpdateStatusView(generics.UpdateAPIView):
     queryset = Document.objects.all()
