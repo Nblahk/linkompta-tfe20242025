@@ -8,11 +8,20 @@ function Login({ setToken }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Appel à Django pour obtenir un token
-      const res = await api.post("token/", { username, password });   // ➡️ endpoint /api/token/
-      localStorage.setItem("token", res.data.access);                 // ➡️ stocke le token
-      setToken(res.data.access);                                      // ➡️ informe App.js
-      alert("Connexion réussie !");
+      // 🔹 Étape 1 : récupérer un token JWT
+      const res = await api.post("token/", { username, password });
+      localStorage.setItem("token", res.data.access);
+      setToken(res.data.access);
+
+      // 🔹 Étape 2 : utiliser ce token pour récupérer l'utilisateur connecté
+      const userRes = await api.get("users/me/", {
+        headers: { Authorization: `Bearer ${res.data.access}` },
+      });
+
+      // On stocke le rôle de l'utilisateur
+      localStorage.setItem("role", userRes.data.role);
+
+      alert(`Connexion réussie en tant que ${userRes.data.role} ✅`);
     } catch (err) {
       alert("Échec de connexion : vérifie tes identifiants");
     }
@@ -25,13 +34,13 @@ function Login({ setToken }) {
         type="text"
         placeholder="Nom d'utilisateur"
         value={username}
-        onChange={(e) => setUsername(e.target.value)}   // ➡️ met à jour username
+        onChange={(e) => setUsername(e.target.value)}
       />
       <input
         type="password"
         placeholder="Mot de passe"
         value={password}
-        onChange={(e) => setPassword(e.target.value)}   // ➡️ met à jour password
+        onChange={(e) => setPassword(e.target.value)}
       />
       <button type="submit">Se connecter</button>
     </form>

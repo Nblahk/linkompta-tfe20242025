@@ -6,26 +6,26 @@ function Dashboard({ token }) {
   const [documents, setDocuments] = useState([]);
   const [rendezvous, setRendezvous] = useState([]);
 
-  // Charger les données quand le composant s'affiche
+  // Charger les données du backend
   useEffect(() => {
     const fetchData = async () => {
       try {
         const headers = { Authorization: `Bearer ${token}` };
 
-        // Récupère les factures
+        // 🔹 Récupérer les factures du client
         const facturesRes = await api.get("factures/client/", { headers });
         setFactures(facturesRes.data);
 
-        // Récupère les documents
+        // 🔹 Récupérer les documents du client
         const documentsRes = await api.get("documents/client/", { headers });
         setDocuments(documentsRes.data);
 
-        // Récupère les rendez-vous
+        // 🔹 Récupérer les rendez-vous du client
         const rdvRes = await api.get("rendezvous/me/", { headers });
         setRendezvous(rdvRes.data);
 
       } catch (err) {
-        console.error("Erreur chargement dashboard :", err);
+        console.error("Erreur lors du chargement du dashboard :", err);
       }
     };
 
@@ -33,35 +33,53 @@ function Dashboard({ token }) {
   }, [token]);
 
   return (
-    <div>
-      <h2>📊 Tableau de bord</h2>
+    <div style={{ padding: "20px" }}>
+      <h2>📊 Tableau de bord - Espace Client</h2>
 
-      <h3>💰 Mes factures</h3>
-      <ul>
-        {factures.map((f) => (
-          <li key={f.id}>
-            {f.titre} - {f.montant_tvac}€ ({f.statut})
-          </li>
-        ))}
-      </ul>
+      <section>
+        <h3>💰 Mes factures</h3>
+        {factures.length === 0 ? (
+          <p>Aucune facture disponible.</p>
+        ) : (
+          <ul>
+            {factures.map((f) => (
+              <li key={f.id}>
+                <strong>{f.titre}</strong> - {f.montant_tvac}€ ({f.statut})
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
 
-      <h3>📂 Mes documents</h3>
-      <ul>
-        {documents.map((d) => (
-          <li key={d.id}>
-            {d.titre} - {d.status}
-          </li>
-        ))}
-      </ul>
+      <section>
+        <h3>📂 Mes documents</h3>
+        {documents.length === 0 ? (
+          <p>Aucun document disponible.</p>
+        ) : (
+          <ul>
+            {documents.map((d) => (
+              <li key={d.id}>
+                <strong>{d.titre}</strong> - {d.status}
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
 
-      <h3>📅 Mes rendez-vous</h3>
-      <ul>
-        {rendezvous.map((r) => (
-          <li key={r.id}>
-            {r.date} - {r.status}
-          </li>
-        ))}
-      </ul>
+      <section>
+        <h3>📅 Mes rendez-vous</h3>
+        {rendezvous.length === 0 ? (
+          <p>Aucun rendez-vous planifié.</p>
+        ) : (
+          <ul>
+            {rendezvous.map((r) => (
+              <li key={r.id}>
+                {r.date} → {r.status} {r.commentaire && `(${r.commentaire})`}
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
     </div>
   );
 }
