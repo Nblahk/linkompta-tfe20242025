@@ -4,7 +4,7 @@ from .views import (
     ClientFactureListView,
     AdminFactureListView,
     FacturePaiementView,
-    AdminPaiementListView, 
+    AdminPaiementListView,
 )
 
 urlpatterns = [
@@ -12,5 +12,5 @@ urlpatterns = [
     path("me/", ClientFactureListView.as_view(), name="client-factures"),
     path("admin-list/", AdminFactureListView.as_view(), name="admin-factures"),
     path("<int:pk>/payer/", FacturePaiementView.as_view(), name="facture-paiement"),
-    path("admin-paiements/", AdminPaiementListView.as_view(), name="admin-paiements"), 
+    path("admin-paiements/", AdminPaiementListView.as_view(), name="admin-paiements"),
 ]

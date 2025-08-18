@@ -62,6 +62,6 @@ class ComptableRendezVousUpdateView(generics.UpdateAPIView):
 
 # ADMIN : voir tous les rendez-vous
 class AdminRendezVousListView(generics.ListAPIView):
-    queryset = RendezVous.objects.all().order_by("-date_creation")
+    queryset = RendezVous.objects.all().order_by("-created_at") 
     serializer_class = RendezVousSerializer
     permission_classes = [IsAdmin]

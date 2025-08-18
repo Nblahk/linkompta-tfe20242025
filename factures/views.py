@@ -49,3 +49,21 @@ class FacturePaiementView(generics.UpdateAPIView):
             return Response({"error": "Facture déjà payée."}, status=400)
 
         # Change statut en payée
+        facture.statut = "payee"
+        facture.save()
+
+        # Crée un objet Paiement lié
+        Paiement.objects.create(
+            facture=facture,
+            montant=facture.montant,
+            mode_paiement="bancontact",
+            statut="effectue",
+        )
+
+        return Response({"success": "Facture payée avec succès."}, status=200)
+
+# ADMIN : voir tous les paiements
+class AdminPaiementListView(generics.ListAPIView):
+    queryset = Paiement.objects.all()
+    serializer_class = PaiementSerializer
+    permission_classes = [IsAdmin]
