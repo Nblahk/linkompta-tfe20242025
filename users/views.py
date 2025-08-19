@@ -4,6 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 import os
 from django.conf import settings
+from rest_framework.permissions import IsAuthenticated
 
 from .models import User
 from .serializers import UserSerializer
@@ -55,6 +56,15 @@ class AdminAuditLogView(APIView):
         return Response({
             "audit_logs": lignes[-200:]
         })
+    
+    
+class CurrentUserView(generics.RetrieveAPIView):
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_object(self):
+        return self.request.user
+
 class ComptableAuditLogView(APIView):
     permission_classes = [IsComptable]
 
@@ -77,3 +87,4 @@ class ComptableAuditLogView(APIView):
         return Response({
             "audit_logs": filtered_logs[-200:]  # Limiter à 200 dernières lignes
         })
+    

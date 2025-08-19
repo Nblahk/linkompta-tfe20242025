@@ -18,10 +18,11 @@ function Login({ setToken }) {
         headers: { Authorization: `Bearer ${res.data.access}` },
       });
 
-      // On stocke le rôle de l'utilisateur
+      // 🔹 On stocke le rôle ET le username dans localStorage
       localStorage.setItem("role", userRes.data.role);
+      localStorage.setItem("username", userRes.data.username);
 
-      alert(`Connexion réussie en tant que ${userRes.data.role} ✅`);
+      alert(`Connexion réussie ✅ Bienvenue ${userRes.data.username} (${userRes.data.role})`);
     } catch (err) {
       alert("Échec de connexion : vérifie tes identifiants");
     }

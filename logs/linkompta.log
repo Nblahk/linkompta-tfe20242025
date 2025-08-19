@@ -55,3 +55,79 @@ Not Found: /
 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
 "OPTIONS /api/token/ HTTP/1.1" 200 0
 "POST /api/token/ HTTP/1.1" 200 489
+Watching for file changes with StatReloader
+"OPTIONS /api/factures/client/ HTTP/1.1" 200 0
+"OPTIONS /api/factures/client/ HTTP/1.1" 200 0
+Not Found: /api/factures/client/
+"GET /api/factures/client/ HTTP/1.1" 404 5148
+Not Found: /api/factures/client/
+"GET /api/factures/client/ HTTP/1.1" 404 5148
+"POST /api/token/ HTTP/1.1" 200 489
+"OPTIONS /api/users/me/ HTTP/1.1" 200 0
+Not Found: /api/users/me/
+"GET /api/users/me/ HTTP/1.1" 404 5375
+Not Found: /api/factures/client/
+"GET /api/factures/client/ HTTP/1.1" 404 5148
+Not Found: /api/factures/client/
+"GET /api/factures/client/ HTTP/1.1" 404 5148
+"POST /api/token/ HTTP/1.1" 200 489
+Not Found: /api/users/me/
+"GET /api/users/me/ HTTP/1.1" 404 5375
+Not Found: /api/factures/client/
+"GET /api/factures/client/ HTTP/1.1" 404 5148
+Not Found: /api/factures/client/
+"GET /api/factures/client/ HTTP/1.1" 404 5148
+"POST /api/token/ HTTP/1.1" 200 489
+Not Found: /api/users/me/
+"GET /api/users/me/ HTTP/1.1" 404 5375
+Not Found: /api/factures/client/
+"GET /api/factures/client/ HTTP/1.1" 404 5148
+Not Found: /api/factures/client/
+"GET /api/factures/client/ HTTP/1.1" 404 5148
+Unauthorized: /api/token/
+"POST /api/token/ HTTP/1.1" 401 63
+"POST /api/token/ HTTP/1.1" 200 489
+Not Found: /api/users/me/
+Not Found: /api/factures/client/
+"GET /api/users/me/ HTTP/1.1" 404 5375
+"GET /api/factures/client/ HTTP/1.1" 404 5148
+Not Found: /api/factures/client/
+"GET /api/factures/client/ HTTP/1.1" 404 5148
+Watching for file changes with StatReloader
+C:\Users\ahake\Linkompta\users\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\ahake\Linkompta\users\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\ahake\Linkompta\users\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\ahake\Linkompta\users\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\ahake\Linkompta\users\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\ahake\Linkompta\users\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"OPTIONS /api/token/ HTTP/1.1" 200 0
+"POST /api/token/ HTTP/1.1" 200 489
+"OPTIONS /api/users/me/ HTTP/1.1" 200 0
+"GET /api/users/me/ HTTP/1.1" 200 98
+"OPTIONS /api/factures/client/ HTTP/1.1" 200 0
+"OPTIONS /api/factures/client/ HTTP/1.1" 200 0
+Not Found: /api/factures/client/
+"GET /api/factures/client/ HTTP/1.1" 404 5148
+Not Found: /api/factures/client/
+"GET /api/factures/client/ HTTP/1.1" 404 5148
+"POST /api/token/ HTTP/1.1" 200 489
+Not Found: /api/factures/client/
+"GET /api/factures/client/ HTTP/1.1" 404 5148
+"GET /api/users/me/ HTTP/1.1" 200 96
+Not Found: /api/factures/client/
+"GET /api/factures/client/ HTTP/1.1" 404 5148
+"POST /api/token/ HTTP/1.1" 200 489
+"GET /api/users/me/ HTTP/1.1" 200 91
+Not Found: /api/factures/client/
+"GET /api/factures/client/ HTTP/1.1" 404 5148
+Not Found: /api/factures/client/
+"GET /api/factures/client/ HTTP/1.1" 404 5148
