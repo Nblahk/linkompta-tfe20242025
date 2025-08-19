@@ -1,14 +1,14 @@
 from django.urls import path
 from .views import (
-    MessageCreateView,
-    MessageReceivedListView,
-    MessageSentListView,
-    MessageMarkAsReadView,
+    EnvoyerMessageView,
+    MessagesRecusView,
+    MessagesEnvoyesView,
+    MarquerCommeLuView,
 )
 
 urlpatterns = [
-    path("send/", MessageCreateView.as_view(), name="send-message"),
-    path("received/", MessageReceivedListView.as_view(), name="received-messages"),
-    path("sent/", MessageSentListView.as_view(), name="sent-messages"),
-    path("<int:pk>/read/", MessageMarkAsReadView.as_view(), name="read-message"),
+    path("envoyer/", EnvoyerMessageView.as_view(), name="message-envoyer"),
+    path("recus/", MessagesRecusView.as_view(), name="messages-recus"),
+    path("envoyes/", MessagesEnvoyesView.as_view(), name="messages-envoyes"),
+    path("<int:pk>/lu/", MarquerCommeLuView.as_view(), name="message-lu"),
 ]
