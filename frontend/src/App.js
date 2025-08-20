@@ -1,38 +1,36 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
-import Dashboard from "./components/Dashboard";             
-import DashboardComptable from "./components/DashboardComptable"; 
-import DashboardAdmin from "./components/DashboardAdmin";   
-import Header from "./components/Header";   // ✅ nouveau header
+import Dashboard from "./components/Dashboard";
+import FacturesClient from "./pages/FacturesClient";
+import DocumentsClient from "./pages/DocumentsClient";
+import RendezVousClient from "./pages/RendezVousClient";
+import Layout from "./components/Layout";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token") || null);
   const role = localStorage.getItem("role");
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("role");
-    localStorage.removeItem("username");
+    localStorage.clear();
     setToken(null);
   };
 
   return (
-    <div>
+    <Router>
       {!token ? (
         <Login setToken={setToken} />
       ) : (
-        <>
-          <Header onLogout={handleLogout} />  {/* ✅ le header apparaît */}
-          {role === "comptable" ? (
-            <DashboardComptable token={token} />
-          ) : role === "admin" ? (
-            <DashboardAdmin token={token} />
-          ) : (
-            <Dashboard token={token} />
-          )}
-        </>
+        <Layout onLogout={handleLogout}>
+          <Routes>
+            <Route path="/" element={<Dashboard token={token} />} />
+            <Route path="/factures" element={<FacturesClient />} />
+            <Route path="/documents" element={<DocumentsClient />} />
+            <Route path="/rendezvous" element={<RendezVousClient />} />
+          </Routes>
+        </Layout>
       )}
-    </div>
+    </Router>
   );
 }
 

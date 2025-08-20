@@ -9,6 +9,10 @@ class FactureCreateView(generics.CreateAPIView):
     serializer_class = FactureSerializer
     permission_classes = [IsComptable]
 
+    def perform_create(self, serializer):
+        serializer.save()
+
+
 # CLIENT : voir ses factures
 class ClientFactureListView(generics.ListAPIView):
     serializer_class = FactureSerializer
@@ -17,7 +21,8 @@ class ClientFactureListView(generics.ListAPIView):
     def get_queryset(self):
         return Facture.objects.filter(client__user=self.request.user)
 
-# COMPTABLE : voir uniquement les factures de SES clients
+
+# COMPTABLE : voir les factures de ses clients
 class ComptableFactureListView(generics.ListAPIView):
     serializer_class = FactureSerializer
     permission_classes = [IsComptable]
@@ -25,13 +30,15 @@ class ComptableFactureListView(generics.ListAPIView):
     def get_queryset(self):
         return Facture.objects.filter(client__comptable=self.request.user)
 
+
 # ADMIN : voir toutes les factures
 class AdminFactureListView(generics.ListAPIView):
     queryset = Facture.objects.all()
     serializer_class = FactureSerializer
     permission_classes = [IsAdmin]
 
-# CLIENT : payer une facture (simulation avec Bancontact)
+
+# CLIENT : payer une facture
 class FacturePaiementView(generics.UpdateAPIView):
     queryset = Facture.objects.all()
     serializer_class = FactureSerializer
@@ -40,30 +47,32 @@ class FacturePaiementView(generics.UpdateAPIView):
     def update(self, request, *args, **kwargs):
         facture = self.get_object()
 
-        # Vérifie que la facture appartient au client connecté
+        # Vérifie que la facture appartient bien au client
         if facture.client.user != request.user:
             return Response({"error": "Vous ne pouvez payer que vos propres factures."}, status=403)
 
-        # Vérifie si déjà payée
         if facture.statut == "payee":
             return Response({"error": "Facture déjà payée."}, status=400)
 
-        # Change statut en payée
         facture.statut = "payee"
         facture.save()
 
-        # Crée un objet Paiement lié
-        Paiement.objects.create(
+        # Crée un paiement lié
+        paiement = Paiement.objects.create(
             facture=facture,
-            montant=facture.montant,
-            mode_paiement="bancontact",
-            statut="effectue",
+            client=facture.client,
+            methode=request.data.get("methode", "bancontact"),
+            montant=facture.montant_tvac
         )
 
-        return Response({"success": "Facture payée avec succès."}, status=200)
+        return Response({
+            "message": f"Facture {facture.id} payée avec succès via {paiement.methode}.",
+            "paiement": PaiementSerializer(paiement).data
+        }, status=status.HTTP_200_OK)
+
 
 # ADMIN : voir tous les paiements
 class AdminPaiementListView(generics.ListAPIView):
-    queryset = Paiement.objects.all()
+    queryset = Paiement.objects.all().order_by("-date_paiement")
     serializer_class = PaiementSerializer
     permission_classes = [IsAdmin]
