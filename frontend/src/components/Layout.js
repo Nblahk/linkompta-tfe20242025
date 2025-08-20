@@ -20,13 +20,14 @@ const drawerWidth = 240;
 function Layout({ children, onLogout }) {
   const navigate = useNavigate();
 
-  // 🔹 Récupérer infos utilisateur
+  // 🔹 Récupérer infos utilisateur depuis localStorage
   const username = localStorage.getItem("username") || "Utilisateur";
   const role = localStorage.getItem("role") || "client";
+  const avatar = localStorage.getItem("avatar"); // ⚡ sera utile plus tard
 
   return (
     <div style={{ display: "flex" }}>
-      {/* Sidebar */}
+      {/* ✅ Sidebar (menu gauche) */}
       <Drawer
         variant="permanent"
         sx={{
@@ -42,7 +43,7 @@ function Layout({ children, onLogout }) {
       >
         <Toolbar />
         <List>
-        <Toolbar>
+          <Toolbar>
             {/* 🔹 Logo titre Linkompta */}
             <Typography
               variant="h5"
@@ -68,7 +69,7 @@ function Layout({ children, onLogout }) {
         </List>
       </Drawer>
 
-      {/* Contenu principal */}
+      {/* ✅ Contenu principal */}
       <main style={{ flexGrow: 1, padding: "20px" }}>
         <AppBar
           position="fixed"
@@ -82,23 +83,26 @@ function Layout({ children, onLogout }) {
           }}
         >
           <Toolbar>
-            {/* 🔹 Logo titre Linkompta */}
+            {/* 🔹 Titre dans la barre du haut */}
             <Typography
-              variant="h5"
+              variant="h6"
               noWrap
               component="div"
               sx={{ fontWeight: "bold", letterSpacing: 1 }}
             >
-              LINKOMPTA 💼
+              Tableau de bord
             </Typography>
           </Toolbar>
 
-          {/* 🔹 Section droite : utilisateur + bouton déconnexion */}
+          {/* 🔹 Section droite : utilisateur + avatar + déconnexion */}
           <Box display="flex" alignItems="center" gap={2}>
             <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
               {username} ({role})
             </Typography>
-            <Avatar alt={username} src="/static/images/avatar/1.jpg" /> {/* image de profil */}
+            <Avatar 
+              alt={username} 
+              src={avatar || "https://via.placeholder.com/40"} 
+            />
             <Button
               variant="contained"
               color="error"
