@@ -1,0 +1,302 @@
+[
+  {
+    "model": "users.user",
+    "pk": 152,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$E3cx6tX46YwVo7E4sIOocn$z5g4pMfSc4senvjs/U06PFNVRyv5Sp78Lgc0Em8Fzsg=",
+      "username": "comptable.philippe.bazin",
+      "email": "comptable.philippe.bazin@linkompta.com",
+      "first_name": "Philippe",
+      "last_name": "Bazin",
+      "role": "comptable",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 153,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$yey3EZQXXHl4kSDfqbwHnv$HNulmqdaZl4EbyMEA9ajbvqAf65Tr2Z1tu7vRqXhvtU=",
+      "username": "comptable.hélène.maury",
+      "email": "comptable.hélène.maury@linkompta.com",
+      "first_name": "Hélène",
+      "last_name": "Maury",
+      "role": "comptable",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 154,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$S9koPVnlZPLHSFYjp8220I$x7aGRmjze9iGUsWco4uBDYrbwgdFurqNkMFZG+p75s4=",
+      "username": "comptable.inès.evrard",
+      "email": "comptable.inès.evrard@linkompta.com",
+      "first_name": "Inès",
+      "last_name": "Evrard",
+      "role": "comptable",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 155,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$6JkV1Kv2WblOxxq2RVb2uX$K/bE19SswpEA79dff2+klzCrUtA1bwR4LeDChwGpFzQ=",
+      "username": "comptable.mathilde.berger",
+      "email": "comptable.mathilde.berger@linkompta.com",
+      "first_name": "Mathilde",
+      "last_name": "Berger",
+      "role": "comptable",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 156,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$IyH55mUxUV9UbbEO4H9gzh$8++qTCjbPq7TmNAId7Vw8pow62EZdTjfkY/EVtcX30c=",
+      "username": "comptable.émilie.gaillard",
+      "email": "comptable.émilie.gaillard@linkompta.com",
+      "first_name": "Émilie",
+      "last_name": "Gaillard",
+      "role": "comptable",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 157,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$mi2MtzXp84EHQ9yZN3otxp$SrsAButEA6zQ67Ppks4lun8c7iw5F88QbqdGlsuVdPc=",
+      "username": "comptable.jacqueline.guichard",
+      "email": "comptable.jacqueline.guichard@linkompta.com",
+      "first_name": "Jacqueline",
+      "last_name": "Guichard",
+      "role": "comptable",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 158,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$ddgQFO7ksCzYFtphlvM83F$M8xzr527QHPLNB4CrY+BzPkvRPJ6lV0oDvWGUfJyoF0=",
+      "username": "comptable.christiane.delmas",
+      "email": "comptable.christiane.delmas@linkompta.com",
+      "first_name": "Christiane",
+      "last_name": "Delmas",
+      "role": "comptable",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 159,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$rHnhBsv9aXwSEaY0TpMaoY$VVMo7OVM+m9cHM3IRB1YKOSrWaxYt1JFQwdBm/lcLHA=",
+      "username": "comptable.augustin.pasquier",
+      "email": "comptable.augustin.pasquier@linkompta.com",
+      "first_name": "Augustin",
+      "last_name": "Pasquier",
+      "role": "comptable",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 160,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$5Ccal0H3MElDqyDdi5f0tV$H9TFPoux/bf4wFFXOyIwGe/AVaAozF34E7M2j0PuZlY=",
+      "username": "comptable.théodore.jacquet",
+      "email": "comptable.théodore.jacquet@linkompta.com",
+      "first_name": "Théodore",
+      "last_name": "Jacquet",
+      "role": "comptable",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 161,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$bb9pFdnzihH5pdJqmrAYAU$c45f6Dwr/h4mDi7ukzsXLHmFIfNxYMBFG9Gh2a6xv8g=",
+      "username": "comptable.adrien.benoit",
+      "email": "comptable.adrien.benoit@linkompta.com",
+      "first_name": "Adrien",
+      "last_name": "Benoit",
+      "role": "comptable",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 162,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$JdfSh8rsBKf0jcIHnSpIo5$IbS7O0lIbNVREXxAPcvhF4hcvVyy6vSlVNJba0vFErE=",
+      "username": "comptable.julie.le roux",
+      "email": "comptable.julie.le roux@linkompta.com",
+      "first_name": "Julie",
+      "last_name": "Le Roux",
+      "role": "comptable",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 163,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$TTsLr3gJJ4rdVCtshtGryN$pMypDzb5p1Qegpay7bn8hRtOT5M2AwJrhh0K81kPZoc=",
+      "username": "comptable.jacqueline.rousseau",
+      "email": "comptable.jacqueline.rousseau@linkompta.com",
+      "first_name": "Jacqueline",
+      "last_name": "Rousseau",
+      "role": "comptable",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 164,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$Q9t2TzICgAmlUPYKWr6Dz8$a2pn0mhsaJ/Pyb4IKc3Rqjtclh1HydzwqIc/ZUsjks0=",
+      "username": "comptable.thibaut.roy",
+      "email": "comptable.thibaut.roy@linkompta.com",
+      "first_name": "Thibaut",
+      "last_name": "Roy",
+      "role": "comptable",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 165,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$3KQVUaugkVtHeeY2xwTTnT$kqEn1JC3vZ653oFEhyEdrUGqVwiOVxJ+uXzLXDA6p1Y=",
+      "username": "comptable.sabine.barbier",
+      "email": "comptable.sabine.barbier@linkompta.com",
+      "first_name": "Sabine",
+      "last_name": "Barbier",
+      "role": "comptable",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 166,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$V6znarUvij1UIJorBhAuQe$ttzVPCG8xZc9fmEz0bRchH2jvyTXiuEQRGB+FvEwnXA=",
+      "username": "comptable.arnaude.dufour",
+      "email": "comptable.arnaude.dufour@linkompta.com",
+      "first_name": "Arnaude",
+      "last_name": "Dufour",
+      "role": "comptable",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 167,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$KgM8wXZzkEWa31jwqjTiaH$pac1DUsYNY7+emypok+LM3wJDeDPbVYHmQ58kkjRsZk=",
+      "username": "comptable.claudine.vallet",
+      "email": "comptable.claudine.vallet@linkompta.com",
+      "first_name": "Claudine",
+      "last_name": "Vallet",
+      "role": "comptable",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 168,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$eD6vcHvR1HN1pMjhnFcHZN$I5ImyuXI0wJzxXbKHdOImmDhCTar+9ri9w+G2ffcqqY=",
+      "username": "comptable.isabelle.launay",
+      "email": "comptable.isabelle.launay@linkompta.com",
+      "first_name": "Isabelle",
+      "last_name": "Launay",
+      "role": "comptable",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 169,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$lIDtYeCcbxcxGY2KysOq6b$xyzqVIcI9+KsHeq9LJQGSwMqg7GWsLLJV5YUUwZczY4=",
+      "username": "comptable.raymond.lemaître",
+      "email": "comptable.raymond.lemaître@linkompta.com",
+      "first_name": "Raymond",
+      "last_name": "Lemaître",
+      "role": "comptable",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 170,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$M9VGdXU1Iy8EK8nI7T84iv$i50bmhx4DtLv6FT9td0Gf5YmQCjiMAyTuWreN5j0jTI=",
+      "username": "comptable.christophe.faure",
+      "email": "comptable.christophe.faure@linkompta.com",
+      "first_name": "Christophe",
+      "last_name": "Faure",
+      "role": "comptable",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 171,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$VDSTpPaHZcJ6SqfR84umXB$7e3ghujs5YgVV9YMYPObrd5fnc5oN8h63qIAR3HV38E=",
+      "username": "comptable.matthieu.meunier",
+      "email": "comptable.matthieu.meunier@linkompta.com",
+      "first_name": "Matthieu",
+      "last_name": "Meunier",
+      "role": "comptable",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": false
+    }
+  }
+]

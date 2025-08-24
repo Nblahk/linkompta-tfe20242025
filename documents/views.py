@@ -1,16 +1,56 @@
 from rest_framework import generics, status
 from rest_framework.response import Response
+from rest_framework.exceptions import ValidationError
+from rest_framework.parsers import MultiPartParser, FormParser
 from .models import Document
 from .serializers import DocumentSerializer
 from .permissions import IsAdmin, IsComptable, IsClient
+import magic  # Pour détecter le type MIME
+import os
 
 # CLIENT : uploader un document
+from rest_framework import status
+from rest_framework.parsers import MultiPartParser, FormParser
+import os
+import magic  # Pour détecter le type MIME
+
 class DocumentUploadView(generics.CreateAPIView):
     serializer_class = DocumentSerializer
     permission_classes = [IsClient]
+    parser_classes = (MultiPartParser, FormParser)
 
     def perform_create(self, serializer):
-        serializer.save(client=self.request.user.client_profile, status="envoye")
+        file_obj = self.request.FILES.get('file')
+        if not file_obj:
+            raise ValidationError({"file": "Un fichier est requis"})
+        
+        # Vérifier la taille du fichier (max 10MB)
+        if file_obj.size > 10 * 1024 * 1024:
+            raise ValidationError({"file": "Le fichier est trop volumineux (max 10MB)"})
+        
+        # Vérifier le type de fichier
+        mime = magic.from_buffer(file_obj.read(1024), mime=True)
+        file_obj.seek(0)  # Remettre le curseur au début
+        
+        allowed_types = ['application/pdf', 'image/jpeg', 'image/png', 'application/msword',
+                        'application/vnd.openxmlformats-officedocument.wordprocessingml.document']
+        
+        if mime not in allowed_types:
+            raise ValidationError({"file": "Type de fichier non autorisé"})
+
+        try:
+            client_profile = self.request.user.client_profile
+        except:
+            raise ValidationError({
+                "error": "Utilisateur non associé à un profil client. Veuillez contacter votre administrateur."
+            })
+
+        serializer.save(
+            client=client_profile,
+            status="envoye",
+            file_type=mime,
+            file_size=file_obj.size
+        )
 
 
 # CLIENT : voir ses propres documents

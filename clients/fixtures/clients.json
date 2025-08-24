@@ -1,0 +1,3617 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$RVeCzhC9NL2B8xSkCmhBOQ$fZK2CvJInt+5cm6lCRX3k265qYjgdRvGswlvywqYPBc=",
+      "username": "admin",
+      "email": "admin@admin.com",
+      "first_name": "Admin",
+      "last_name": "User",
+      "role": "admin",
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": true
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$kPm6fkXlr3J7tUEUON1e5w$1CIrZRSZC6pIxEEU7eYtgujgGSes/Paatd9t5FPW+ks=",
+      "username": "alexandria.garcia",
+      "email": "alexandria.garcia@hotmail.fr",
+      "first_name": "Alexandria",
+      "last_name": "Garcia",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 1,
+    "fields": {
+      "user": 2,
+      "phone": "05 08 12 90 67",
+      "address": "69, rue Mary, 90375 Royer"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$5Z6IS5ha4acGLxTKgzBn3n$AvNv+/jOIsV7TO2fVus3LFD6qGTp9DDkrgTnjU1VNu8=",
+      "username": "adélaïde.gilles",
+      "email": "adélaïde.gilles@wanadoo.fr",
+      "first_name": "Adélaïde",
+      "last_name": "Gilles",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 2,
+    "fields": {
+      "user": 3,
+      "phone": "02 37 58 59 87",
+      "address": "54, rue de Bouchet, 48952 Richard-la-Forêt"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$4gJdUO0Sx8A5dwzlK75mAG$DifIdz5B8lGtX61IuE8jkgApaoLN9jZTOK2dsTDt2V0=",
+      "username": "alice.daniel",
+      "email": "alice.daniel@wanadoo.fr",
+      "first_name": "Alice",
+      "last_name": "Daniel",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 3,
+    "fields": {
+      "user": 4,
+      "phone": "+33 3 57 34 50 85",
+      "address": "211, rue de Ferreira, 64684 Leroyboeuf"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$ZmJiUzgLxaAxffdgZdO82r$pLEKwpBxFLiFT2HTSMtF0i4BYZYDu7c/BN+ri5NE2Vo=",
+      "username": "sylvie.pottier",
+      "email": "sylvie.pottier@bouygtel.fr",
+      "first_name": "Sylvie",
+      "last_name": "Pottier",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 4,
+    "fields": {
+      "user": 5,
+      "phone": "03 65 35 82 17",
+      "address": "5, boulevard Christiane Klein, 42541 Sainte MauriceBourg"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$l1MydwW8ApbEk0I3yyRMQF$oowowEt4fCsmAIR3XpREUpF9+JJp5bP7AVm7CAfkiVw=",
+      "username": "augustin.marques",
+      "email": "augustin.marques@bouygtel.fr",
+      "first_name": "Augustin",
+      "last_name": "Marques",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 5,
+    "fields": {
+      "user": 6,
+      "phone": "+33 (0)3 67 16 41 74",
+      "address": "5, chemin Josette Dupont, 91602 Teixeiranec"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$t0jn3efjZSO9mXI9r0DMWD$TZQjLXzvjCqUotm5YiB3sr05C+TVvqGbI5y+oLIzEHE=",
+      "username": "élodie.robin",
+      "email": "élodie.robin@orange.fr",
+      "first_name": "Élodie",
+      "last_name": "Robin",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 6,
+    "fields": {
+      "user": 7,
+      "phone": "0476600302",
+      "address": "63, rue Julie Fournier, 29974 Marie"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$26YY5O97vf3D7lN8sJ9tlh$evQnY8Z++Bzp6mms/xvr7WcFLXuhv73T13PK4W6KUlo=",
+      "username": "antoinette.sauvage",
+      "email": "antoinette.sauvage@gmail.com",
+      "first_name": "Antoinette",
+      "last_name": "Sauvage",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 7,
+    "fields": {
+      "user": 8,
+      "phone": "+33 2 90 31 44 28",
+      "address": "rue Étienne Hernandez, 18129 Roche"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 9,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$KI0KFdzTQKSkbCX2sbGDbl$IQFU/n3QrQWDXeOdCEDEtOKtb4xgT5vg1Pk4wOU2JoQ=",
+      "username": "constance.evrard",
+      "email": "constance.evrard@laposte.net",
+      "first_name": "Constance",
+      "last_name": "Evrard",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 8,
+    "fields": {
+      "user": 9,
+      "phone": "04 81 22 87 89",
+      "address": "27, boulevard Boutin, 74902 Marin-sur-Duhamel"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 10,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$6LIYdyNXkEGEZlM6oNiBzu$7nU7bpnJ+nBSv1h3IXYYoYRGehhIVOX22AI8RbJ79+A=",
+      "username": "marc.camus",
+      "email": "marc.camus@sfr.fr",
+      "first_name": "Marc",
+      "last_name": "Camus",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 9,
+    "fields": {
+      "user": 10,
+      "phone": "0735649570",
+      "address": "1, avenue Pons, 42536 Saint Claudeboeuf"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 11,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$x4THWwHnhNmqihyR5IaRXd$NFNqCzJobwLWSk78M02yMqVwu60Vg2Tw9zfPN2NY9To=",
+      "username": "olivier.maréchal",
+      "email": "olivier.maréchal@wanadoo.fr",
+      "first_name": "Olivier",
+      "last_name": "Maréchal",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 10,
+    "fields": {
+      "user": 11,
+      "phone": "04 15 60 27 33",
+      "address": "989, rue Normand, 48993 Saint Aliceboeuf"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 12,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$jXnySu9gtr6W6f1Ny9yvFO$VkwJ5gEz+73wZBH151zUTnHlGPvvqEU4sJUhZWFx+f0=",
+      "username": "jean.carre",
+      "email": "jean.carre@gmail.com",
+      "first_name": "Jean",
+      "last_name": "Carre",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 11,
+    "fields": {
+      "user": 12,
+      "phone": "+33 (0)1 82 30 34 61",
+      "address": "chemin Gilbert Pruvost, 46299 Diaz"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 13,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$dVdQXa3VoLnp8LvwkAmOzT$03SP85DU6yiBrs6BNkVNCeWHIDqrG3Qet9cBZNSUOzc=",
+      "username": "aurélie.mahe",
+      "email": "aurélie.mahe@dbmail.com",
+      "first_name": "Aurélie",
+      "last_name": "Mahe",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 12,
+    "fields": {
+      "user": 13,
+      "phone": "04 57 07 08 39",
+      "address": "4, chemin Picard, 89570 Saint Adrien"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 14,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$2amFgt4OGXK9iNzBa6QFDm$R0nollFt1O9RhWK77z1mOgLGyuGEEj6j6HMLncr80Xw=",
+      "username": "adélaïde.humbert",
+      "email": "adélaïde.humbert@wanadoo.fr",
+      "first_name": "Adélaïde",
+      "last_name": "Humbert",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 13,
+    "fields": {
+      "user": 14,
+      "phone": "0158317332",
+      "address": "53, boulevard Bonnin, 46490 Millet"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 15,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$giSZ4g0BluHeRlHiMVPcyo$CgZZ7jVTSQNk/jwojIWgHZM/hYHu2N1ZOjwUc1ZF+r0=",
+      "username": "laurent.brun",
+      "email": "laurent.brun@hotmail.fr",
+      "first_name": "Laurent",
+      "last_name": "Brun",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 14,
+    "fields": {
+      "user": 15,
+      "phone": "+33 (0)4 92 53 29 76",
+      "address": "44, chemin de Antoine, 36920 Saint Noémi"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 16,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$SwW1ZrO4iozJOqZQ2AzWnH$uomCWaM4zMy1Nh93u7dodNgc9CHMpSBz0kRdJxFO9d4=",
+      "username": "monique.guilbert",
+      "email": "monique.guilbert@club-internet.fr",
+      "first_name": "Monique",
+      "last_name": "Guilbert",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 15,
+    "fields": {
+      "user": 16,
+      "phone": "0310937634",
+      "address": "8, chemin Gérard, 28416 Chartier"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 17,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$gfAXAt4aElZb9rnQkDqc67$Tg5a1nu6WquGm4lM3UYjtbdjOLDB+bKJuA7kwQI5l38=",
+      "username": "suzanne.grenier",
+      "email": "suzanne.grenier@wanadoo.fr",
+      "first_name": "Suzanne",
+      "last_name": "Grenier",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 16,
+    "fields": {
+      "user": 17,
+      "phone": "+33 (0)3 72 23 91 91",
+      "address": "26, chemin de Devaux, 19666 LerouxBourg"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 18,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$iDfOwtMhpVOD6GBtFoePvj$epCKASJelTpKYLFDdzVHuPM0PbI5Hhv4/Ow1G/VKvyU=",
+      "username": "maryse.bernier",
+      "email": "maryse.bernier@hotmail.fr",
+      "first_name": "Maryse",
+      "last_name": "Bernier",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 17,
+    "fields": {
+      "user": 18,
+      "phone": "+33 6 35 35 05 45",
+      "address": "92, rue Lucy Meyer, 36143 Saint Inès-les-Bains"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 19,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$O27PUQWX6HrIBRS45kg1CK$HGKLcigObDLhafUc4YbtwbeSrXpECDvt0ZrvKVDv0NM=",
+      "username": "nathalie.fleury",
+      "email": "nathalie.fleury@noos.fr",
+      "first_name": "Nathalie",
+      "last_name": "Fleury",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 18,
+    "fields": {
+      "user": 19,
+      "phone": "+33 3 69 59 07 73",
+      "address": "31, chemin Emmanuelle Vaillant, 30570 Charpentierdan"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 20,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$HMbtBb4FvA5Otntdzl2mKj$RP7rkE4PQx015VP52RRfpXroPKDwI34MeJHlaJEaOfs=",
+      "username": "hélène.lesage",
+      "email": "hélène.lesage@laposte.net",
+      "first_name": "Hélène",
+      "last_name": "Lesage",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 19,
+    "fields": {
+      "user": 20,
+      "phone": "+33 (0)3 89 66 11 61",
+      "address": "78, avenue Philippe Vaillant, 45642 Voisinboeuf"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 21,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$MURFeaOPbkJ5UCcxMbijB3$Zam6updgfN4PbvaGZfy4eW+n5k3Qpnh7oyh/4+N0VQM=",
+      "username": "anastasie.bourgeois",
+      "email": "anastasie.bourgeois@ifrance.com",
+      "first_name": "Anastasie",
+      "last_name": "Bourgeois",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 20,
+    "fields": {
+      "user": 21,
+      "phone": "+33 1 34 06 10 16",
+      "address": "71, avenue de Vallée, 10993 Delmas-la-Forêt"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 22,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$1Q0HJO7fBi2iyXnIL35Q8F$DH9POuYdRRMCcgNk2OATvQBkWNd8DNrmaPLW9KgYdA8=",
+      "username": "étienne.thierry",
+      "email": "étienne.thierry@orange.fr",
+      "first_name": "Étienne",
+      "last_name": "Thierry",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 21,
+    "fields": {
+      "user": 22,
+      "phone": "+33 (0)2 22 97 48 66",
+      "address": "rue de Bourdon, 71817 Coste-la-Forêt"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 23,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$OXG2VmVIwfgEkcOROg5xZz$FD2f+UbLPKQWtlVKHXRwXj9WdWc0IAZejB7TPNjVyV4=",
+      "username": "guillaume.marion",
+      "email": "guillaume.marion@free.fr",
+      "first_name": "Guillaume",
+      "last_name": "Marion",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 22,
+    "fields": {
+      "user": 23,
+      "phone": "+33 3 45 88 18 48",
+      "address": "chemin Gomes, 14806 Guérinboeuf"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 24,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$X6gUOo5vjszZP1dXMwp0Sx$NKz3EbhnOueKJqimI8cAPS1XfRgmipHx5LDBlnx4kFo=",
+      "username": "michelle.pelletier",
+      "email": "michelle.pelletier@tiscali.fr",
+      "first_name": "Michelle",
+      "last_name": "Pelletier",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 23,
+    "fields": {
+      "user": 24,
+      "phone": "+33 5 46 77 76 62",
+      "address": "44, rue Maurice Jacquot, 05956 Pottiernec"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 25,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$1oA4zfVzF41D785R9zTrfd$/QPq7BKjjWiFMh5amRk5cs3n9o7RxGcd6dJT8iyzt9o=",
+      "username": "lucas.lelièvre",
+      "email": "lucas.lelièvre@tiscali.fr",
+      "first_name": "Lucas",
+      "last_name": "Lelièvre",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 24,
+    "fields": {
+      "user": 25,
+      "phone": "+33 4 70 53 19 97",
+      "address": "115, boulevard Collet, 77886 Jean"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 26,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$OAIiqUFPLMDQbdKaQ6tNPj$Asjn4KL91u0oMgErYEhgrnrnkx1Llsq+c3NO/FgAsZQ=",
+      "username": "corinne.boulay",
+      "email": "corinne.boulay@yahoo.fr",
+      "first_name": "Corinne",
+      "last_name": "Boulay",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 25,
+    "fields": {
+      "user": 26,
+      "phone": "0683322630",
+      "address": "64, rue Henri Baron, 03874 Mathieu"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 27,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$bKpYR6E4QX1LpPk9sn55Cz$kYSTA5gVLiZKrBL1p3kqnWOhHqBhc/inMNOqloW2gls=",
+      "username": "marianne.fischer",
+      "email": "marianne.fischer@dbmail.com",
+      "first_name": "Marianne",
+      "last_name": "Fischer",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 26,
+    "fields": {
+      "user": 27,
+      "phone": "+33 4 93 55 20 99",
+      "address": "avenue Marine Bègue, 71571 Mailletdan"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 28,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$ayOLVfUlLL6SG85ig3xrOV$UOwjGaPlfFBMNYr9A/A1Amy7mEkN8wXQqkmf0Ts6mJk=",
+      "username": "auguste.pineau",
+      "email": "auguste.pineau@dbmail.com",
+      "first_name": "Auguste",
+      "last_name": "Pineau",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 27,
+    "fields": {
+      "user": 28,
+      "phone": "05 65 49 28 00",
+      "address": "129, boulevard de Robert, 72811 Bègue"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 29,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$3N7Tn0DnrzLYlHb9twKuUX$dOey4P7QN5ngdNu5cKMicVr6LlLu7gcRdzflt3KkL5o=",
+      "username": "thomas.brunel",
+      "email": "thomas.brunel@gmail.com",
+      "first_name": "Thomas",
+      "last_name": "Brunel",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 28,
+    "fields": {
+      "user": 29,
+      "phone": "0299763518",
+      "address": "299, boulevard Gonzalez, 28615 Lejeunedan"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 30,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$s1c3OHnOuazcR75AEGNeWt$nitABJXoIklm4qBg2GT1DUr/kG8pgu3lsr8uKabI9Dg=",
+      "username": "julie.leclerc",
+      "email": "julie.leclerc@sfr.fr",
+      "first_name": "Julie",
+      "last_name": "Leclerc",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 29,
+    "fields": {
+      "user": 30,
+      "phone": "0411219672",
+      "address": "35, rue de Torres, 32914 Saint Frédérique-la-Forêt"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 31,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$uBYImNyBw1LyfcEFaCvRxN$bWH22aOjRJoEKje3vbtcWoJ4+nTUyCG6KcY610/JNzQ=",
+      "username": "marc.georges",
+      "email": "marc.georges@sfr.fr",
+      "first_name": "Marc",
+      "last_name": "Georges",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 30,
+    "fields": {
+      "user": 31,
+      "phone": "+33 5 35 10 54 81",
+      "address": "65, avenue de Munoz, 42980 Saint Joséphine"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 32,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$6ZyIVGBcmY4pxlZus7xrpC$qi55Q59l0Erjc+GZU9ck275xG52JUiqO8hQ/V19cIts=",
+      "username": "renée.ferrand",
+      "email": "renée.ferrand@bouygtel.fr",
+      "first_name": "Renée",
+      "last_name": "Ferrand",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 31,
+    "fields": {
+      "user": 32,
+      "phone": "0240905383",
+      "address": "148, boulevard de Rossi, 23693 Lacombedan"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 33,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$526u7ZGMmQbvBC37b5OvWR$f1P7RakRWWezobT7gi1jbkDeptyfVP2JLPaXB1LrKkE=",
+      "username": "éric.delahaye",
+      "email": "éric.delahaye@wanadoo.fr",
+      "first_name": "Éric",
+      "last_name": "Delahaye",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 32,
+    "fields": {
+      "user": 33,
+      "phone": "+33 2 37 82 85 28",
+      "address": "77, rue Maurice Clerc, 94274 Saint LaureVille"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 34,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$aBFMqLQBjXZNcLxMLBHnOG$x8toYtQGDg15aiWLFsO61Eu0XdxacDpDjAHcUZskXp0=",
+      "username": "christophe.giraud",
+      "email": "christophe.giraud@laposte.net",
+      "first_name": "Christophe",
+      "last_name": "Giraud",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 33,
+    "fields": {
+      "user": 34,
+      "phone": "+33 (0)6 99 08 98 59",
+      "address": "avenue Alice Aubert, 80365 Mary-sur-Bruneau"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 35,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$cNajQgQQrTxlWBUJET21kO$ukxEaGi9iCz3iWT7YmSuhrDDFqSw4VM080lDjrlT/lU=",
+      "username": "aimée.roussel",
+      "email": "aimée.roussel@wanadoo.fr",
+      "first_name": "Aimée",
+      "last_name": "Roussel",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 34,
+    "fields": {
+      "user": 35,
+      "phone": "+33 (0)1 72 57 90 17",
+      "address": "21, boulevard de Olivier, 36437 Fouquet"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 36,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$3trvfD6OM7X9gSWA11a5st$evCUrIGmVCV2ZcyWaTDJaeOfeQFnkxq8jnn1HexkAPk=",
+      "username": "lucas.bertin",
+      "email": "lucas.bertin@tiscali.fr",
+      "first_name": "Lucas",
+      "last_name": "Bertin",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 35,
+    "fields": {
+      "user": 36,
+      "phone": "0594048782",
+      "address": "900, boulevard Paris, 38720 Saint Charlottedan"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 37,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$6uf9WHK6INscMZcCqZJA6g$XTIsviGgBhGr+C8yzQHeLLjfEy0mmTzEwSID8Fr6OUg=",
+      "username": "laure.bouchet",
+      "email": "laure.bouchet@sfr.fr",
+      "first_name": "Laure",
+      "last_name": "Bouchet",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 36,
+    "fields": {
+      "user": 37,
+      "phone": "+33 (0)1 72 42 81 94",
+      "address": "1, rue Marine Foucher, 68481 Normand"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 38,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$AL9BR8W3J6jZWpbRpMLWr7$jplD3ZtgKFqMVinh+HVROBGqWaUdfEmQfDjACXdoLA8=",
+      "username": "philippine.hoareau",
+      "email": "philippine.hoareau@tele2.fr",
+      "first_name": "Philippine",
+      "last_name": "Hoareau",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 37,
+    "fields": {
+      "user": 38,
+      "phone": "+33 1 79 77 71 89",
+      "address": "88, rue de Allard, 75940 Saint Valentine"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 39,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$o4ID26O48UGeIlMaxPFmT9$Jk7sSMYWhKsUDV9Pf8noAuyhriFIgv2a/PJ5b9PR5Mc=",
+      "username": "brigitte.charles",
+      "email": "brigitte.charles@live.com",
+      "first_name": "Brigitte",
+      "last_name": "Charles",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 38,
+    "fields": {
+      "user": 39,
+      "phone": "04 77 50 23 78",
+      "address": "46, avenue de Étienne, 97155 Costa-les-Bains"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 40,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$qvxGDVpaFN6mR3epnhlRRL$SFfRb8yveyo4rln5nni494Zxx9AKRlRuNTuPSMClpqU=",
+      "username": "martine.durand",
+      "email": "martine.durand@gmail.com",
+      "first_name": "Martine",
+      "last_name": "Durand",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 39,
+    "fields": {
+      "user": 40,
+      "phone": "+33 (0)4 74 50 75 54",
+      "address": "55, boulevard de Baudry, 93821 Gautiernec"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 41,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$gvdJYaCNsL6gbUxIuePkmv$fjsXeZrn25rLlM5o5cyPFhSy7Sb1wZWuYEfmKwdLkI0=",
+      "username": "vincent.texier",
+      "email": "vincent.texier@club-internet.fr",
+      "first_name": "Vincent",
+      "last_name": "Texier",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 40,
+    "fields": {
+      "user": 41,
+      "phone": "0258942724",
+      "address": "92, rue Guillet, 58412 Fournier"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 42,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$DkWkcuu2Nur76cGX1qe0jn$5EAPz/HKw8/NuZvSDJ8X75nCK6l7uMranMFatO9BhRs=",
+      "username": "frédérique.merle",
+      "email": "frédérique.merle@voila.fr",
+      "first_name": "Frédérique",
+      "last_name": "Merle",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 41,
+    "fields": {
+      "user": 42,
+      "phone": "+33 3 60 43 94 86",
+      "address": "853, rue de Barthelemy, 61363 Saint Emmanuelle"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 43,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$WFVGaeHxt76myExucPCZBv$XpeYb+PMWLIxEn71XEuC6E0NUzbwND4z/E6XkO1eIq0=",
+      "username": "élodie.marie",
+      "email": "élodie.marie@ifrance.com",
+      "first_name": "Élodie",
+      "last_name": "Marie",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 42,
+    "fields": {
+      "user": 43,
+      "phone": "02 56 37 03 08",
+      "address": "28, chemin Camus, 77667 Baudry-sur-Mahe"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 44,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$JyeL9vXjXApRJa1s4j5UcO$80O/yrS5xI/kNs7YFblsxw79lJkSiVeqEN5NCVq3A3E=",
+      "username": "diane.bertin",
+      "email": "diane.bertin@club-internet.fr",
+      "first_name": "Diane",
+      "last_name": "Bertin",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 43,
+    "fields": {
+      "user": 44,
+      "phone": "0188080324",
+      "address": "332, chemin de Duval, 30280 Maceboeuf"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 45,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$fkHv6hbTWseMiQPIOKW4c9$ahP2SgXQF4Rlf+u5PB2XAVqPVajJ/ULAFs6M5UD0ehA=",
+      "username": "xavier.georges",
+      "email": "xavier.georges@sfr.fr",
+      "first_name": "Xavier",
+      "last_name": "Georges",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 44,
+    "fields": {
+      "user": 45,
+      "phone": "+33 (0)6 67 30 81 41",
+      "address": "53, chemin Claude Klein, 30224 Petit"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 46,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$7REv9VohBAuam25GwUe29i$9H70vATpnvZfGVdTyGwDj6O00UCM6cBJBNDp8vWMYxw=",
+      "username": "vincent.laroche",
+      "email": "vincent.laroche@gmail.com",
+      "first_name": "Vincent",
+      "last_name": "Laroche",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 45,
+    "fields": {
+      "user": 46,
+      "phone": "+33 (0)2 53 87 04 29",
+      "address": "boulevard de Barbe, 62825 Pereira"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 47,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$cWcWdQiEc3Mx0Mo8ipmDn4$2+KcCvfGoE22rZVPIPhll52wcfLLn3R261EZWJAnqII=",
+      "username": "olivie.picard",
+      "email": "olivie.picard@gmail.com",
+      "first_name": "Olivie",
+      "last_name": "Picard",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 46,
+    "fields": {
+      "user": 47,
+      "phone": "0734858784",
+      "address": "9, chemin de Robin, 15595 Piresnec"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 48,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$bUtNzY1Fmw6bROrLfsAnxY$crdJVbhWVq11dkEI5UhkqCF5ioosGv6qPPcYJ7UvwTA=",
+      "username": "corinne.monnier",
+      "email": "corinne.monnier@live.com",
+      "first_name": "Corinne",
+      "last_name": "Monnier",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 47,
+    "fields": {
+      "user": 48,
+      "phone": "+33 4 56 92 41 01",
+      "address": "61, rue Alex Legendre, 02758 Blot"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 49,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$2owLv5nIMPU6QC0zGEAZkX$yg9JopBak3ENSkjOox0mSsRXKpMxDHua5/7kaKVXesY=",
+      "username": "auguste.torres",
+      "email": "auguste.torres@laposte.net",
+      "first_name": "Auguste",
+      "last_name": "Torres",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 48,
+    "fields": {
+      "user": 49,
+      "phone": "0757753391",
+      "address": "avenue Alexandrie Fabre, 31691 Renard"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 50,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$J1DKYq61Kb5u1HtRpO7GpT$KcZu7wvYZ74hSJYnZk0hrLR3I6lqdfiSLmGEAt9eWzI=",
+      "username": "benoît.de oliveira",
+      "email": "benoît.de oliveira@orange.fr",
+      "first_name": "Benoît",
+      "last_name": "De Oliveira",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 49,
+    "fields": {
+      "user": 50,
+      "phone": "+33 3 69 53 57 09",
+      "address": "73, avenue de Rey, 25412 Letellier"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 51,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$ts5KyKmNtdJaHjBsLjxao0$31Wp4eNJKgiqORTte3p9AufXFNZYn/y5HvJL0NtPxiU=",
+      "username": "christophe.pereira",
+      "email": "christophe.pereira@laposte.net",
+      "first_name": "Christophe",
+      "last_name": "Pereira",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 50,
+    "fields": {
+      "user": 51,
+      "phone": "+33 2 77 06 31 79",
+      "address": "736, chemin Lorraine Dufour, 22933 Sainte Richard-les-Bains"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 52,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$9ZYfPU996UKRguqjp8Nbmm$lrverRGRSGvhnB5Szo3uSQMuX0eQqx3Ue2UqCKCAbgI=",
+      "username": "david.dumont",
+      "email": "david.dumont@sfr.fr",
+      "first_name": "David",
+      "last_name": "Dumont",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 51,
+    "fields": {
+      "user": 52,
+      "phone": "0468143923",
+      "address": "26, chemin Gabrielle Ramos, 24915 Bourgeois"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 53,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$T91UVM4ho79LwpkqqTUkV6$MgTg3/E6g/O0xKFuO+LWZFNos+iCa4cHwmqQK4w34dA=",
+      "username": "julie.gaudin",
+      "email": "julie.gaudin@voila.fr",
+      "first_name": "Julie",
+      "last_name": "Gaudin",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 52,
+    "fields": {
+      "user": 53,
+      "phone": "+33 (0)3 73 09 21 53",
+      "address": "76, avenue Andrée Renault, 56409 Parent-sur-Blanc"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 54,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$o6Sxz5E3IcNIgKyQDPCP5z$cQEDKZyV0uk0jdK+yZwjLG1WzR4wkEEvho/upS8dJbo=",
+      "username": "vincent.prévost",
+      "email": "vincent.prévost@bouygtel.fr",
+      "first_name": "Vincent",
+      "last_name": "Prévost",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 53,
+    "fields": {
+      "user": 54,
+      "phone": "0532667109",
+      "address": "41, rue Madeleine Descamps, 40244 Bèguedan"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 55,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$Q7AgOwmCxD1mMOy41gcfts$yV0oAhkdUDZ5BBYWNNH/kfMKWwtXIA8K2wdlcgCjMIQ=",
+      "username": "andré.texier",
+      "email": "andré.texier@live.com",
+      "first_name": "André",
+      "last_name": "Texier",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 54,
+    "fields": {
+      "user": 55,
+      "phone": "+33 (0)2 48 09 64 38",
+      "address": "818, avenue Prévost, 25198 Saint Richard"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 56,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$hEqdhPq0lQcHB0f0TmkY1F$c/Uh9CZpW7TCGKidnwgMalkZCmjoHzJzWcXmrlarnFo=",
+      "username": "joseph.léger",
+      "email": "joseph.léger@yahoo.fr",
+      "first_name": "Joseph",
+      "last_name": "Léger",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 55,
+    "fields": {
+      "user": 56,
+      "phone": "+33 4 23 07 09 74",
+      "address": "323, avenue Pelletier, 69154 Joubert"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 57,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$rPul5Wmyms7o8VZM9sWKNC$wvIrzXzHCGHBow59kyKUKj4uPoLQOdZeIerjAB66Ep8=",
+      "username": "dominique.joseph",
+      "email": "dominique.joseph@orange.fr",
+      "first_name": "Dominique",
+      "last_name": "Joseph",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 56,
+    "fields": {
+      "user": 57,
+      "phone": "+33 4 84 75 87 06",
+      "address": "74, chemin Boucher, 51198 RodriguesBourg"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 58,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$GLWgdyDLPYdoQscAz814n5$MwBYN00+cUcFP/32DyppwnfIbNwG0Va6YnJ6mO361fA=",
+      "username": "anastasie.sauvage",
+      "email": "anastasie.sauvage@tele2.fr",
+      "first_name": "Anastasie",
+      "last_name": "Sauvage",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 57,
+    "fields": {
+      "user": 58,
+      "phone": "+33 (0)4 50 73 24 42",
+      "address": "68, avenue de Guyon, 09957 Martel-sur-Guichard"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 59,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$AiuNzrlQPm67DGrIk14FQq$nEZIFgQ47tZZB2xSY5Gt3NvQX8GVta9Foj+5fAMgCOQ=",
+      "username": "hugues.loiseau",
+      "email": "hugues.loiseau@noos.fr",
+      "first_name": "Hugues",
+      "last_name": "Loiseau",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 58,
+    "fields": {
+      "user": 59,
+      "phone": "01 49 15 75 13",
+      "address": "90, chemin Geneviève Delattre, 97395 Valette"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 60,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$ueC4A8i1675R0NOA7nsMG9$2KBOa2m+6ASXyVON6ZzlGSCFDxU65Wdr1ymUID92Y3s=",
+      "username": "jérôme.vincent",
+      "email": "jérôme.vincent@dbmail.com",
+      "first_name": "Jérôme",
+      "last_name": "Vincent",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 59,
+    "fields": {
+      "user": 60,
+      "phone": "+33 1 49 82 37 52",
+      "address": "25, rue Berger, 55969 Saint Colette"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 61,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$TnrFKUbURrJ90YCGw1TClB$Z09HOIQuAQ4v8e4lrU1EzFyJM0P+k1ka7rnhUh9V+uA=",
+      "username": "agnès.baudry",
+      "email": "agnès.baudry@sfr.fr",
+      "first_name": "Agnès",
+      "last_name": "Baudry",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 60,
+    "fields": {
+      "user": 61,
+      "phone": "05 08 46 01 27",
+      "address": "1, rue de Diaz, 63884 Benoit-sur-Benard"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 62,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$ljI6h4Ga7gzUZxkELjtqvj$wSkFGH4O4QsHbZcWmkcLAFrAUPkoF9dK/Y4ha9hiLhM=",
+      "username": "odette.grondin",
+      "email": "odette.grondin@yahoo.fr",
+      "first_name": "Odette",
+      "last_name": "Grondin",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 61,
+    "fields": {
+      "user": 62,
+      "phone": "0487521373",
+      "address": "455, boulevard Denis, 56461 Cohen-sur-Paul"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 63,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$PM4HsQI160PMy9xdzhPiPl$KYBWrQnTMJYmtUnICoo+B+/HgSsGVPtUYbnm/oi326g=",
+      "username": "lucas.laurent",
+      "email": "lucas.laurent@bouygtel.fr",
+      "first_name": "Lucas",
+      "last_name": "Laurent",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 62,
+    "fields": {
+      "user": 63,
+      "phone": "+33 5 90 06 34 97",
+      "address": "1, rue de Masson, 67974 Blot-sur-Mer"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 64,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$EoLGQKCZBaBtnic9bjFQTn$5aJJmFZVvEhWFh7SU7P1zmi/oBOwm4m5TLhXrrNeXLU=",
+      "username": "maurice.benoit",
+      "email": "maurice.benoit@tele2.fr",
+      "first_name": "Maurice",
+      "last_name": "Benoit",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 63,
+    "fields": {
+      "user": 64,
+      "phone": "+33 5 62 36 61 15",
+      "address": "1, rue Noël Roux, 10393 Gaudindan"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 65,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$C9jsYbdjeBHxLRVQvMs8nA$9EgANaqBVkoIGvF8S2pvvqkHBh4TROx/fCYM5NEa7wI=",
+      "username": "laurent.morvan",
+      "email": "laurent.morvan@club-internet.fr",
+      "first_name": "Laurent",
+      "last_name": "Morvan",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 64,
+    "fields": {
+      "user": 65,
+      "phone": "0474948947",
+      "address": "82, chemin Pereira, 81215 Chauvin"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 66,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$akWlJ0L66jwo5BLRQo7vQ9$wb+n0YHpfiYdvsTSH+CHKK9PXqJHRN+IXVa9AP24X3g=",
+      "username": "claudine.perret",
+      "email": "claudine.perret@tele2.fr",
+      "first_name": "Claudine",
+      "last_name": "Perret",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 65,
+    "fields": {
+      "user": 66,
+      "phone": "+33 4 91 11 94 63",
+      "address": "41, chemin de Laporte, 79718 Antoineboeuf"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 67,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$hnN5ddqMA0Dx1P9DyM0JVZ$Us+rnaYpmjdR1+iowBU1jfreuTV2Jy4a9XIO7Ck1RC0=",
+      "username": "thérèse.neveu",
+      "email": "thérèse.neveu@noos.fr",
+      "first_name": "Thérèse",
+      "last_name": "Neveu",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 66,
+    "fields": {
+      "user": 67,
+      "phone": "0581688423",
+      "address": "989, rue de Gay, 18725 Berthelotdan"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 68,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$N2ISpE9bDehMCWbJGxbarw$LbLgKljCsKNOWkPBLUVCMupHB4pKhzAOSej6ldIB090=",
+      "username": "élisabeth.gilles",
+      "email": "élisabeth.gilles@noos.fr",
+      "first_name": "Élisabeth",
+      "last_name": "Gilles",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 67,
+    "fields": {
+      "user": 68,
+      "phone": "0328118164",
+      "address": "65, rue de Marques, 40666 Aubryboeuf"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 69,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$fIKYcstOJzamnHlPchLCG0$hZaKPdQmKQnGsA5iPZzaYnEwxIl1GBGvCzyzBaMz+zs=",
+      "username": "frédérique.fouquet",
+      "email": "frédérique.fouquet@yahoo.fr",
+      "first_name": "Frédérique",
+      "last_name": "Fouquet",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 68,
+    "fields": {
+      "user": 69,
+      "phone": "+33 (0)2 31 52 41 32",
+      "address": "5, boulevard de Lopez, 97314 Valentin"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 70,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$7h6feb1XdioOLaNTTFepNl$G/iJljGcocYclw65vhASbs5kavgRjqSc1fh0A39+s+M=",
+      "username": "emmanuel.delannoy",
+      "email": "emmanuel.delannoy@noos.fr",
+      "first_name": "Emmanuel",
+      "last_name": "Delannoy",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 69,
+    "fields": {
+      "user": 70,
+      "phone": "0156921879",
+      "address": "47, rue de Maillet, 44839 Andre"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 71,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$wf2NejXjDuvZOvPXnsOYtg$fRfQTUiYoZcqk+0lWHWX+9FhmDdWjhcM67+r/QsumGg=",
+      "username": "valentine.lecoq",
+      "email": "valentine.lecoq@tele2.fr",
+      "first_name": "Valentine",
+      "last_name": "Lecoq",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 70,
+    "fields": {
+      "user": 71,
+      "phone": "+33 4 68 49 55 48",
+      "address": "17, avenue de Cohen, 82723 Duvaldan"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 72,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$QdatVwhH6UcnSfPs9FjrUy$w9n5V5Kq38eqLXaQMOLmCf8YA4SUhVkPmUEqbetfq2M=",
+      "username": "andrée.bouvet",
+      "email": "andrée.bouvet@dbmail.com",
+      "first_name": "Andrée",
+      "last_name": "Bouvet",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 71,
+    "fields": {
+      "user": 72,
+      "phone": "01 40 91 91 42",
+      "address": "boulevard Susanne Delattre, 61547 Bouvier-les-Bains"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 73,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$tT7nevHHzS4mj0xzzoiyaN$BeDRsUSaThsmEc4p02j8tHG9Q93+B7XhbaZP25MPASg=",
+      "username": "élisabeth.potier",
+      "email": "élisabeth.potier@free.fr",
+      "first_name": "Élisabeth",
+      "last_name": "Potier",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 72,
+    "fields": {
+      "user": 73,
+      "phone": "0450299789",
+      "address": "963, boulevard de Navarro, 29115 Lejeune"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 74,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$E1QNVJU3sEfS9OfMKVqivv$hlXkr+fynv1ZVQknRHMvbLPuugg5kvOVOnOjUucXCJc=",
+      "username": "andrée.de sousa",
+      "email": "andrée.de sousa@voila.fr",
+      "first_name": "Andrée",
+      "last_name": "De Sousa",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 73,
+    "fields": {
+      "user": 74,
+      "phone": "+33 (0)2 90 84 39 64",
+      "address": "boulevard de Langlois, 61380 Leclerc-sur-Marques"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 75,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$t1HhaLhzb7g8aPaHuzELum$4ffWgPTPoYqCYC5jR3+4fjRSLzJXfPvH0ImR4Kw/FXo=",
+      "username": "catherine.teixeira",
+      "email": "catherine.teixeira@yahoo.fr",
+      "first_name": "Catherine",
+      "last_name": "Teixeira",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 74,
+    "fields": {
+      "user": 75,
+      "phone": "+33 (0)5 24 05 06 44",
+      "address": "98, rue Alix Mary, 11648 Da Costa"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 76,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$iassLfojUZiJx5cZPjUzXb$dbfCCevWbHx6pdqOQfsz7D647FKchQp8NcCmS9ee114=",
+      "username": "lucy.valette",
+      "email": "lucy.valette@dbmail.com",
+      "first_name": "Lucy",
+      "last_name": "Valette",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 75,
+    "fields": {
+      "user": 76,
+      "phone": "+33 (0)2 77 31 88 32",
+      "address": "26, boulevard Rodriguez, 72408 Marin"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 77,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$ZRwu1jLRdSp1Dhka9LhAGF$YqjceIo1zCodH+J7gNQPFnGT4PudNrZXonbaUZ8jc4M=",
+      "username": "yves.bègue",
+      "email": "yves.bègue@club-internet.fr",
+      "first_name": "Yves",
+      "last_name": "Bègue",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 76,
+    "fields": {
+      "user": 77,
+      "phone": "02 90 49 17 38",
+      "address": "35, rue de Marty, 92193 Dijoux-les-Bains"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 78,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$RRF80vyaJm1CbcZYOIVGbV$C1yrfgPekNIma07NYrOj71Smj8i/9zb6FmXJHReSzSE=",
+      "username": "olivie.barbier",
+      "email": "olivie.barbier@ifrance.com",
+      "first_name": "Olivie",
+      "last_name": "Barbier",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 77,
+    "fields": {
+      "user": 78,
+      "phone": "05 40 45 10 41",
+      "address": "35, chemin Julien, 57626 Ferrand-sur-Collin"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 79,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$V1XReZ6XDhA08370eU3nB5$HSej4KiCp4lXmEonqNyrb8LJdzHivxc12cX6JLTBsGs=",
+      "username": "tristan.carlier",
+      "email": "tristan.carlier@live.com",
+      "first_name": "Tristan",
+      "last_name": "Carlier",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 78,
+    "fields": {
+      "user": 79,
+      "phone": "03 21 58 43 11",
+      "address": "9, rue Juliette Mathieu, 61458 Benard-sur-Collet"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 80,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$vnAM5cHiJ3CZ7O0XesxqKO$hBxKPyVgCVPnhjRmjQlomKLyjOxu6UhgzbErNp5w9CI=",
+      "username": "noémi.rolland",
+      "email": "noémi.rolland@orange.fr",
+      "first_name": "Noémi",
+      "last_name": "Rolland",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 79,
+    "fields": {
+      "user": 80,
+      "phone": "+33 (0)4 80 85 41 09",
+      "address": "803, rue de Gauthier, 79805 Saint Alphonse"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 81,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$C5AymKMv20O0ay69hrpUex$X0TozvHuSEVAnaYJ94XnPBbD/R6RhZySp4EXNA6KuSg=",
+      "username": "susanne.mahe",
+      "email": "susanne.mahe@wanadoo.fr",
+      "first_name": "Susanne",
+      "last_name": "Mahe",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 80,
+    "fields": {
+      "user": 81,
+      "phone": "03 54 84 01 37",
+      "address": "avenue de Denis, 07324 Wagner-les-Bains"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 82,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$NZK0JzIpw0xFNoLkVmj8z9$Dm3auyX7WZlvajRm93vOoFNKsiHxgYT5ds2dDAtfjZM=",
+      "username": "agnès.simon",
+      "email": "agnès.simon@ifrance.com",
+      "first_name": "Agnès",
+      "last_name": "Simon",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 81,
+    "fields": {
+      "user": 82,
+      "phone": "+33 (0)2 97 81 61 48",
+      "address": "55, avenue de Courtois, 53529 Saint Aurélie"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 83,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$nSPr8yoeFaXkpLf5B50H9I$M27CeUNXjxrvR1wkitEOX7PfKhUt6K6GyMBegFxEF4I=",
+      "username": "alain.vincent",
+      "email": "alain.vincent@live.com",
+      "first_name": "Alain",
+      "last_name": "Vincent",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 82,
+    "fields": {
+      "user": 83,
+      "phone": "+33 4 56 11 14 53",
+      "address": "14, chemin de Fernandes, 97358 Klein"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 84,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$VbF1xdhkodQqua2TyZUqfs$dfmo0w36h7QsODGlFzcoFolrBW+FsGOFLUzuyBi6vjs=",
+      "username": "cécile.picard",
+      "email": "cécile.picard@orange.fr",
+      "first_name": "Cécile",
+      "last_name": "Picard",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 83,
+    "fields": {
+      "user": 84,
+      "phone": "+33 5 08 71 19 85",
+      "address": "44, rue Danielle Rodrigues, 42309 Sainte Auguste"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 85,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$GMuC9LfQwjZJR3Ak9YaEoR$rX7SJI682AmXKyn2QRe/mD3mkAcKjvCJDlBiGRoZVk0=",
+      "username": "sophie.merle",
+      "email": "sophie.merle@wanadoo.fr",
+      "first_name": "Sophie",
+      "last_name": "Merle",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 84,
+    "fields": {
+      "user": 85,
+      "phone": "+33 1 79 17 94 38",
+      "address": "983, rue Renaud, 58869 Grenier"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 86,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$zgTBGqBkx1D2FuFHyWmS4y$cNrgW+Ew/lphdy1CqmHWNkjoP2SLBO69QPnq1GwTBZI=",
+      "username": "victor.ruiz",
+      "email": "victor.ruiz@orange.fr",
+      "first_name": "Victor",
+      "last_name": "Ruiz",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 85,
+    "fields": {
+      "user": 86,
+      "phone": "+33 (0)2 97 63 14 22",
+      "address": "3, boulevard Delattre, 72884 Saint Monique"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 87,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$p2SoFBsdb0Ui8u2KBTAzQB$nkA6u6DLXL/pERfvwbfGJqahRjSdOIF/z4Bgy9u3jRs=",
+      "username": "olivie.gilles",
+      "email": "olivie.gilles@noos.fr",
+      "first_name": "Olivie",
+      "last_name": "Gilles",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 86,
+    "fields": {
+      "user": 87,
+      "phone": "04 15 94 13 56",
+      "address": "2, chemin de Bourgeois, 28389 CordierVille"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 88,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$f3kEC3KE7RwA2OayoYwAw8$PwF+ZP7+/D87BfcPhvHbFI0JlW+45foOlQhw+3Yuf5s=",
+      "username": "hortense.buisson",
+      "email": "hortense.buisson@noos.fr",
+      "first_name": "Hortense",
+      "last_name": "Buisson",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 87,
+    "fields": {
+      "user": 88,
+      "phone": "01 49 24 86 76",
+      "address": "rue de Evrard, 18947 Chrétien-sur-Mer"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 89,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$ixaNw9GQUT82y0UMYTDq35$p5/DeGDe8Kj+oxn9w88FEquwhnDxhWQ9sazXf0pfG3A=",
+      "username": "olivier.delorme",
+      "email": "olivier.delorme@sfr.fr",
+      "first_name": "Olivier",
+      "last_name": "Delorme",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 88,
+    "fields": {
+      "user": 89,
+      "phone": "04 81 46 69 88",
+      "address": "51, rue Nicolas Nicolas, 05127 Guichard"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 90,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$SAogLsOssvOi1xxX9ZT0hi$xxWTyPOPr33dt8SoyKZgUq9xDAl2+IgBngb+L7/fS+I=",
+      "username": "éléonore.nicolas",
+      "email": "éléonore.nicolas@bouygtel.fr",
+      "first_name": "Éléonore",
+      "last_name": "Nicolas",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 89,
+    "fields": {
+      "user": 90,
+      "phone": "0320309239",
+      "address": "898, chemin Lucy Hardy, 74279 Da Costa"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 91,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$xarAXtWiO7AqV63H9WZBLy$DBoFW1IXpJE9LavaZaB58kdXvM1z70iSOKC4bpUoUVo=",
+      "username": "michel.dupuy",
+      "email": "michel.dupuy@voila.fr",
+      "first_name": "Michel",
+      "last_name": "Dupuy",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 90,
+    "fields": {
+      "user": 91,
+      "phone": "0559785242",
+      "address": "94, rue Guichard, 13924 Chauvinnec"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 92,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$9Gqp9TzCFxMXJBn3mcO1Cr$02mX9Tt6HO8OjkT/r7xXpD+tA9qQUSiiKRMPkGIc2hg=",
+      "username": "marine.poulain",
+      "email": "marine.poulain@ifrance.com",
+      "first_name": "Marine",
+      "last_name": "Poulain",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 91,
+    "fields": {
+      "user": 92,
+      "phone": "+33 3 54 86 62 74",
+      "address": "avenue Dumas, 22225 Saint HenriBourg"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 93,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$qvrk5b3KWR4Q5vR0dcKI5v$vDxe3Wo7POjIdixPWarR7yd7fAYuuNd5Zx6BO0DGp5g=",
+      "username": "alfred.morin",
+      "email": "alfred.morin@dbmail.com",
+      "first_name": "Alfred",
+      "last_name": "Morin",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 92,
+    "fields": {
+      "user": 93,
+      "phone": "03 58 31 64 37",
+      "address": "308, rue Stéphanie Hardy, 81260 Maillet"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 94,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$vdSxeJmykLKZykQ87OAh71$NVF+2J/HGPYuKP1dIKPbjOs/vKNiqKOEg0UExbzoKmM=",
+      "username": "nicolas.chrétien",
+      "email": "nicolas.chrétien@hotmail.fr",
+      "first_name": "Nicolas",
+      "last_name": "Chrétien",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 93,
+    "fields": {
+      "user": 94,
+      "phone": "0582786212",
+      "address": "788, avenue Roland Coulon, 63687 Alves"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 95,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$vkgdukStLd8qhBD8ZnCfm6$qjZYAgbJIk9EzhhfveNTr9rfmiMZh3Dn8I5SXqGYkj0=",
+      "username": "laurence.pasquier",
+      "email": "laurence.pasquier@noos.fr",
+      "first_name": "Laurence",
+      "last_name": "Pasquier",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 94,
+    "fields": {
+      "user": 95,
+      "phone": "0434969329",
+      "address": "49, boulevard de Gros, 23527 Lebon"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 96,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$cWQBmND6qEGa0PK8x4tsqV$tFvySOHPO7oVXB4kk1pnT5h4ZOWGKZcnfVYlziha7Fc=",
+      "username": "julien.dos santos",
+      "email": "julien.dos santos@noos.fr",
+      "first_name": "Julien",
+      "last_name": "Dos Santos",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 95,
+    "fields": {
+      "user": 96,
+      "phone": "+33 (0)2 56 32 95 08",
+      "address": "97, boulevard de Grenier, 69333 Gomes"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 97,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$N0zsAXK0294kn5eDCFVToD$hFV6TeZ/v465WlySejs/zs0ve4Yb4vwG2+wrPM7ti0k=",
+      "username": "margaud.tanguy",
+      "email": "margaud.tanguy@bouygtel.fr",
+      "first_name": "Margaud",
+      "last_name": "Tanguy",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 96,
+    "fields": {
+      "user": 97,
+      "phone": "0594341205",
+      "address": "4, rue Lebrun, 59132 Blanchet"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 98,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$cWJMtOJCohGVUzGSJIzdPy$A9g7PZGz378NQNcXPfBalcXtTvBhv0STAScZ3C1GzN0=",
+      "username": "isabelle.guilbert",
+      "email": "isabelle.guilbert@gmail.com",
+      "first_name": "Isabelle",
+      "last_name": "Guilbert",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 97,
+    "fields": {
+      "user": 98,
+      "phone": "+33 (0)6 08 57 64 97",
+      "address": "20, rue Pauline Chartier, 82430 Martinez-les-Bains"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 99,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$YMKTXLBl1pbRBnwZmRMDPJ$U16UY9kJ7YUHIWnc0AVxJOa+W9lp2DGSBOx7fS2jZmA=",
+      "username": "andré.da silva",
+      "email": "andré.da silva@dbmail.com",
+      "first_name": "André",
+      "last_name": "Da Silva",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 98,
+    "fields": {
+      "user": 99,
+      "phone": "0354258599",
+      "address": "2, rue Amélie Peltier, 41703 Thierryboeuf"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 100,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$ofM995IGj9RB2ZWM96kX7R$19qz0/rxJ6lXyycC6AoEoGso7JfiYiF0sK+tA/Glsjc=",
+      "username": "virginie.fabre",
+      "email": "virginie.fabre@tele2.fr",
+      "first_name": "Virginie",
+      "last_name": "Fabre",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 99,
+    "fields": {
+      "user": 100,
+      "phone": "04 89 11 35 74",
+      "address": "8, avenue de Nicolas, 44660 Techer"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 101,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$Ja38iza5v1hCMltmtQQw00$O+/4F3/zEvRQx7Gi+c+/X4iTLab/Y1hg3L1w2AyBD2E=",
+      "username": "joséphine.lopes",
+      "email": "joséphine.lopes@free.fr",
+      "first_name": "Joséphine",
+      "last_name": "Lopes",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 100,
+    "fields": {
+      "user": 101,
+      "phone": "0488780033",
+      "address": "91, boulevard Renault, 16169 Bruneau-la-Forêt"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 102,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$Ul1R1U4BfKnj0G84MJ6CBa$iO6kVHFHeDiR1NakAfI4tDvpCT6VM3N8cKVS0tDZIm8=",
+      "username": "caroline.grenier",
+      "email": "caroline.grenier@club-internet.fr",
+      "first_name": "Caroline",
+      "last_name": "Grenier",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 101,
+    "fields": {
+      "user": 102,
+      "phone": "+33 (0)2 32 54 09 25",
+      "address": "31, avenue Aimée Samson, 90631 Costadan"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 103,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$p9L9ktdmKwufiII7N0ZNsI$k0GTk1QEvZCOZDT65922DVzCTFpOryxl7A6OJDeS1Vc=",
+      "username": "josette.olivier",
+      "email": "josette.olivier@tele2.fr",
+      "first_name": "Josette",
+      "last_name": "Olivier",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 102,
+    "fields": {
+      "user": 103,
+      "phone": "+33 1 76 91 40 68",
+      "address": "rue Renaud, 11877 Lemonnier-sur-Pinto"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 104,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$FsdRhbqVPD5q4mqVtB1Hxw$wjgzgmO3HSU2tl9r+FjITjynGKsdGRTn+6c9WZyBsIE=",
+      "username": "camille.ferrand",
+      "email": "camille.ferrand@laposte.net",
+      "first_name": "Camille",
+      "last_name": "Ferrand",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 103,
+    "fields": {
+      "user": 104,
+      "phone": "06 32 63 82 35",
+      "address": "80, rue Gay, 97392 Mercier"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 105,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$BFrbdnB8Y1fgwmZVsd8q9V$ygyREoJDzIZagsXMIhIuFUp8JaKQ1fJwDYUKh30ScCI=",
+      "username": "timothée.henry",
+      "email": "timothée.henry@laposte.net",
+      "first_name": "Timothée",
+      "last_name": "Henry",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 104,
+    "fields": {
+      "user": 105,
+      "phone": "+33 (0)4 86 50 99 45",
+      "address": "1, rue Margot Rodrigues, 97295 Joly"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 106,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$yOybKWhMb8a2gdPs93rRCr$HEBsp9e1Pt22FxS/UKvxvKqJOs8ucQz1mmtDJl2RKP4=",
+      "username": "lucie.samson",
+      "email": "lucie.samson@hotmail.fr",
+      "first_name": "Lucie",
+      "last_name": "Samson",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 105,
+    "fields": {
+      "user": 106,
+      "phone": "+33 5 54 08 30 02",
+      "address": "44, avenue Barbe, 97277 Saint RémyBourg"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 107,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$LzQdPm9l9hcQhkO0y7oBCc$aMsI8nYz8I2ATeAxFE3jFS7Cfu2a+iDVPI22RwuNRYk=",
+      "username": "édouard.dupuy",
+      "email": "édouard.dupuy@dbmail.com",
+      "first_name": "Édouard",
+      "last_name": "Dupuy",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 106,
+    "fields": {
+      "user": 107,
+      "phone": "+33 2 58 94 49 17",
+      "address": "8, chemin de Valentin, 69908 Benard-la-Forêt"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 108,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$jGJ6dxjJmGGbOmrYZcE7OA$dJFBPJBhhOBj2ChDW/42z9pOzX7XEsiHSnyk8Congfo=",
+      "username": "josette.besnard",
+      "email": "josette.besnard@live.com",
+      "first_name": "Josette",
+      "last_name": "Besnard",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 107,
+    "fields": {
+      "user": 108,
+      "phone": "+33 (0)2 29 08 62 71",
+      "address": "1, rue de Léger, 65408 Merledan"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 109,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$4KE4wCN6eSnr9SK3usa5RW$83//HTRggDrIcRqaYSJpfEuH+ZqmcmkzAVs6YqEzt7k=",
+      "username": "richard.mathieu",
+      "email": "richard.mathieu@dbmail.com",
+      "first_name": "Richard",
+      "last_name": "Mathieu",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 108,
+    "fields": {
+      "user": 109,
+      "phone": "+33 4 27 04 29 79",
+      "address": "698, chemin Roche, 90746 Evrard"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 110,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$G1Y5pb1U1KzciaqISxS5cr$M3QmmCViWRPPWYgMyR0P5eMgnmQ24i8Q9Gs7B1tQ1XE=",
+      "username": "noël.lesage",
+      "email": "noël.lesage@club-internet.fr",
+      "first_name": "Noël",
+      "last_name": "Lesage",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 109,
+    "fields": {
+      "user": 110,
+      "phone": "+33 (0)4 65 29 44 27",
+      "address": "648, rue de Philippe, 47220 De SousaBourg"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 111,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$n1Lwxivv14kiLVsisWaeqC$vdjmpHAnfBJIPbNiS0fIOAxxg1JiczkYu0HpnpQXt18=",
+      "username": "caroline.faure",
+      "email": "caroline.faure@wanadoo.fr",
+      "first_name": "Caroline",
+      "last_name": "Faure",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 110,
+    "fields": {
+      "user": 111,
+      "phone": "02 56 96 49 11",
+      "address": "10, chemin Fleury, 22239 Voisin"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 112,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$INUGoBA6zcUsniDMmSvudX$SwclVQeOBP+oHjU7aEly2iZ5N9Q3aWCv5a9cXhtUj1c=",
+      "username": "philippe.poulain",
+      "email": "philippe.poulain@bouygtel.fr",
+      "first_name": "Philippe",
+      "last_name": "Poulain",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 111,
+    "fields": {
+      "user": 112,
+      "phone": "0389614383",
+      "address": "41, rue Alix Martins, 43650 Dias"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 113,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$9VH4QXQTOtSzeE1OJ6SFQd$9P0gm7PNmJHq0Uds/doLJZJ9VL8mXjZ/ubs0sycy0y4=",
+      "username": "jeannine.pereira",
+      "email": "jeannine.pereira@wanadoo.fr",
+      "first_name": "Jeannine",
+      "last_name": "Pereira",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 112,
+    "fields": {
+      "user": 113,
+      "phone": "+33 6 03 60 16 68",
+      "address": "3, rue Gérard Mahe, 45311 Tessier-sur-Leclercq"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 114,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$3ng16byHI0yyp8cW1FyeYV$UeOAQJj4je8HOux6QDWt+PqoP3nUqvGhnu9NcG/2RyI=",
+      "username": "xavier.guérin",
+      "email": "xavier.guérin@tiscali.fr",
+      "first_name": "Xavier",
+      "last_name": "Guérin",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 113,
+    "fields": {
+      "user": 114,
+      "phone": "04 93 04 47 79",
+      "address": "boulevard Chauvin, 08128 Klein"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 115,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$vXjUPPmEe0b0gBzryhIibz$XD6NFn5ZqXTNLH1HN7+fM+OLd1tCHZDz8TXyMuMXh+Y=",
+      "username": "christophe.buisson",
+      "email": "christophe.buisson@club-internet.fr",
+      "first_name": "Christophe",
+      "last_name": "Buisson",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 114,
+    "fields": {
+      "user": 115,
+      "phone": "+33 (0)5 59 55 62 19",
+      "address": "82, rue de Maillet, 16747 Roux"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 116,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$7LKdbrpSlJoM27ssDhQQTN$7+uakWbDAEDxhblrlrzKK8dze0QhAkQm+CqvMUIT2Gg=",
+      "username": "marcel.guichard",
+      "email": "marcel.guichard@dbmail.com",
+      "first_name": "Marcel",
+      "last_name": "Guichard",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 115,
+    "fields": {
+      "user": 116,
+      "phone": "+33 (0)2 35 23 12 90",
+      "address": "91, avenue Hortense Weiss, 85651 Josephboeuf"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 117,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$Hp9MnaQf1MeX9C7CfK6YfI$VPQBKcR7fPku2WRkIB9tAKT4n7PiW0OuyRp6A41yEZI=",
+      "username": "maggie.maillard",
+      "email": "maggie.maillard@gmail.com",
+      "first_name": "Maggie",
+      "last_name": "Maillard",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 116,
+    "fields": {
+      "user": 117,
+      "phone": "0385696542",
+      "address": "245, rue Hebert, 51128 Hamel-les-Bains"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 118,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$VM3XaJhkXtJ7mNuLBKFf7G$bAwNHXNnGcrvJv1p5JJYWvxl4gPFCI8C5dn4HgeSBQQ=",
+      "username": "geneviève.ribeiro",
+      "email": "geneviève.ribeiro@live.com",
+      "first_name": "Geneviève",
+      "last_name": "Ribeiro",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 117,
+    "fields": {
+      "user": 118,
+      "phone": "05 53 78 98 32",
+      "address": "1, avenue Christiane Nicolas, 47287 Ferreira-sur-Hardy"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 119,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$rwkFIOG21IpQ1T2hqpvdMO$GBzT2JcLodNYMhvAxA45sokCA26v1xNYxjHM1V+TUhI=",
+      "username": "sylvie.bonnet",
+      "email": "sylvie.bonnet@club-internet.fr",
+      "first_name": "Sylvie",
+      "last_name": "Bonnet",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 118,
+    "fields": {
+      "user": 119,
+      "phone": "0442498369",
+      "address": "chemin de Blanchet, 40246 Richardnec"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 120,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$jmJwa6xR3GHotszt0Grl6L$UNBNxdE/pnhUz0RVrD/h4ce4NSkcs9WMD8+eCsKClSU=",
+      "username": "roger.bernier",
+      "email": "roger.bernier@orange.fr",
+      "first_name": "Roger",
+      "last_name": "Bernier",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 119,
+    "fields": {
+      "user": 120,
+      "phone": "+33 4 13 15 54 95",
+      "address": "34, boulevard Regnier, 41939 Sainte Stéphanie-sur-Mer"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 121,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$KUVrWbJ5xLwAEAMOZwdWPI$NftVN9rFVRdL/1cUZu/Im0kHsBmop2L09uI1tRkqF8g=",
+      "username": "martine.lebon",
+      "email": "martine.lebon@live.com",
+      "first_name": "Martine",
+      "last_name": "Lebon",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 120,
+    "fields": {
+      "user": 121,
+      "phone": "02 90 01 14 09",
+      "address": "9, boulevard Alix Delaunay, 02604 Gallet"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 122,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$7e454TCfV2GIeHNWmYapsS$WwxXdJtlJekxuM0ijWEO5A86DOMs7D0Obfr0ckp9wl8=",
+      "username": "thierry.boucher",
+      "email": "thierry.boucher@yahoo.fr",
+      "first_name": "Thierry",
+      "last_name": "Boucher",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 121,
+    "fields": {
+      "user": 122,
+      "phone": "04 11 96 60 21",
+      "address": "598, rue Olivie Ledoux, 22936 CarlierBourg"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 123,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$4Yl5haGX1pulCcut0oR2GE$YdUjf07uI5rqR59zGqcK37DY7v9gBR4/Csai+V09bSI=",
+      "username": "timothée.diallo",
+      "email": "timothée.diallo@orange.fr",
+      "first_name": "Timothée",
+      "last_name": "Diallo",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 122,
+    "fields": {
+      "user": 123,
+      "phone": "05 49 14 79 06",
+      "address": "96, rue Lefort, 26109 Sainte Denis"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 124,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$eOTsemS31MF4Ty8X4WSc59$C+MLN+WVZw8QCP87392S/bq6Tr/iD8tGMgu1Z8R4efo=",
+      "username": "étienne.robin",
+      "email": "étienne.robin@orange.fr",
+      "first_name": "Étienne",
+      "last_name": "Robin",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 123,
+    "fields": {
+      "user": 124,
+      "phone": "0809368600",
+      "address": "83, rue Allain, 43831 Laroche-sur-Brunel"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 125,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$lTX2ma5AiK9PLTIUqmqdCj$LTc8Gcq0w49Fhbc2OtNKNJXk1buyE8jJDcpj+1XQd5w=",
+      "username": "thérèse.blanchard",
+      "email": "thérèse.blanchard@hotmail.fr",
+      "first_name": "Thérèse",
+      "last_name": "Blanchard",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 124,
+    "fields": {
+      "user": 125,
+      "phone": "+33 (0)3 54 26 31 87",
+      "address": "87, boulevard de Pierre, 74686 Ribeiro"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 126,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$rghPYK5N0MD4vA5AyY6tGy$Rl2n10gkvMhNcLkZaTKdBjJPFMpgpXjlBrg92ytHNWQ=",
+      "username": "patricia.poulain",
+      "email": "patricia.poulain@orange.fr",
+      "first_name": "Patricia",
+      "last_name": "Poulain",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 125,
+    "fields": {
+      "user": 126,
+      "phone": "+33 (0)4 89 09 49 25",
+      "address": "70, chemin Margaux Jacques, 20448 GonzalezVille"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 127,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$ekxNSUthXEKISxRoFi7EuE$piSwzafJaF2b2Iy7KnKVbuCKYBCFJ+Z0XtAinNAz2lg=",
+      "username": "victoire.thibault",
+      "email": "victoire.thibault@laposte.net",
+      "first_name": "Victoire",
+      "last_name": "Thibault",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 126,
+    "fields": {
+      "user": 127,
+      "phone": "0262422758",
+      "address": "2, rue Didier, 34410 Marindan"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 128,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$eGm7mmzgj6jgsDpTkfloku$rDiOAlLKhgANGJ7mNLeJbXYeIP3lzVaXZiN3prH5UF4=",
+      "username": "maryse.leconte",
+      "email": "maryse.leconte@hotmail.fr",
+      "first_name": "Maryse",
+      "last_name": "Leconte",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 127,
+    "fields": {
+      "user": 128,
+      "phone": "02 49 98 09 48",
+      "address": "26, chemin Hebert, 65872 BlancVille"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 129,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$nDG2PvW4vLCqUu8iLfI54W$eLt1OhX+rWpsvwOsz0hnGLD4ax1CPlaQvgORlIOLDPo=",
+      "username": "pénélope.allard",
+      "email": "pénélope.allard@noos.fr",
+      "first_name": "Pénélope",
+      "last_name": "Allard",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 128,
+    "fields": {
+      "user": 129,
+      "phone": "03 81 49 98 91",
+      "address": "69, rue de Weiss, 56708 Georges"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 130,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$MQWXWUAbIgAJxB4G8tO1eh$L2bT3eL+RHBGXw8rkT17BlcFfMp8zH48lwd7GetXre8=",
+      "username": "bernard.diallo",
+      "email": "bernard.diallo@yahoo.fr",
+      "first_name": "Bernard",
+      "last_name": "Diallo",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 129,
+    "fields": {
+      "user": 130,
+      "phone": "+33 (0)4 11 72 32 57",
+      "address": "8, avenue Emmanuelle Pages, 29955 Lejeune-sur-Moreau"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 131,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$OOUyTff0rrVEGyRDvg751A$PefM6OR20qoyumx80BcQhnQv/hf5ZvR0tJiOkbW2OzE=",
+      "username": "marcelle.neveu",
+      "email": "marcelle.neveu@sfr.fr",
+      "first_name": "Marcelle",
+      "last_name": "Neveu",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 130,
+    "fields": {
+      "user": 131,
+      "phone": "0279621980",
+      "address": "12, chemin de Colas, 31680 Sainte Hortense"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 132,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$ddKW95YA9dE6YaYmBA2wz2$ngTp2WkidDZp2gwDldgCBRqFl67WXN0fDNzjQfxl1Zw=",
+      "username": "étienne.jacquet",
+      "email": "étienne.jacquet@bouygtel.fr",
+      "first_name": "Étienne",
+      "last_name": "Jacquet",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 131,
+    "fields": {
+      "user": 132,
+      "phone": "+33 1 46 17 34 35",
+      "address": "1, boulevard de Verdier, 03177 Charrier"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 133,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$MI5tnLMbCMKBWtz5LyQrI7$CIuCLbnlbBxnWH2/+h2yY7wGVsssYY+U5IJiNUe5zg8=",
+      "username": "diane.weber",
+      "email": "diane.weber@club-internet.fr",
+      "first_name": "Diane",
+      "last_name": "Weber",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 132,
+    "fields": {
+      "user": 133,
+      "phone": "+33 (0)4 37 19 27 40",
+      "address": "10, avenue de Couturier, 15438 Saint Alexandrie"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 134,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$nKgFgdGM3G0u1zh1yTMi8W$38b/ofjQKzuvyC/sVe3eVX5D/lM2Lo3myiQzQet28Yk=",
+      "username": "grégoire.paris",
+      "email": "grégoire.paris@sfr.fr",
+      "first_name": "Grégoire",
+      "last_name": "Paris",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 133,
+    "fields": {
+      "user": 134,
+      "phone": "02 79 35 41 92",
+      "address": "1, boulevard Astrid Duhamel, 70496 Micheldan"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 135,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$V5wPctKGN2BZoyTcsmJ2WO$9QJU67ADXE1cHKgNJi6kxl9Z8aSYj3eeOT1k4o3VhCQ=",
+      "username": "simone.humbert",
+      "email": "simone.humbert@laposte.net",
+      "first_name": "Simone",
+      "last_name": "Humbert",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 134,
+    "fields": {
+      "user": 135,
+      "phone": "+33 6 34 37 89 35",
+      "address": "3, boulevard de Klein, 58837 PotierVille"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 136,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$eF5FsxmmDlTiTHqxc7BgZa$3rghjCWqA1ixv2UTjNTbkr1HfHZ/FWr7oi2LyGn0Lp4=",
+      "username": "christine.laurent",
+      "email": "christine.laurent@live.com",
+      "first_name": "Christine",
+      "last_name": "Laurent",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 135,
+    "fields": {
+      "user": 136,
+      "phone": "+33 2 99 02 64 67",
+      "address": "597, chemin de Durand, 94471 Rivière"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 137,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$JA57RaSboKvTwFXAExU1L8$6kYDBlQPVGSCd8f3OWlF9MPcgQ1PUHk16Ax7rszxDOA=",
+      "username": "marcelle.carpentier",
+      "email": "marcelle.carpentier@wanadoo.fr",
+      "first_name": "Marcelle",
+      "last_name": "Carpentier",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 136,
+    "fields": {
+      "user": 137,
+      "phone": "+33 5 59 33 51 94",
+      "address": "22, boulevard de Nicolas, 23892 Saint Hélènedan"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 138,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$ubh63TBxMS6q2LZDEcq2rJ$8M6556vrWiuiePsbT/0MNxww695jBrcoTwCIbsWOEEw=",
+      "username": "anastasie.joly",
+      "email": "anastasie.joly@wanadoo.fr",
+      "first_name": "Anastasie",
+      "last_name": "Joly",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 137,
+    "fields": {
+      "user": 138,
+      "phone": "+33 (0)4 99 35 46 81",
+      "address": "boulevard Vallée, 23101 Mendès"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 139,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$y1CjR34FQFkyrvNACCemYF$x1wLCnJCSklm0a3wMdbhQVZ/MDvlM4NDifzTlaui1ok=",
+      "username": "jeanne.masse",
+      "email": "jeanne.masse@laposte.net",
+      "first_name": "Jeanne",
+      "last_name": "Masse",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 138,
+    "fields": {
+      "user": 139,
+      "phone": "+33 (0)5 55 39 80 01",
+      "address": "78, boulevard Gimenez, 80558 Cousin-sur-Lemoine"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 140,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$dnVPCbke18KNRXBLH2MsbN$jv7EVIV4Gru/L9eK0ZXTZOwUgdEwCwjAIDp+rBq+GRQ=",
+      "username": "daniel.vallée",
+      "email": "daniel.vallée@voila.fr",
+      "first_name": "Daniel",
+      "last_name": "Vallée",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 139,
+    "fields": {
+      "user": 140,
+      "phone": "04 99 43 59 27",
+      "address": "59, boulevard Michelle Moreno, 74774 Rodrigues-sur-Gilbert"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 141,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$kwwnqpvP1U1LyIvxKnuKVN$UrhdMZbt+529FOEZZLiE3PmNe9FGP/SjtkUyS5naiVs=",
+      "username": "raymond.jacques",
+      "email": "raymond.jacques@tele2.fr",
+      "first_name": "Raymond",
+      "last_name": "Jacques",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 140,
+    "fields": {
+      "user": 141,
+      "phone": "+33 3 89 25 46 35",
+      "address": "8, chemin de Paris, 60912 BerthelotVille"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 142,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$diByiLhWJZX1d5Pt1MPDQa$4gzqhwL8Zl4v4p2IVTB9e1VjQGKJxRSouBL1Aqqp+l8=",
+      "username": "charles.texier",
+      "email": "charles.texier@dbmail.com",
+      "first_name": "Charles",
+      "last_name": "Texier",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 141,
+    "fields": {
+      "user": 142,
+      "phone": "04 76 44 58 21",
+      "address": "avenue Dubois, 41645 Jacob-la-Forêt"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 143,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$r5OXHBEef4N4pIu9Mb5Cnu$N9t6sDMHzQsKn3czU1Z8Q/klFUPGOf7QzVRAqKLon+0=",
+      "username": "marc.lévy",
+      "email": "marc.lévy@noos.fr",
+      "first_name": "Marc",
+      "last_name": "Lévy",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 142,
+    "fields": {
+      "user": 143,
+      "phone": "+33 (0)2 99 78 40 33",
+      "address": "31, chemin Alfred Barre, 77524 Girard"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 144,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$RqflINwf9CU1fpqjxxWLyF$XshUWdW0RBQJp7xhxSN8xm5lTg781OonR6HS/V32o1M=",
+      "username": "éléonore.leclercq",
+      "email": "éléonore.leclercq@yahoo.fr",
+      "first_name": "Éléonore",
+      "last_name": "Leclercq",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 143,
+    "fields": {
+      "user": 144,
+      "phone": "0279884847",
+      "address": "15, boulevard Blot, 54555 Leclercq-sur-Gallet"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 145,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$Fay75LT1kx5HUfF5SuDmLX$n+tELRoZESxtqDlWjDh0ozmrr5AnszU9g3i8c7ZVBR4=",
+      "username": "denis.bourdon",
+      "email": "denis.bourdon@noos.fr",
+      "first_name": "Denis",
+      "last_name": "Bourdon",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 144,
+    "fields": {
+      "user": 145,
+      "phone": "+33 2 85 16 26 58",
+      "address": "28, avenue Dupuis, 54816 Saint Anne"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 146,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$hURJfMJFM2Gd8nfLPAMJnJ$hv3VTFHYYIPXFyB6l+ZBN2uXQsHpKFtAXT9NqmiAO5M=",
+      "username": "sabine.barbe",
+      "email": "sabine.barbe@wanadoo.fr",
+      "first_name": "Sabine",
+      "last_name": "Barbe",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 145,
+    "fields": {
+      "user": 146,
+      "phone": "+33 (0)2 38 29 75 40",
+      "address": "158, chemin Virginie Perrin, 89719 Lacombeboeuf"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 147,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$20hGaj7Etj08LXpj79ePMT$VhtuLa+0W3XeIOqU+0hYarqKpfEYo36iwpZugGb57l8=",
+      "username": "adèle.adam",
+      "email": "adèle.adam@sfr.fr",
+      "first_name": "Adèle",
+      "last_name": "Adam",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 146,
+    "fields": {
+      "user": 147,
+      "phone": "0223694840",
+      "address": "12, boulevard Lorraine Fournier, 88915 Albert-la-Forêt"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 148,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$yV4uMzyXpZ0a5Bwi2KWHfL$zpPOoXsN85+4j2HmF0T5lbje9ONjKk8RHiFuzhKpnoA=",
+      "username": "capucine.da silva",
+      "email": "capucine.da silva@tiscali.fr",
+      "first_name": "Capucine",
+      "last_name": "Da Silva",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 147,
+    "fields": {
+      "user": 148,
+      "phone": "+33 3 68 39 05 67",
+      "address": "4, chemin Isabelle Masson, 89305 Saint LouisVille"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 149,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$DoQwpvVkOITJ9SO3EZsA8l$f9JNrE5Pj1oGhpi/Rs9zEFf/Qq5PHZdsI1UB/1oymO0=",
+      "username": "aimée.barthelemy",
+      "email": "aimée.barthelemy@yahoo.fr",
+      "first_name": "Aimée",
+      "last_name": "Barthelemy",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 148,
+    "fields": {
+      "user": 149,
+      "phone": "+33 5 55 76 60 41",
+      "address": "51, boulevard de Lombard, 05112 Sainte Roland"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 150,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$BUUfGaCRuyKtu1Pzrefuuu$mSz6IEQR0TBCuoUnZB2f8aO4k8uS8hmaWPFqlFtD5m4=",
+      "username": "hugues.fischer",
+      "email": "hugues.fischer@free.fr",
+      "first_name": "Hugues",
+      "last_name": "Fischer",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 149,
+    "fields": {
+      "user": 150,
+      "phone": "05 82 70 84 58",
+      "address": "178, chemin Antoine Prévost, 89647 Saint Jacques"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 151,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$nFtiG95xjjiBcsU8flr1Cv$TTAdtxSMWuZ8bdu6ri3M6/uYqX3DbK3V38flZB3ikdQ=",
+      "username": "yves.grenier",
+      "email": "yves.grenier@club-internet.fr",
+      "first_name": "Yves",
+      "last_name": "Grenier",
+      "role": "client",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false
+    }
+  },
+  {
+    "model": "clients.client",
+    "pk": 150,
+    "fields": {
+      "user": 151,
+      "phone": "+33 (0)3 61 57 55 32",
+      "address": "644, avenue de Ruiz, 97441 Andre"
+    }
+  }
+]

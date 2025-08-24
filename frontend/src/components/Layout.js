@@ -54,19 +54,19 @@ function Layout({ children, onLogout }) {
               LINKOMPTA 💼
             </Typography>
           </Toolbar>
-            <ListItem button onClick={() => navigate("/profil")}>
+            <ListItem onClick={() => navigate("/profil")} sx={{ cursor: 'pointer' }}>
               <ListItemIcon><Avatar style={{ width: 25, height: 25 }} /></ListItemIcon>
               <ListItemText primary="Mon Profil" />
             </ListItem>
-            <ListItem button onClick={() => navigate("/factures")}>
+            <ListItem onClick={() => navigate("/factures")} sx={{ cursor: 'pointer' }}>
               <ListItemIcon><Receipt style={{ color: "white" }} /></ListItemIcon>
               <ListItemText primary="Mes Factures" />
             </ListItem>
-              <ListItem button onClick={() => navigate("/documents")}>
+              <ListItem onClick={() => navigate("/documents")} sx={{ cursor: 'pointer' }}>
               <ListItemIcon><Description style={{ color: "white" }} /></ListItemIcon>
               <ListItemText primary="Mes Documents" />
             </ListItem>
-            <ListItem button onClick={() => navigate("/rendezvous")}>
+            <ListItem onClick={() => navigate("/rendezvous")} sx={{ cursor: 'pointer' }}>
              <ListItemIcon><Event style={{ color: "white" }} /></ListItemIcon>
              <ListItemText primary="Mes Rendez-vous" />
             </ListItem>

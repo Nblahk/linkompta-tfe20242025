@@ -1,29 +1,51 @@
 // frontend/src/pages/FacturesClient.js
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
 
 function FacturesClient() {
   const [factures, setFactures] = useState([]);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
   useEffect(() => {
     const fetchFactures = async () => {
+      if (!token) {
+        setError("Vous devez être connecté pour voir vos factures");
+        navigate("/");
+        return;
+      }
+
       try {
-        const res = await api.get("factures/client/", {
-          headers: { Authorization: `Bearer ${token}` },
+        const res = await api.get("factures/me/", {
+          headers: { 
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json"
+          },
         });
         setFactures(res.data);
+        setError(null);
       } catch (err) {
         console.error("Erreur lors de la récupération des factures :", err);
+        if (err.response?.status === 401) {
+          setError("Session expirée. Veuillez vous reconnecter.");
+          localStorage.clear();
+          navigate("/");
+        } else {
+          setError("Erreur lors du chargement des factures");
+        }
       }
     };
     fetchFactures();
-  }, [token]);
+  }, [token, navigate]);
 
   return (
     <div style={{ padding: "20px" }}>
       <h2>💰 Mes factures</h2>
-      {factures.length === 0 ? (
+      {error ? (
+        <p style={{ color: "red" }}>{error}</p>
+      ) : factures.length === 0 ? (
         <p>Aucune facture disponible.</p>
       ) : (
         <ul>

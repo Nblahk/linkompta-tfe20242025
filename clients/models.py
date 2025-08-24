@@ -3,6 +3,7 @@ from users.models import User
 
 class Client(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="client_profile")
+    comptable = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name="clients_assignes", limit_choices_to={'role': 'comptable'})
     phone = models.CharField(max_length=20, blank=True, null=True)
     address = models.CharField(max_length=255, blank=True, null=True)
 
