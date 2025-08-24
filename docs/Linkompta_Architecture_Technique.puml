@@ -1,0 +1,80 @@
+@startuml Linkompta_Architecture_Technique
+!theme plain
+title Architecture Technique - Linkompta\nApplication Full-Stack Django + React
+
+' Définition des composants
+package "Frontend - React" {
+  component [Interface Utilisateur] as UI
+  component [Composants React] as Components
+  component [Gestion d'état] as State
+  component [API Client (Axios)] as ApiClient
+}
+
+package "Backend - Django REST API" {
+  component [Authentification JWT] as Auth
+  component [API Endpoints] as API
+  component [Models Django] as Models
+  component [Serializers DRF] as Serializers
+  component [Permissions & Views] as Permissions
+}
+
+package "Base de données" {
+  database "SQLite/PostgreSQL" as DB {
+    frame "Tables" {
+      [Users] as UsersTable
+      [Clients] as ClientsTable
+      [Documents] as DocsTable
+      [Factures] as InvoicesTable
+      [RendezVous] as MeetingsTable
+      [Messages] as MessagesTable
+    }
+  }
+}
+
+package "Stockage fichiers" {
+  folder "Media Files" as MediaFiles {
+    file [Documents clients] as ClientDocs
+    file [Factures PDF] as InvoicePDF
+  }
+}
+
+' Relations Frontend
+UI --> Components : utilise
+Components --> State : gère
+State --> ApiClient : appelle
+ApiClient --> API : HTTP/JSON
+
+' Relations Backend
+API --> Auth : sécurise
+API --> Serializers : sérialise
+Serializers --> Models : transforme
+Models --> Permissions : contrôle
+Permissions --> DB : accède
+
+' Relations données
+Models --> UsersTable : CRUD
+Models --> ClientsTable : CRUD
+Models --> DocsTable : CRUD
+Models --> InvoicesTable : CRUD
+Models --> MeetingsTable : CRUD
+Models --> MessagesTable : CRUD
+
+' Relations fichiers
+DocsTable --> ClientDocs : référence
+InvoicesTable --> InvoicePDF : génère
+
+' Technologies utilisées
+note right of UI : Technologies Frontend:\n- React 18\n- JavaScript ES6+\n- CSS3 (Custom)\n- Axios HTTP Client
+
+note right of API : Technologies Backend:\n- Django 5.2.5\n- Django REST Framework\n- JWT Authentication\n- Python 3.13
+
+note right of DB : Base de données:\n- SQLite (Développement)\n- PostgreSQL (Production)\n- Migrations Django
+
+note right of MediaFiles : Gestion fichiers:\n- Upload sécurisé\n- Types validés\n- Stockage organisé
+
+' Flux de données principal
+State ..> API : JWT Bearer Token
+API ..> DB : ORM Django
+DB ..> MediaFiles : Références fichiers
+
+@enduml

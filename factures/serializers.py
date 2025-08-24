@@ -1,17 +1,10 @@
 from rest_framework import serializers
 from .models import Facture, Paiement
+from clients.serializers import ClientSerializer
 
 class FactureSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Facture
-        fields = [
-            "id", "client", "titre", "description",
-            "montant_htva", "tva", "montant_tvac",
-            "statut", "date_creation"
-        ]
-        read_only_fields = ["montant_tvac", "date_creation"]
+    client = ClientSerializer(read_only=True)
 
-class FactureSerializer(serializers.ModelSerializer):
     class Meta:
         model = Facture
         fields = [

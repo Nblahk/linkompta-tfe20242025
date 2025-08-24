@@ -1,0 +1,58 @@
+@startuml Linkompta_Workflow_Principal
+!theme plain
+title Workflow Principal - Linkompta\nGestion documentaire et facturation
+
+' Acteurs
+actor "👤 Client" as Client
+actor "👨‍💼 Comptable" as Comptable
+
+' Systèmes externes
+participant "💾 Système de fichiers" as FileSystem
+participant "📧 Système de notification" as NotifSystem
+
+' Cas d'usage principal : Gestion d'un document
+group Gestion documentaire
+  Client -> FileSystem : Télécharge document
+  activate FileSystem
+  FileSystem -> Client : Confirmation upload
+  deactivate FileSystem
+  
+  Client -> NotifSystem : Notifie comptable
+  activate NotifSystem
+  NotifSystem -> Comptable : Nouveau document reçu
+  deactivate NotifSystem
+  
+  Comptable -> FileSystem : Consulte document
+  activate FileSystem
+  FileSystem -> Comptable : Affiche document
+  deactivate FileSystem
+  
+  Comptable -> Client : Met à jour statut
+  Note over Comptable : Statuts possibles:\n- Envoyé\n- Reçu\n- En cours\n- Traité
+end
+
+' Cas d'usage principal : Facturation
+group Gestion facturation
+  Comptable -> Client : Crée facture
+  Note over Comptable : Calcul automatique:\n- Montant HTVA\n- TVA (21%)\n- Montant TVAC
+  
+  Client -> Comptable : Consulte facture
+  Note over Client : Statuts facture:\n- En attente\n- Payée\n- Annulée
+end
+
+' Cas d'usage principal : Rendez-vous
+group Gestion rendez-vous
+  Client -> Comptable : Demande RDV
+  Note over Client : Motif et date proposée
+  
+  Comptable -> Client : Accepte/Refuse
+  Note over Comptable : Statuts RDV:\n- En attente\n- Accepté\n- Refusé\n- Terminé
+end
+
+' Messagerie
+group Messagerie interne
+  Client <-> Comptable : Échange messages
+  Note over Client, Comptable : Communication bidirectionnelle\nsécurisée
+end
+
+@enduml

@@ -32,11 +32,11 @@ def ensure_sophie_and_paul():
     
     # Créer ou mettre à jour Sophie la cliente
     sophie, created_sophie = User.objects.update_or_create(
-        username="sophie.client",
+        username="sophie.merle",
         defaults={
-            "email": "sophie.client@example.com",
+            "email": "sophie.merle@example.com",
             "first_name": "Sophie",
-            "last_name": "Client",
+            "last_name": "Merle",
             "role": "client",
             "is_active": True,
             "is_staff": False,
@@ -68,7 +68,7 @@ def assign_clients_to_comptables():
     # Assigner Sophie à Paul
     sophie.client_profile.comptable = paul
     sophie.client_profile.save()
-    print(f"Sophie Client a été assignée à Paul le comptable")
+    print(f"Sophie Merle a été assignée à Paul le comptable")
     
     # Mélanger les clients pour une distribution aléatoire
     random.shuffle(clients)
