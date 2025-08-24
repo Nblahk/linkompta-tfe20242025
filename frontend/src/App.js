@@ -6,6 +6,7 @@ import FacturesClient from "./pages/FacturesClient";
 import DocumentsClient from "./pages/DocumentsClient";
 import RendezVousClient from "./pages/RendezVousClient";
 import Layout from "./components/Layout";
+import Profil from "./pages/Profil";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token") || null);
@@ -27,6 +28,7 @@ function App() {
             <Route path="/factures" element={<FacturesClient />} />
             <Route path="/documents" element={<DocumentsClient />} />
             <Route path="/rendezvous" element={<RendezVousClient />} />
+            <Route path="/profil" element={<Profil />} />
           </Routes>
         </Layout>
       )}

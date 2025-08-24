@@ -12,7 +12,7 @@ import {
   Button,
   Box
 } from "@mui/material";
-import { Receipt, Description, Event } from "@mui/icons-material";
+import { Receipt, Description, Event, Person } from "@mui/icons-material";  // ✅ Person ajouté
 import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -20,14 +20,14 @@ const drawerWidth = 240;
 function Layout({ children, onLogout }) {
   const navigate = useNavigate();
 
-  // 🔹 Récupérer infos utilisateur depuis localStorage
+  // 🔹 Récupérer infos utilisateur
   const username = localStorage.getItem("username") || "Utilisateur";
   const role = localStorage.getItem("role") || "client";
-  const avatar = localStorage.getItem("avatar"); // ⚡ sera utile plus tard
+  const avatar = localStorage.getItem("avatar"); // ✅ futur support image
 
   return (
     <div style={{ display: "flex" }}>
-      {/* ✅ Sidebar (menu gauche) */}
+      {/* Sidebar */}
       <Drawer
         variant="permanent"
         sx={{
@@ -54,22 +54,26 @@ function Layout({ children, onLogout }) {
               LINKOMPTA 💼
             </Typography>
           </Toolbar>
-          <ListItem button onClick={() => navigate("/factures")}>
-            <ListItemIcon><Receipt style={{ color: "white" }} /></ListItemIcon>
-            <ListItemText primary="Mes Factures" />
-          </ListItem>
-          <ListItem button onClick={() => navigate("/documents")}>
-            <ListItemIcon><Description style={{ color: "white" }} /></ListItemIcon>
-            <ListItemText primary="Mes Documents" />
-          </ListItem>
-          <ListItem button onClick={() => navigate("/rendezvous")}>
-            <ListItemIcon><Event style={{ color: "white" }} /></ListItemIcon>
-            <ListItemText primary="Mes Rendez-vous" />
-          </ListItem>
-        </List>
-      </Drawer>
+            <ListItem button onClick={() => navigate("/profil")}>
+              <ListItemIcon><Avatar style={{ width: 25, height: 25 }} /></ListItemIcon>
+              <ListItemText primary="Mon Profil" />
+            </ListItem>
+            <ListItem button onClick={() => navigate("/factures")}>
+              <ListItemIcon><Receipt style={{ color: "white" }} /></ListItemIcon>
+              <ListItemText primary="Mes Factures" />
+            </ListItem>
+              <ListItem button onClick={() => navigate("/documents")}>
+              <ListItemIcon><Description style={{ color: "white" }} /></ListItemIcon>
+              <ListItemText primary="Mes Documents" />
+            </ListItem>
+            <ListItem button onClick={() => navigate("/rendezvous")}>
+             <ListItemIcon><Event style={{ color: "white" }} /></ListItemIcon>
+             <ListItemText primary="Mes Rendez-vous" />
+            </ListItem>
+          </List>
+    </Drawer>
 
-      {/* ✅ Contenu principal */}
+      {/* Contenu principal */}
       <main style={{ flexGrow: 1, padding: "20px" }}>
         <AppBar
           position="fixed"
@@ -85,24 +89,30 @@ function Layout({ children, onLogout }) {
           <Toolbar>
             {/* 🔹 Titre dans la barre du haut */}
             <Typography
-              variant="h6"
+              variant="h5"
               noWrap
               component="div"
               sx={{ fontWeight: "bold", letterSpacing: 1 }}
             >
-              Tableau de bord
+              LINKOMPTA 💼
             </Typography>
           </Toolbar>
 
-          {/* 🔹 Section droite : utilisateur + avatar + déconnexion */}
+          {/* 🔹 Section droite : utilisateur + bouton déconnexion */}
           <Box display="flex" alignItems="center" gap={2}>
             <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
               {username} ({role})
             </Typography>
-            <Avatar 
-              alt={username} 
-              src={avatar || "https://via.placeholder.com/40"} 
-            />
+
+            {/* ✅ Avatar : photo si dispo, sinon Person 👤 */}
+            {avatar ? (
+              <Avatar alt={username} src={avatar} />
+            ) : (
+              <Avatar sx={{ bgcolor: "grey.400" }}>
+                <Person />
+              </Avatar>
+            )}
+
             <Button
               variant="contained"
               color="error"
