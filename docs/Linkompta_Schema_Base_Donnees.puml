@@ -1,0 +1,159 @@
+@startuml Linkompta_Schema_Base_Donnees
+!theme plain
+title Schéma de Base de Données - Linkompta\nApplication de gestion comptable
+
+' Configuration pour ERD
+!define TABLE(name,desc) entity name as "desc"
+!define PK(x) <b><color:red>x</color></b>
+!define FK(x) <color:blue>x</color>
+!define FIELD(x) x
+
+' === Table User (Django AbstractUser étendu) ===
+entity "users_user" as user {
+  PK(id) : INTEGER
+  --
+  FIELD(username) : VARCHAR(150) UNIQUE
+  FIELD(email) : VARCHAR(254)
+  FIELD(first_name) : VARCHAR(150)
+  FIELD(last_name) : VARCHAR(150)
+  FIELD(password) : VARCHAR(128)
+  FIELD(role) : VARCHAR(20)
+  FIELD(company_name) : VARCHAR(255) NULL
+  FIELD(is_active) : BOOLEAN
+  FIELD(is_staff) : BOOLEAN
+  FIELD(is_superuser) : BOOLEAN
+  FIELD(date_joined) : DATETIME
+  FIELD(last_login) : DATETIME NULL
+}
+
+' === Table Client ===
+entity "clients_client" as client {
+  PK(id) : INTEGER
+  --
+  FK(user_id) : INTEGER UNIQUE
+  FK(comptable_id) : INTEGER NULL
+  FIELD(phone) : VARCHAR(20) NULL
+  FIELD(address) : VARCHAR(255) NULL
+}
+
+' === Table Dossier ===
+entity "clients_dossier" as dossier {
+  PK(id) : INTEGER
+  --
+  FK(client_id) : INTEGER
+  FIELD(name) : VARCHAR(100)
+  FIELD(description) : TEXT NULL
+  FIELD(created_at) : DATETIME
+}
+
+' === Table Document ===
+entity "documents_document" as document {
+  PK(id) : INTEGER
+  --
+  FK(client_id) : INTEGER
+  FIELD(title) : VARCHAR(255)
+  FIELD(file) : VARCHAR(255)
+  FIELD(uploaded_at) : DATETIME
+  FIELD(status) : VARCHAR(20)
+  FIELD(file_type) : VARCHAR(50)
+  FIELD(file_size) : INTEGER
+}
+
+' === Table Facture ===
+entity "factures_facture" as facture {
+  PK(id) : INTEGER
+  --
+  FK(client_id) : INTEGER
+  FIELD(titre) : VARCHAR(255)
+  FIELD(description) : TEXT NULL
+  FIELD(montant_htva) : DECIMAL(10,2)
+  FIELD(tva) : DECIMAL(10,2)
+  FIELD(montant_tvac) : DECIMAL(10,2) NULL
+  FIELD(statut) : VARCHAR(20)
+  FIELD(date_creation) : DATETIME
+}
+
+' === Table Paiement ===
+entity "factures_paiement" as paiement {
+  PK(id) : INTEGER
+  --
+  FK(facture_id) : INTEGER UNIQUE
+  FK(client_id) : INTEGER
+  FIELD(methode) : VARCHAR(50)
+  FIELD(montant) : DECIMAL(10,2)
+  FIELD(date_paiement) : DATETIME
+}
+
+' === Table RendezVous ===
+entity "rendezvous_rendezvous" as rdv {
+  PK(id) : INTEGER
+  --
+  FK(client_id) : INTEGER
+  FK(comptable_id) : INTEGER
+  FIELD(date) : DATETIME
+  FIELD(status) : VARCHAR(20)
+  FIELD(commentaire) : TEXT NULL
+  FIELD(created_at) : DATETIME
+}
+
+' === Table Message ===
+entity "messagerie_message" as message {
+  PK(id) : INTEGER
+  --
+  FK(expediteur_id) : INTEGER
+  FK(destinataire_id) : INTEGER
+  FIELD(objet) : VARCHAR(255)
+  FIELD(contenu) : TEXT
+  FIELD(est_lu) : BOOLEAN
+  FIELD(date_envoi) : DATETIME
+}
+
+' === Relations ===
+
+' User -> Client (OneToOne)
+user ||--|| client : user_id
+
+' User -> Client (Comptable assigné)
+user ||--o{ client : comptable_id
+
+' Client -> Dossier (OneToMany)
+client ||--o{ dossier : client_id
+
+' Client -> Document (OneToMany)
+client ||--o{ document : client_id
+
+' Client -> Facture (OneToMany)
+client ||--o{ facture : client_id
+
+' Facture -> Paiement (OneToOne)
+facture ||--|| paiement : facture_id
+
+' Client -> Paiement (OneToMany)
+client ||--o{ paiement : client_id
+
+' User -> RendezVous (Client)
+user ||--o{ rdv : client_id
+
+' User -> RendezVous (Comptable)
+user ||--o{ rdv : comptable_id
+
+' User -> Message (Expéditeur)
+user ||--o{ message : expediteur_id
+
+' User -> Message (Destinataire)
+user ||--o{ message : destinataire_id
+
+' === Notes explicatives ===
+note top of user : **Table centrale Django**\nGestion utilisateurs\nRôles : admin, comptable, client
+
+note top of client : **Profil client**\nLié 1:1 avec User\nAssigné à un comptable
+
+note bottom of document : **Documents comptables**\nUpload sécurisé\nStatuts de traitement
+
+note bottom of facture : **Facturation**\nCalcul automatique TVAC\nSuivi des paiements
+
+note right of rdv : **Rendez-vous**\nPlanification client-comptable\nStatuts : attente, accepté, refusé
+
+note right of message : **Messagerie interne**\nCommunication sécurisée\nNotifications en temps réel
+
+@enduml

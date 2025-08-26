@@ -1606,3 +1606,123 @@ Watching for file changes with StatReloader
 "GET /api/documents/comptable/ HTTP/1.1" 200 927
 "GET /api/factures/comptable/ HTTP/1.1" 200 2
 "GET /api/rendezvous/comptable/ HTTP/1.1" 200 2
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"OPTIONS /api/users/me/ HTTP/1.1" 200 0
+"OPTIONS /api/users/me/ HTTP/1.1" 200 0
+Unauthorized: /api/users/me/
+"GET /api/users/me/ HTTP/1.1" 401 172
+Unauthorized: /api/users/me/
+"GET /api/users/me/ HTTP/1.1" 401 172
+"OPTIONS /api/clients/comptable-list/ HTTP/1.1" 200 0
+"OPTIONS /api/clients/comptable-list/ HTTP/1.1" 200 0
+Unauthorized: /api/clients/comptable-list/
+"GET /api/clients/comptable-list/ HTTP/1.1" 401 172
+Unauthorized: /api/clients/comptable-list/
+"GET /api/clients/comptable-list/ HTTP/1.1" 401 172
+"OPTIONS /api/documents/comptable/ HTTP/1.1" 200 0
+"OPTIONS /api/documents/comptable/ HTTP/1.1" 200 0
+Unauthorized: /api/documents/comptable/
+"GET /api/documents/comptable/ HTTP/1.1" 401 172
+Unauthorized: /api/documents/comptable/
+"GET /api/documents/comptable/ HTTP/1.1" 401 172
+"OPTIONS /api/factures/comptable/ HTTP/1.1" 200 0
+"OPTIONS /api/factures/comptable/ HTTP/1.1" 200 0
+Unauthorized: /api/factures/comptable/
+"GET /api/factures/comptable/ HTTP/1.1" 401 172
+Unauthorized: /api/factures/comptable/
+"GET /api/factures/comptable/ HTTP/1.1" 401 172
+"OPTIONS /api/rendezvous/comptable/ HTTP/1.1" 200 0
+"OPTIONS /api/rendezvous/comptable/ HTTP/1.1" 200 0
+Unauthorized: /api/rendezvous/comptable/
+"GET /api/rendezvous/comptable/ HTTP/1.1" 401 172
+Unauthorized: /api/rendezvous/comptable/
+"GET /api/rendezvous/comptable/ HTTP/1.1" 401 172
+"OPTIONS /api/messagerie/recus/ HTTP/1.1" 200 0
+Unauthorized: /api/messagerie/recus/
+Unauthorized: /api/clients/comptable-list/
+"OPTIONS /api/messagerie/recus/ HTTP/1.1" 200 0
+"GET /api/clients/comptable-list/ HTTP/1.1" 401 172
+"GET /api/messagerie/recus/ HTTP/1.1" 401 172
+Unauthorized: /api/messagerie/recus/
+Unauthorized: /api/clients/comptable-list/
+"GET /api/messagerie/recus/ HTTP/1.1" 401 172
+"GET /api/clients/comptable-list/ HTTP/1.1" 401 172
+Unauthorized: /api/users/me/
+Unauthorized: /api/messagerie/recus/
+Unauthorized: /api/clients/comptable-list/
+"GET /api/messagerie/recus/ HTTP/1.1" 401 172
+"GET /api/users/me/ HTTP/1.1" 401 172
+"GET /api/clients/comptable-list/ HTTP/1.1" 401 172
+Unauthorized: /api/users/me/
+Unauthorized: /api/messagerie/recus/
+Unauthorized: /api/clients/comptable-list/
+"GET /api/messagerie/recus/ HTTP/1.1" 401 172
+"GET /api/users/me/ HTTP/1.1" 401 172
+"GET /api/clients/comptable-list/ HTTP/1.1" 401 172
+Unauthorized: /api/users/me/
+Unauthorized: /api/messagerie/recus/
+Unauthorized: /api/clients/comptable-list/
+"GET /api/users/me/ HTTP/1.1" 401 172
+"GET /api/messagerie/recus/ HTTP/1.1" 401 172
+"GET /api/clients/comptable-list/ HTTP/1.1" 401 172
+Unauthorized: /api/users/me/
+Unauthorized: /api/messagerie/recus/
+Unauthorized: /api/clients/comptable-list/
+"GET /api/users/me/ HTTP/1.1" 401 172
+"GET /api/messagerie/recus/ HTTP/1.1" 401 172
+"GET /api/clients/comptable-list/ HTTP/1.1" 401 172
+Unauthorized: /api/users/me/
+Unauthorized: /api/messagerie/recus/
+Unauthorized: /api/clients/comptable-list/
+"GET /api/messagerie/recus/ HTTP/1.1" 401 172
+"GET /api/users/me/ HTTP/1.1" 401 172
+"GET /api/clients/comptable-list/ HTTP/1.1" 401 172
+Unauthorized: /api/clients/comptable-list/
+Unauthorized: /api/users/me/
+Unauthorized: /api/messagerie/recus/
+"GET /api/clients/comptable-list/ HTTP/1.1" 401 172
+"GET /api/users/me/ HTTP/1.1" 401 172
+"GET /api/messagerie/recus/ HTTP/1.1" 401 172
+Unauthorized: /api/users/me/
+"GET /api/users/me/ HTTP/1.1" 401 172
+Unauthorized: /api/users/me/
+"GET /api/users/me/ HTTP/1.1" 401 172
+Unauthorized: /api/messagerie/recus/
+Unauthorized: /api/clients/comptable-list/
+"GET /api/messagerie/recus/ HTTP/1.1" 401 172
+"GET /api/clients/comptable-list/ HTTP/1.1" 401 172
+Unauthorized: /api/messagerie/recus/
+Unauthorized: /api/clients/comptable-list/
+"GET /api/messagerie/recus/ HTTP/1.1" 401 172
+"GET /api/clients/comptable-list/ HTTP/1.1" 401 172
+Unauthorized: /api/factures/comptable/
+"GET /api/factures/comptable/ HTTP/1.1" 401 172
+Unauthorized: /api/factures/comptable/
+"GET /api/factures/comptable/ HTTP/1.1" 401 172
+Unauthorized: /api/documents/comptable/
+"GET /api/documents/comptable/ HTTP/1.1" 401 172
+Unauthorized: /api/documents/comptable/
+"GET /api/documents/comptable/ HTTP/1.1" 401 172
+Unauthorized: /api/clients/comptable-list/
+"GET /api/clients/comptable-list/ HTTP/1.1" 401 172
+Unauthorized: /api/clients/comptable-list/
+"GET /api/clients/comptable-list/ HTTP/1.1" 401 172
+"OPTIONS /api/token/ HTTP/1.1" 200 0
+"POST /api/token/ HTTP/1.1" 200 491
+"GET /api/users/me/ HTTP/1.1" 200 148
+"GET /api/users/me/ HTTP/1.1" 200 148
+"GET /api/users/me/ HTTP/1.1" 200 148
+"OPTIONS /users/login/ HTTP/1.1" 200 0
+Not Found: /users/login/
+"POST /users/login/ HTTP/1.1" 404 3681
+Not Found: /users/login/
+"POST /users/login/ HTTP/1.1" 404 3681
+Not Found: /users/login/
+"POST /users/login/ HTTP/1.1" 404 3681
+Not Found: /users/login/
+"POST /users/login/ HTTP/1.1" 404 3681
+Not Found: /users/login/
+"POST /users/login/ HTTP/1.1" 404 3681
+Not Found: /users/login/
+"POST /users/login/ HTTP/1.1" 404 3681

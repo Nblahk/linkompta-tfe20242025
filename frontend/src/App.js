@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import HomePage from "./pages/HomePage";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import FacturesClient from "./pages/FacturesClient";
@@ -16,7 +17,8 @@ import Profil from "./pages/Profil";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token") || null);
-  const role = localStorage.getItem("role");
+  const user = JSON.parse(localStorage.getItem("user") || "{}");
+  const role = user.role;
 
   const handleLogout = () => {
     localStorage.clear();
@@ -25,45 +27,60 @@ function App() {
 
   return (
     <Router>
-      {!token ? (
-        <Login setToken={setToken} />
-      ) : (
-        <Layout onLogout={handleLogout}>
-          <Routes>
-            <Route path="/" element={<Dashboard token={token} />} />
-            
-            {/* Routes communes */}
-            <Route path="/profil" element={<Profil />} />
-            <Route path="/messagerie" element={<Messagerie />} />
-            
-            {/* Routes Client */}
-            {role === "client" && (
-              <>
-                <Route path="/factures" element={<FacturesClient />} />
-                <Route path="/documents" element={<DocumentsClient />} />
-                <Route path="/rendezvous" element={<RendezVousClient />} />
-              </>
-            )}
-            
-            {/* Routes Comptable */}
-            {role === "comptable" && (
-              <>
-                <Route path="/clients" element={<ClientsComptable />} />
-                <Route path="/factures" element={<FacturesComptable />} />
-                <Route path="/documents" element={<DocumentsComptable />} />
-                <Route path="/rendezvous" element={<RendezVousComptable />} />
-              </>
-            )}
-            
-            {/* Routes Admin */}
-            {role === "admin" && (
-              <>
-                <Route path="/admin" element={<AdminPanel />} />
-              </>
-            )}
-          </Routes>
-        </Layout>
-      )}
+      <Routes>
+        {/* Page d'accueil publique */}
+        <Route path="/" element={!token ? <HomePage /> : <Navigate to="/dashboard" />} />
+        
+        {/* Routes protégées */}
+        {token ? (
+          <Route path="/*" element={
+            <Layout onLogout={handleLogout}>
+              <Routes>
+                <Route path="/dashboard" element={<Dashboard token={token} />} />
+                
+                {/* Routes communes */}
+                <Route path="/profil" element={<Profil />} />
+                <Route path="/messagerie" element={<Messagerie />} />
+                
+                {/* Routes Client */}
+                {role === "client" && (
+                  <>
+                    <Route path="/client/factures" element={<FacturesClient />} />
+                    <Route path="/client/documents" element={<DocumentsClient />} />
+                    <Route path="/client/rendezvous" element={<RendezVousClient />} />
+                  </>
+                )}
+                
+                {/* Routes Comptable */}
+                {role === "comptable" && (
+                  <>
+                    <Route path="/comptable/clients" element={<ClientsComptable />} />
+                    <Route path="/comptable/factures" element={<FacturesComptable />} />
+                    <Route path="/comptable/documents" element={<DocumentsComptable />} />
+                    <Route path="/comptable/rendezvous" element={<RendezVousComptable />} />
+                  </>
+                )}
+                
+                {/* Routes Admin */}
+                {role === "admin" && (
+                  <>
+                    <Route path="/admin" element={<AdminPanel />} />
+                  </>
+                )}
+                
+                {/* Redirection par défaut selon le rôle */}
+                <Route path="*" element={
+                  role === "admin" ? <Navigate to="/admin" /> :
+                  role === "comptable" ? <Navigate to="/comptable/documents" /> :
+                  <Navigate to="/client/documents" />
+                } />
+              </Routes>
+            </Layout>
+          } />
+        ) : (
+          <Route path="*" element={<Navigate to="/" />} />
+        )}
+      </Routes>
     </Router>
   );
 }

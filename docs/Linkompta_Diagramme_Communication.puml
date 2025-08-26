@@ -1,0 +1,38 @@
+@startuml Linkompta_Diagramme_Communication
+!theme plain
+title Diagramme de Communication - Linkompta\nGestion de documents comptables
+
+' Objets participants
+object ":Client" as client
+object ":Frontend" as frontend
+object ":Backend" as backend
+object ":BDD" as db
+object ":Comptable" as comptable
+
+' Messages principaux
+client -> frontend : 1: seConnecter()
+frontend -> backend : 2: authentifier()
+backend -> db : 3: verifierUser()
+backend -> frontend : 4: tokenJWT
+
+client -> frontend : 5: uploaderDocument()
+frontend -> backend : 6: sauvegarderDoc()
+backend -> db : 7: stockerDocument()
+backend -> frontend : 8: documentCree()
+
+comptable -> frontend : 9: consulterDocuments()
+frontend -> backend : 10: obtenirDocuments()
+backend -> db : 11: rechercherDocs()
+backend -> frontend : 12: listeDocuments()
+
+comptable -> frontend : 13: traiterDocument()
+frontend -> backend : 14: updateStatut()
+backend -> db : 15: modifierStatut()
+backend -> frontend : 16: traitementOK()
+
+' Notes
+note top of client : Sophie Merle
+note top of comptable : Paul Dupont
+note bottom of db : Données sécurisées
+
+@enduml

@@ -1,0 +1,90 @@
+@startuml Linkompta_Sequence_Upload_Document
+!theme plain
+title Séquence d'upload et traitement d'un document\nLinkompta - Cas d'usage complet
+
+' Acteurs et systèmes
+actor "👤 Client\n(Sophie Merle)" as Client
+participant "🌐 Frontend React" as Frontend
+participant "🔧 Backend Django" as Backend
+participant "💾 Base de données" as Database
+participant "📁 Système fichiers" as FileSystem
+actor "👨‍💼 Comptable\n(Paul Dupont)" as Comptable
+
+' === Phase 1: Authentification ===
+group Authentification
+  Client -> Frontend : Se connecte (sophie.merle/password123)
+  Frontend -> Backend : POST /users/login/
+  Backend -> Database : Vérification utilisateur
+  Database -> Backend : Utilisateur validé
+  Backend -> Frontend : JWT Token + Infos utilisateur
+  Frontend -> Client : Redirection interface client
+end
+
+' === Phase 2: Upload document ===
+group Upload de document
+  Client -> Frontend : Sélectionne fichier (facture.pdf)
+  Frontend -> Backend : POST /documents/upload/\n+ Authorization Bearer Token
+  Backend -> Database : Vérification permissions client
+  Database -> Backend : Client autorisé
+  Backend -> FileSystem : Stockage fichier sécurisé
+  FileSystem -> Backend : Chemin fichier confirmé
+  Backend -> Database : INSERT document\n(title, file, client_id, status='envoye')
+  Database -> Backend : Document ID créé
+  Backend -> Frontend : 201 Created + Document info
+  Frontend -> Client : ✅ Document téléchargé avec succès
+end
+
+' === Phase 3: Notification comptable ===
+group Notification au comptable
+  Note over Backend : Le document est maintenant\ndisponible pour le comptable assigné
+  
+  Comptable -> Frontend : Se connecte (comptable.paul.dupont/password123)
+  Frontend -> Backend : POST /users/login/
+  Backend -> Frontend : JWT Token comptable
+  
+  Comptable -> Frontend : Accède à "Documents"
+  Frontend -> Backend : GET /documents/comptable/\n+ Authorization Bearer Token
+  Backend -> Database : SELECT documents WHERE comptable=Paul
+  Database -> Backend : Liste documents clients de Paul
+  Backend -> Frontend : JSON documents avec infos clients
+  Frontend -> Comptable : 📄 Nouveau document de Sophie Merle
+end
+
+' === Phase 4: Traitement par le comptable ===
+group Traitement du document
+  Comptable -> Frontend : Consulte document Sophie
+  Frontend -> Backend : GET /documents/{id}/\n+ Authorization Bearer Token
+  Backend -> FileSystem : Récupération fichier
+  FileSystem -> Backend : Contenu fichier
+  Backend -> Frontend : Document + métadonnées
+  Frontend -> Comptable : Affichage document PDF
+  
+  Comptable -> Frontend : Met à jour statut "En cours"
+  Frontend -> Backend : PATCH /documents/{id}/update-status/\n{"status": "en_cours"}
+  Backend -> Database : UPDATE document SET status='en_cours'
+  Database -> Backend : Statut mis à jour
+  Backend -> Frontend : 200 OK
+  Frontend -> Comptable : ✅ Statut mis à jour
+end
+
+' === Phase 5: Finalisation ===
+group Finalisation du traitement
+  Note over Comptable : Après traitement comptable...
+  
+  Comptable -> Frontend : Marque "Traité"
+  Frontend -> Backend : PATCH /documents/{id}/update-status/\n{"status": "traite"}
+  Backend -> Database : UPDATE document SET status='traite'
+  Database -> Backend : Document finalisé
+  Backend -> Frontend : Document traité
+  Frontend -> Comptable : ✅ Document finalisé
+  
+  Note over Client : Le client peut maintenant voir\nle statut "Traité" sur son document
+end
+
+' Notes explicatives
+note right of Client : Le client Sophie Merle\nupload ses documents\ncomptables
+note right of Comptable : Paul Dupont traite\nles documents de\nses 8 clients assignés
+note over Backend : Sécurité JWT:\nChaque requête vérifiée\nPermissions par rôle
+note over Database : Traçabilité complète:\nDate création, statuts,\nauteur des modifications
+
+@enduml

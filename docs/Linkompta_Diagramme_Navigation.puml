@@ -1,0 +1,78 @@
+@startuml Linkompta_Diagramme_Navigation
+!theme plain
+title Diagramme de Navigation - Linkompta\nParcours Client : Upload et traitement de document
+
+' États/Pages de l'application
+state "Page d'Accueil" as accueil
+state "Page de Connexion" as connexion
+state "Dashboard Client" as dashboardClient
+state "Mes Documents" as mesDocuments
+state "Upload Document" as uploadDoc
+state "Confirmation Upload" as confirmUpload
+state "Suivi Documents" as suiviDocs
+state "Détail Document" as detailDoc
+state "Document Traité" as docTraite
+state "Déconnexion" as deconnexion
+
+' États pour le comptable (parallèle)
+state "Dashboard Comptable" as dashboardComptable
+state "Documents Clients" as docsClients
+state "Traitement Document" as traitementDoc
+state "Document Finalisé" as docFinalise
+
+' Navigation Client
+[*] --> accueil : Visite initiale
+
+accueil --> connexion : Clic "Se connecter"
+connexion --> dashboardClient : Authentification réussie\n(Sophie Merle)
+connexion --> connexion : Erreur authentification
+
+dashboardClient --> mesDocuments : Menu "Mes Documents"
+dashboardClient --> suiviDocs : Menu "Suivi"
+dashboardClient --> deconnexion : Bouton "Déconnexion"
+
+mesDocuments --> uploadDoc : Bouton "Nouveau Document"
+uploadDoc --> confirmUpload : Fichier sélectionné\net envoyé
+confirmUpload --> mesDocuments : Retour liste
+confirmUpload --> suiviDocs : Voir statut
+
+suiviDocs --> detailDoc : Clic sur document
+detailDoc --> suiviDocs : Retour liste
+detailDoc --> docTraite : Statut "Traité"
+docTraite --> suiviDocs : Retour
+
+suiviDocs --> dashboardClient : Menu principal
+mesDocuments --> dashboardClient : Menu principal
+
+deconnexion --> accueil : Déconnexion confirmée
+
+' Navigation Comptable (processus parallèle)
+accueil --> connexion : Connexion comptable
+connexion --> dashboardComptable : Authentification\n(Paul Dupont)
+
+dashboardComptable --> docsClients : Menu "Documents"
+docsClients --> traitementDoc : Sélection document\nSophie Merle
+traitementDoc --> docFinalise : Marquer "Traité"
+docFinalise --> docsClients : Retour liste
+docsClients --> dashboardComptable : Menu principal
+
+' Notifications automatiques
+note on link between confirmUpload and traitementDoc
+  Notification automatique
+  au comptable assigné
+end note
+
+note on link between docFinalise and docTraite
+  Notification automatique
+  au client
+end note
+
+' Légendes des rôles
+note top of dashboardClient : **Client (Sophie Merle)**\nConsultation et upload
+note top of dashboardComptable : **Comptable (Paul Dupont)**\nTraitement et validation
+
+' Points de sortie
+dashboardClient --> [*] : Session expirée
+dashboardComptable --> [*] : Session expirée
+
+@enduml
