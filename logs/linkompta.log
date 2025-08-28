@@ -1726,3 +1726,85 @@ Not Found: /users/login/
 "POST /users/login/ HTTP/1.1" 404 3681
 Not Found: /users/login/
 "POST /users/login/ HTTP/1.1" 404 3681
+Watching for file changes with StatReloader
+"OPTIONS /users/login/ HTTP/1.1" 200 0
+"OPTIONS /users/login/ HTTP/1.1" 200 0
+C:\Users\ahake\Linkompta\backend\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"OPTIONS /users/login/ HTTP/1.1" 200 0
+Not Found: /users/login/
+"POST /users/login/ HTTP/1.1" 404 3681
+Not Found: /users/login/
+"POST /users/login/ HTTP/1.1" 404 3681
+Not Found: /users/login/
+"POST /users/login/ HTTP/1.1" 404 3681
+Not Found: /users/login/
+"POST /users/login/ HTTP/1.1" 404 3681
+Not Found: /users/login/
+"POST /users/login/ HTTP/1.1" 404 3681
+"OPTIONS /users/login/ HTTP/1.1" 200 0
+Not Found: /users/login/
+"POST /users/login/ HTTP/1.1" 404 3681
+C:\Users\ahake\Linkompta\backend\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\ahake\Linkompta\backend\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"OPTIONS /users/login/ HTTP/1.1" 200 0
+Not Found: /users/login/
+"POST /users/login/ HTTP/1.1" 404 3681
+Watching for file changes with StatReloader
+Not Found: /users/login/
+"POST /users/login/ HTTP/1.1" 404 3681
+C:\Users\ahake\Linkompta\backend\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /users/login/
+"POST /users/login/ HTTP/1.1" 404 3681
+Not Found: /users/login/
+"POST /users/login/ HTTP/1.1" 404 3681
+Not Found: /users/login/
+"POST /users/login/ HTTP/1.1" 404 3681
+Not Found: /users/login/
+"POST /users/login/ HTTP/1.1" 404 3681
+"POST /api/token/ HTTP/1.1" 200 494
+"POST /api/token/ HTTP/1.1" 200 494
+"POST /api/token/ HTTP/1.1" 200 494
+"GET /api/users/me/ HTTP/1.1" 200 171
+"OPTIONS /api/token/ HTTP/1.1" 200 0
+"POST /api/token/ HTTP/1.1" 200 491
+"OPTIONS /api/users/me/ HTTP/1.1" 200 0
+"GET /api/users/me/ HTTP/1.1" 200 148
+"POST /api/token/ HTTP/1.1" 200 491
+"GET /api/users/me/ HTTP/1.1" 200 148
+"OPTIONS /api/users/me/ HTTP/1.1" 200 0
+"GET /api/users/me/ HTTP/1.1" 200 148
+"GET /api/users/me/ HTTP/1.1" 200 148
+"OPTIONS /api/documents/me/ HTTP/1.1" 200 0
+"OPTIONS /api/documents/me/ HTTP/1.1" 200 0
+"GET /api/documents/me/ HTTP/1.1" 200 927
+"GET /api/documents/me/ HTTP/1.1" 200 927
+"GET /api/users/me/ HTTP/1.1" 200 148
+"GET /api/users/me/ HTTP/1.1" 200 148
+"POST /api/token/ HTTP/1.1" 200 494
+"GET /api/users/me/ HTTP/1.1" 200 171
+"POST /api/token/ HTTP/1.1" 200 494
+"GET /api/users/me/ HTTP/1.1" 200 171
+"POST /api/token/ HTTP/1.1" 200 494
+"GET /api/users/me/ HTTP/1.1" 200 171
+"GET /api/users/me/ HTTP/1.1" 200 171
+"GET /api/users/me/ HTTP/1.1" 200 171
+"POST /api/token/ HTTP/1.1" 200 494
+"GET /api/users/me/ HTTP/1.1" 200 171
+"POST /api/token/ HTTP/1.1" 200 494
+"GET /api/users/me/ HTTP/1.1" 200 171
+"GET /api/users/me/ HTTP/1.1" 200 171
+"GET /api/users/me/ HTTP/1.1" 200 171
+"POST /api/token/ HTTP/1.1" 200 491
+"GET /api/users/me/ HTTP/1.1" 200 148
+"GET /api/users/me/ HTTP/1.1" 200 148
+"GET /api/users/me/ HTTP/1.1" 200 148
+"POST /api/token/ HTTP/1.1" 200 491
+"GET /api/users/me/ HTTP/1.1" 200 148
+"GET /api/users/me/ HTTP/1.1" 200 148
+"GET /api/users/me/ HTTP/1.1" 200 148

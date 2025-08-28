@@ -144,7 +144,7 @@ const HomePage = () => {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:8000/users/login/', {
+      const response = await fetch('http://localhost:8000/api/token/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -155,15 +155,23 @@ const HomePage = () => {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem('token', data.access);
-        localStorage.setItem('user', JSON.stringify(data.user));
+        
+        // Récupérer les infos utilisateur avec le token
+        const userResponse = await fetch('http://localhost:8000/api/users/me/', {
+          headers: {
+            'Authorization': `Bearer ${data.access}`,
+            'Content-Type': 'application/json',
+          },
+        });
 
-        // Redirection selon le rôle
-        if (data.user.role === 'admin') {
-          navigate('/admin');
-        } else if (data.user.role === 'comptable') {
-          navigate('/comptable/documents');
+        if (userResponse.ok) {
+          const userData = await userResponse.json();
+          localStorage.setItem('user', JSON.stringify(userData));
+
+          // Recharger la page pour forcer App.js à relire le localStorage
+          window.location.reload();
         } else {
-          navigate('/client/documents');
+          setError('Erreur lors de la récupération des informations utilisateur.');
         }
       } else {
         setError('Identifiants incorrects. Veuillez réessayer.');
@@ -191,20 +199,80 @@ const HomePage = () => {
       <div style={styles.homepageContent}>
         {/* Section gauche - Branding */}
         <div style={styles.brandingSection}>
-          <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
-            <LinkomptaLogo size="180" />
-          </div>
-          
-          <div>
-            <h1 style={styles.brandTitle}>LINKOMPTA</h1>
-            <p style={styles.brandSubtitle}>
+          {/* Message principal lisible */}
+          <div style={{
+            background: 'white',
+            borderRadius: '20px',
+            padding: '2.5rem 2rem',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
+            border: '2px solid #e2e8f0',
+            textAlign: 'center',
+            maxWidth: '480px',
+            margin: '0 auto'
+          }}>
+            {/* Titre principal */}
+            <h1 style={{
+              fontSize: '2.2rem',
+              fontWeight: '700',
+              color: '#1e3a8a',
+              margin: '0 0 1rem 0',
+              letterSpacing: '1px'
+            }}>
+              LINKOMPTA
+            </h1>
+            
+            {/* Sous-titre */}
+            <p style={{
+              fontSize: '1.2rem',
+              color: '#475569',
+              fontWeight: '500',
+              margin: '0 0 2rem 0'
+            }}>
               Votre partenaire comptable digital
             </p>
-            <div style={{ textAlign: 'left', maxWidth: '400px', margin: '0 auto' }}>
-              <p style={{ fontSize: '1.1rem', margin: '0.8rem 0', paddingLeft: '1rem', opacity: 0.85 }}>✓ Gestion documentaire sécurisée</p>
-              <p style={{ fontSize: '1.1rem', margin: '0.8rem 0', paddingLeft: '1rem', opacity: 0.85 }}>✓ Suivi en temps réel</p>
-              <p style={{ fontSize: '1.1rem', margin: '0.8rem 0', paddingLeft: '1rem', opacity: 0.85 }}>✓ Communication simplifiée</p>
-              <p style={{ fontSize: '1.1rem', margin: '0.8rem 0', paddingLeft: '1rem', opacity: 0.85 }}>✓ Expertise comptable professionnelle</p>
+            
+            {/* Liste des avantages lisible */}
+            <div style={{ textAlign: 'left' }}>
+              {[
+                'Gestion documentaire sécurisée',
+                'Suivi en temps réel',
+                'Communication simplifiée',
+                'Expertise comptable professionnelle'
+              ].map((feature, index) => (
+                <div key={index} style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  margin: '1rem 0',
+                  padding: '0.8rem',
+                  borderRadius: '12px',
+                  background: '#f8fafc',
+                  border: '1px solid #e2e8f0'
+                }}>
+                  <span style={{
+                    display: 'inline-block',
+                    width: '24px',
+                    height: '24px',
+                    borderRadius: '50%',
+                    background: '#1e3a8a',
+                    color: 'white',
+                    textAlign: 'center',
+                    lineHeight: '24px',
+                    fontSize: '14px',
+                    fontWeight: 'bold',
+                    marginRight: '1rem',
+                    flexShrink: 0
+                  }}>
+                    ✓
+                  </span>
+                  <span style={{
+                    fontSize: '1rem',
+                    color: '#1e293b',
+                    fontWeight: '500'
+                  }}>
+                    {feature}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
