@@ -1,15 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import LinkomptaLogo from '../components/LinkomptaLogo';
 // import '../styles/HomePage.css';
 
-const HomePage = () => {
+const HomePage = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showLogin, setShowLogin] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Vérifier si l'utilisateur est déjà connecté
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/dashboard", { replace: true });
+    }
+  }, [navigate]);
+
+  // Vérifier si on doit afficher le formulaire de connexion au chargement
+  useEffect(() => {
+    const urlParams = new URLSearchParams(location.search);
+    if (urlParams.get('showLogin') === 'true') {
+      setShowLogin(true);
+      // Nettoyer l'URL après avoir affiché le formulaire
+      const newUrl = new URL(window.location);
+      newUrl.searchParams.delete('showLogin');
+      window.history.replaceState({}, '', newUrl);
+    }
+  }, [location.search]);
 
   // Styles en ligne temporaires
   const styles = {
@@ -101,6 +122,11 @@ const HomePage = () => {
       fontWeight: 600,
       cursor: 'pointer',
       transition: 'all 0.3s ease',
+      width: '100%',
+      textAlign: 'center',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
     },
     demoSection: {
       marginTop: '2rem',
@@ -174,8 +200,13 @@ const HomePage = () => {
           const userData = await userResponse.json();
           localStorage.setItem('user', JSON.stringify(userData));
 
-          // Recharger la page pour forcer App.js à relire le localStorage
-          window.location.reload();
+          // Mettre à jour l'état dans App.js et naviguer immédiatement
+          if (onLogin) {
+            onLogin(data.access, userData);
+          }
+          
+          // Navigation immédiate vers le dashboard
+          navigate('/dashboard', { replace: true });
         } else {
           setError('Erreur lors de la récupération des informations utilisateur.');
         }
@@ -407,7 +438,6 @@ const HomePage = () => {
                   e.target.style.boxShadow = '0 4px 15px rgba(16, 185, 129, 0.3)';
                 }}
               >
-                <span style={{ fontSize: '1.2rem' }}>👤</span>
                 <span>Devenir client ?</span>
                 <span style={{ fontSize: '0.8rem' }}>✨</span>
               </button>

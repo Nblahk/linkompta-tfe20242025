@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
+import ClientDashboard from "./pages/ClientDashboard";
 import FacturesClient from "./pages/FacturesClient";
 import FacturesComptable from "./pages/FacturesComptable";
 import DocumentsClient from "./pages/DocumentsClient";
@@ -14,42 +15,54 @@ import Messagerie from "./pages/Messagerie";
 import AdminPanel from "./pages/AdminPanel";
 import Layout from "./components/Layout";
 import Profil from "./pages/Profil";
+import ClientProfil from "./pages/ClientProfil";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token") || null);
-  const user = JSON.parse(localStorage.getItem("user") || "{}");
+  const [user, setUser] = useState(() => {
+    const savedUser = localStorage.getItem("user");
+    return savedUser ? JSON.parse(savedUser) : {};
+  });
   const role = user.role;
 
   const handleLogout = () => {
     localStorage.clear();
     setToken(null);
+    setUser({});
+    window.location.href = "/?showLogin=true";
+  };
+
+  const handleLogin = (token, userData) => {
+    setToken(token);
+    setUser(userData);
   };
 
   return (
     <Router>
       <Routes>
         {/* Page d'accueil publique */}
-        <Route path="/" element={!token ? <HomePage /> : <Navigate to="/dashboard" />} />
+        <Route path="/" element={<HomePage onLogin={handleLogin} />} />
         
-        {/* Routes protégées */}
-        {token ? (
+        {/* Routes protégées - ClientDashboard en dehors du Layout */}
+        {token && role === "client" && (
+          <>
+            <Route path="/dashboard" element={<ClientDashboard token={token} />} />
+            <Route path="/profil" element={<ClientProfil />} />
+            <Route path="*" element={<Navigate to="/dashboard" />} />
+          </>
+        )}
+        
+        {/* Routes protégées - Autres rôles dans le Layout */}
+        {token && role !== "client" && (
           <Route path="/*" element={
             <Layout onLogout={handleLogout}>
               <Routes>
+                {/* Dashboard pour comptables et admins */}
                 <Route path="/dashboard" element={<Dashboard token={token} />} />
                 
                 {/* Routes communes */}
                 <Route path="/profil" element={<Profil />} />
                 <Route path="/messagerie" element={<Messagerie />} />
-                
-                {/* Routes Client */}
-                {role === "client" && (
-                  <>
-                    <Route path="/client/factures" element={<FacturesClient />} />
-                    <Route path="/client/documents" element={<DocumentsClient />} />
-                    <Route path="/client/rendezvous" element={<RendezVousClient />} />
-                  </>
-                )}
                 
                 {/* Routes Comptable */}
                 {role === "comptable" && (
@@ -72,12 +85,15 @@ function App() {
                 <Route path="*" element={
                   role === "admin" ? <Navigate to="/admin" /> :
                   role === "comptable" ? <Navigate to="/comptable/documents" /> :
-                  <Navigate to="/client/documents" />
+                  <Navigate to="/dashboard" />
                 } />
               </Routes>
             </Layout>
           } />
-        ) : (
+        )}
+        
+        {/* Redirection si pas de token */}
+        {!token && (
           <Route path="*" element={<Navigate to="/" />} />
         )}
       </Routes>
