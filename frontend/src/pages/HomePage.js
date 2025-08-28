@@ -34,6 +34,9 @@ const HomePage = () => {
       maxWidth: '600px',
       color: 'white',
       padding: '2rem',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
     },
     brandTitle: {
       fontSize: '4rem',
@@ -56,6 +59,9 @@ const HomePage = () => {
       opacity: showLogin ? 1 : 0,
       transform: showLogin ? 'translateX(0)' : 'translateX(50px)',
       transition: 'all 0.8s ease-out',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
     },
     loginCard: {
       background: 'rgba(255, 255, 255, 0.95)',
@@ -199,6 +205,41 @@ const HomePage = () => {
       <div style={styles.homepageContent}>
         {/* Section gauche - Branding */}
         <div style={styles.brandingSection}>
+          {/* Titre LINKOMPTA centré au-dessus du carré */}
+          <div style={{
+            marginBottom: '2rem',
+            display: 'flex',
+            justifyContent: 'center',
+            width: '100%'
+          }}>
+            <div style={{
+              background: 'rgba(255, 255, 255, 0.95)',
+              padding: '1rem 2rem',
+              borderRadius: '15px',
+              boxShadow: '0 8px 25px rgba(0,0,0,0.15)',
+              border: '2px solid rgba(30, 58, 138, 0.2)',
+              backdropFilter: 'blur(10px)'
+            }}>
+              <h1 style={{
+                fontSize: '2rem',
+                fontWeight: '700',
+                color: '#1e3a8a',
+                margin: 0,
+                letterSpacing: '2px',
+                textAlign: 'center'
+              }}>
+                LINKOMPTA
+              </h1>
+              <div style={{
+                width: '60px',
+                height: '2px',
+                background: '#3b82f6',
+                margin: '0.3rem auto 0',
+                borderRadius: '1px'
+              }}></div>
+            </div>
+          </div>
+
           {/* Message principal lisible */}
           <div style={{
             background: 'white',
@@ -210,22 +251,11 @@ const HomePage = () => {
             maxWidth: '480px',
             margin: '0 auto'
           }}>
-            {/* Titre principal */}
-            <h1 style={{
-              fontSize: '2.2rem',
-              fontWeight: '700',
-              color: '#1e3a8a',
-              margin: '0 0 1rem 0',
-              letterSpacing: '1px'
-            }}>
-              LINKOMPTA
-            </h1>
-            
-            {/* Sous-titre */}
+            {/* Sous-titre directement */}
             <p style={{
-              fontSize: '1.2rem',
+              fontSize: '1.3rem',
               color: '#475569',
-              fontWeight: '500',
+              fontWeight: '600',
               margin: '0 0 2rem 0'
             }}>
               Votre partenaire comptable digital
@@ -327,32 +357,60 @@ const HomePage = () => {
               <a href="#forgot" style={{ color: '#3b82f6', textDecoration: 'none', fontSize: '0.9rem' }}>Mot de passe oublié ?</a>
             </div>
 
-            {/* Section démo */}
-            <div style={styles.demoSection}>
-              <div style={{ textAlign: 'center', marginBottom: '1.5rem', position: 'relative' }}>
-                <div style={{ position: 'absolute', top: '50%', left: 0, right: 0, height: '1px', background: '#e2e8f0' }}></div>
-                <span style={{ background: 'white', padding: '0 1rem', color: '#64748b', fontSize: '0.9rem', position: 'relative' }}>Découvrir l'application</span>
-              </div>
-              
-              <div style={styles.demoButtons}>
-                <button 
-                  onClick={() => handleDemoLogin('client')}
-                  style={styles.demoBtn}
-                >
-                  <span style={{ fontSize: '1.5rem' }}>👤</span>
-                  Démo Client
-                  <small style={{ color: '#64748b', fontSize: '0.8rem' }}>Sophie Merle</small>
-                </button>
-                
-                <button 
-                  onClick={() => handleDemoLogin('comptable')}
-                  style={styles.demoBtn}
-                >
-                  <span style={{ fontSize: '1.5rem' }}>💼</span>
-                  Démo Comptable
-                  <small style={{ color: '#64748b', fontSize: '0.8rem' }}>Paul Dupont</small>
-                </button>
-              </div>
+            {/* Ligne de séparation */}
+            <div style={{
+              margin: '2rem 0 1.5rem 0',
+              position: 'relative',
+              textAlign: 'center'
+            }}>
+              <div style={{
+                position: 'absolute',
+                top: '50%',
+                left: 0,
+                right: 0,
+                height: '1px',
+                background: 'linear-gradient(to right, transparent, #e2e8f0, transparent)'
+              }}></div>
+            </div>
+
+            {/* Bouton Devenir client */}
+            <div style={{ textAlign: 'center' }}>
+              <button
+                onClick={() => {
+                  // TODO: Navigation vers page d'inscription client
+                  console.log('Navigation vers inscription client');
+                }}
+                style={{
+                  background: 'linear-gradient(135deg, #10b981, #059669)',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '15px',
+                  padding: '1rem 2rem',
+                  fontSize: '1rem',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 4px 15px rgba(16, 185, 129, 0.3)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.75rem',
+                  margin: '0 auto',
+                  minWidth: '200px',
+                  justifyContent: 'center'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = 'translateY(-2px)';
+                  e.target.style.boxShadow = '0 8px 25px rgba(16, 185, 129, 0.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = 'translateY(0)';
+                  e.target.style.boxShadow = '0 4px 15px rgba(16, 185, 129, 0.3)';
+                }}
+              >
+                <span style={{ fontSize: '1.2rem' }}>👤</span>
+                <span>Devenir client ?</span>
+                <span style={{ fontSize: '0.8rem' }}>✨</span>
+              </button>
             </div>
           </div>
         </div>
