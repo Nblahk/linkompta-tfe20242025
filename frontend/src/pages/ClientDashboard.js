@@ -107,11 +107,29 @@ function ClientDashboard() {
       alignItems: 'center',
       marginBottom: '2rem',
     },
+    logoSection: {
+      flex: '0 0 auto',
+      display: 'flex',
+      alignItems: 'center',
+    },
+    logoText: {
+      fontSize: '1.8rem',
+      fontWeight: '900',
+      color: '#1e293b',
+      letterSpacing: '2px',
+      textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)',
+    },
+    searchSection: {
+      flex: '1',
+      display: 'flex',
+      justifyContent: 'center',
+      maxWidth: '500px',
+      margin: '0 2rem',
+    },
     searchBar: {
       position: 'relative',
+      width: '100%',
       maxWidth: '400px',
-      flex: 1,
-      marginRight: '2rem',
     },
     searchInput: {
       width: '100%',
@@ -134,6 +152,7 @@ function ClientDashboard() {
       display: 'flex',
       alignItems: 'center',
       gap: '1rem',
+      flex: '0 0 auto',
     },
     userName: {
       fontSize: '1rem',
@@ -314,14 +333,24 @@ function ClientDashboard() {
     <div style={styles.container}>
       {/* Header */}
       <div style={styles.header}>
-        <div style={styles.searchBar}>
-          <span style={styles.searchIcon}>🔍</span>
-          <input
-            type="text"
-            placeholder="Rechercher"
-            style={styles.searchInput}
-          />
+        {/* Logo Section */}
+        <div style={styles.logoSection}>
+          <div style={styles.logoText}>LINKOMPTA</div>
         </div>
+        
+        {/* Search Section */}
+        <div style={styles.searchSection}>
+          <div style={styles.searchBar}>
+            <span style={styles.searchIcon}>🔍</span>
+            <input
+              type="text"
+              placeholder="Rechercher"
+              style={styles.searchInput}
+            />
+          </div>
+        </div>
+        
+        {/* User Info Section */}
         <div style={styles.userInfo}>
           <span>🔔</span>
           <button 
