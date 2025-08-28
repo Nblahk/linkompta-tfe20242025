@@ -31,7 +31,7 @@ class ComptableUserListView(generics.ListAPIView):
 
 
 # Vue accessible seulement par CLIENT
-class ClientUserDetailView(generics.RetrieveAPIView):
+class ClientUserDetailView(generics.RetrieveUpdateAPIView):
     serializer_class = UserSerializer
     permission_classes = [IsClient]
 
@@ -58,7 +58,7 @@ class AdminAuditLogView(APIView):
         })
     
     
-class CurrentUserView(generics.RetrieveAPIView):
+class CurrentUserView(generics.RetrieveUpdateAPIView):
     serializer_class = UserSerializer
     permission_classes = [IsAuthenticated]
 

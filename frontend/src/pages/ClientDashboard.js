@@ -8,6 +8,7 @@ function ClientDashboard() {
   const [factures, setFactures] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [profileImage, setProfileImage] = useState(null);
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
@@ -57,6 +58,37 @@ function ClientDashboard() {
 
     fetchData();
   }, [token, navigate]);
+
+  // Charger l'image de profil depuis localStorage
+  useEffect(() => {
+    const savedImage = localStorage.getItem('profileImage');
+    if (savedImage) {
+      setProfileImage(savedImage);
+    }
+
+    // Écouter les changements de localStorage pour mettre à jour l'image
+    const handleStorageChange = () => {
+      const updatedImage = localStorage.getItem('profileImage');
+      setProfileImage(updatedImage);
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    
+    // Écouter les changements locaux (même fenêtre)
+    const checkForChanges = () => {
+      const currentImage = localStorage.getItem('profileImage');
+      if (currentImage !== profileImage) {
+        setProfileImage(currentImage);
+      }
+    };
+
+    const interval = setInterval(checkForChanges, 1000);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      clearInterval(interval);
+    };
+  }, [profileImage]);
 
   // Calculs des statistiques
   const totalFactures = factures.reduce((sum, f) => sum + parseFloat(f.montant || 0), 0);
@@ -140,6 +172,14 @@ function ClientDashboard() {
       color: 'white',
       fontWeight: 'bold',
       fontSize: '1.2rem',
+      overflow: 'hidden',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    },
+    avatarImage: {
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
     },
     statsGrid: {
       display: 'grid',
@@ -300,7 +340,15 @@ function ClientDashboard() {
             {userInfo.first_name} {userInfo.last_name}
           </button>
           <div style={styles.avatar}>
-            {userInfo.first_name?.[0]}{userInfo.last_name?.[0]}
+            {profileImage ? (
+              <img 
+                src={profileImage} 
+                alt="Photo de profil" 
+                style={styles.avatarImage}
+              />
+            ) : (
+              `${userInfo.first_name?.[0] || ''}${userInfo.last_name?.[0] || ''}`
+            )}
           </div>
           <button 
             style={styles.logoutButton}

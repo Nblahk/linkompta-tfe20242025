@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics
 from .models import Client, Dossier
-from .serializers import ClientSerializer, DossierSerializer
+from .serializers import ClientSerializer, DossierSerializer, ClientProfileSerializer
 from .permissions import IsAdmin, IsComptable, IsClient
 
 # ADMIN : voir tous les clients
@@ -18,9 +18,17 @@ class ComptableClientListView(generics.ListAPIView):
     def get_queryset(self):
         return Client.objects.filter(comptable=self.request.user)
 
-# CLIENT : voir son propre profil
-class ClientDetailView(generics.RetrieveAPIView):
+# CLIENT : voir et modifier son propre profil
+class ClientDetailView(generics.RetrieveUpdateAPIView):
     serializer_class = ClientSerializer
+    permission_classes = [IsClient]
+
+    def get_object(self):
+        return Client.objects.get(user=self.request.user)
+
+# CLIENT : voir et modifier son profil complet (User + Client)
+class ClientProfileView(generics.RetrieveUpdateAPIView):
+    serializer_class = ClientProfileSerializer
     permission_classes = [IsClient]
 
     def get_object(self):

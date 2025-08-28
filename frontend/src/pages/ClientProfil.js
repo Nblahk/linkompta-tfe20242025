@@ -8,6 +8,8 @@ function ClientProfil() {
   const [error, setError] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({});
+  const [profileImage, setProfileImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
@@ -29,7 +31,8 @@ function ClientProfil() {
       }
 
       try {
-        const userRes = await api.get("users/me/", {
+        // Récupérer les infos utilisateur et client
+        const userRes = await api.get("clients/me/profile/", {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUserInfo(userRes.data);
@@ -45,6 +48,14 @@ function ClientProfil() {
     fetchUserInfo();
   }, [token, navigate]);
 
+  // Charger l'image de profil existante
+  useEffect(() => {
+    const savedImage = localStorage.getItem('profileImage');
+    if (savedImage) {
+      setImagePreview(savedImage);
+    }
+  }, []);
+
   const handleEditToggle = () => {
     setIsEditing(!isEditing);
     setFormData(userInfo); // Reset les données si on annule
@@ -58,9 +69,29 @@ function ClientProfil() {
     }));
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setProfileImage(file);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result);
+        // Sauvegarder immédiatement dans localStorage pour affichage
+        localStorage.setItem('profileImage', reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleRemoveImage = () => {
+    setProfileImage(null);
+    setImagePreview(null);
+    localStorage.removeItem('profileImage');
+  };
+
   const handleSave = async () => {
     try {
-      const response = await api.put("users/me/", formData, {
+      const response = await api.put("clients/me/profile/", formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setUserInfo(response.data);
@@ -166,6 +197,50 @@ function ClientProfil() {
       fontSize: '3rem',
       fontWeight: '600',
       margin: '0 auto 2rem auto',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      position: 'relative',
+      overflow: 'hidden',
+    },
+    avatarImage: {
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      borderRadius: '50%',
+    },
+    imageUploadSection: {
+      textAlign: 'center',
+      marginBottom: '2rem',
+      padding: '1.5rem',
+      border: '2px dashed #e5e7eb',
+      borderRadius: '12px',
+      background: '#f9fafb',
+    },
+    imageUploadButton: {
+      background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)',
+      color: 'white',
+      border: 'none',
+      borderRadius: '8px',
+      padding: '0.75rem 1.5rem',
+      fontSize: '1rem',
+      fontWeight: '500',
+      cursor: 'pointer',
+      transition: 'all 0.3s ease',
+      marginRight: '1rem',
+    },
+    removeImageButton: {
+      background: 'linear-gradient(135deg, #ef4444, #dc2626)',
+      color: 'white',
+      border: 'none',
+      borderRadius: '8px',
+      padding: '0.75rem 1.5rem',
+      fontSize: '1rem',
+      fontWeight: '500',
+      cursor: 'pointer',
+      transition: 'all 0.3s ease',
+    },
+    hiddenInput: {
+      display: 'none',
     },
     formGrid: {
       display: 'grid',
@@ -309,12 +384,50 @@ function ClientProfil() {
       <div style={styles.profileCard}>
         <div style={styles.profileHeader}>
           <div style={styles.avatarLarge}>
-            {userInfo.first_name?.[0]}{userInfo.last_name?.[0]}
+            {imagePreview ? (
+              <img 
+                src={imagePreview} 
+                alt="Photo de profil" 
+                style={styles.avatarImage}
+              />
+            ) : (
+              `${userInfo.first_name?.[0] || ''}${userInfo.last_name?.[0] || ''}`
+            )}
           </div>
           <h1 style={styles.profileTitle}>Mon Profil</h1>
           <p style={styles.profileSubtitle}>
             Gérez vos informations personnelles
           </p>
+        </div>
+
+        {/* Section de gestion de photo de profil */}
+        <div style={styles.imageUploadSection}>
+          <h3 style={{ marginBottom: '1rem', color: '#374151' }}>Photo de profil</h3>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            style={styles.hiddenInput}
+            id="imageUpload"
+          />
+          <label 
+            htmlFor="imageUpload" 
+            style={styles.imageUploadButton}
+            onMouseEnter={(e) => e.target.style.transform = 'translateY(-2px)'}
+            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}
+          >
+            📷 Changer la photo
+          </label>
+          {imagePreview && (
+            <button 
+              style={styles.removeImageButton}
+              onClick={handleRemoveImage}
+              onMouseEnter={(e) => e.target.style.transform = 'translateY(-2px)'}
+              onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}
+            >
+              🗑️ Supprimer la photo
+            </button>
+          )}
         </div>
 
         <div style={styles.formGrid}>
@@ -374,15 +487,15 @@ function ClientProfil() {
             {isEditing ? (
               <input
                 type="tel"
-                name="telephone"
-                value={formData.telephone || ''}
+                name="phone"
+                value={formData.phone || ''}
                 onChange={handleInputChange}
                 style={styles.input}
                 onFocus={(e) => e.target.style.borderColor = '#3b82f6'}
                 onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
               />
             ) : (
-              <div style={styles.readOnlyField}>{userInfo.telephone || 'Non renseigné'}</div>
+              <div style={styles.readOnlyField}>{userInfo.phone || 'Non renseigné'}</div>
             )}
           </div>
 
@@ -391,15 +504,15 @@ function ClientProfil() {
             {isEditing ? (
               <input
                 type="text"
-                name="adresse"
-                value={formData.adresse || ''}
+                name="address"
+                value={formData.address || ''}
                 onChange={handleInputChange}
                 style={styles.input}
                 onFocus={(e) => e.target.style.borderColor = '#3b82f6'}
                 onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
               />
             ) : (
-              <div style={styles.readOnlyField}>{userInfo.adresse || 'Non renseignée'}</div>
+              <div style={styles.readOnlyField}>{userInfo.address || 'Non renseignée'}</div>
             )}
           </div>
 
