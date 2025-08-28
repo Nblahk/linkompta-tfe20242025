@@ -139,7 +139,7 @@ function ClientDashboard() {
       fontSize: '1rem',
       fontWeight: '600',
       color: '#1e293b',
-      background: 'none',
+      background: 'rgba(226, 232, 240, 0.4)',
       border: 'none',
       cursor: 'pointer',
       padding: '0.5rem 1rem',
@@ -147,7 +147,7 @@ function ClientDashboard() {
       transition: 'all 0.3s ease',
     },
     userNameHover: {
-      background: 'linear-gradient(135deg, #f1f5f9, #e2e8f0)',
+      background: 'linear-gradient(135deg, #e2e8f0, #cbd5e1)',
       transform: 'translateY(-1px)',
     },
     logoutButton: {
@@ -328,11 +328,11 @@ function ClientDashboard() {
             style={styles.userName}
             onClick={handleProfileClick}
             onMouseEnter={(e) => {
-              e.target.style.background = 'linear-gradient(135deg, #f1f5f9, #e2e8f0)';
+              e.target.style.background = 'linear-gradient(135deg, #e2e8f0, #cbd5e1)';
               e.target.style.transform = 'translateY(-1px)';
             }}
             onMouseLeave={(e) => {
-              e.target.style.background = 'none';
+              e.target.style.background = 'rgba(226, 232, 240, 0.4)';
               e.target.style.transform = 'translateY(0)';
             }}
             title="Voir mon profil"

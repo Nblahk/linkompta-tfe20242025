@@ -10,6 +10,7 @@ function ClientProfil() {
   const [formData, setFormData] = useState({});
   const [profileImage, setProfileImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
+  const [successMessage, setSuccessMessage] = useState('');
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
@@ -78,6 +79,12 @@ function ClientProfil() {
         setImagePreview(reader.result);
         // Sauvegarder immédiatement dans localStorage pour affichage
         localStorage.setItem('profileImage', reader.result);
+        
+        // Afficher message de succès
+        setSuccessMessage("Photo de profil modifiée avec succès !");
+        setTimeout(() => {
+          setSuccessMessage('');
+        }, 3000);
       };
       reader.readAsDataURL(file);
     }
@@ -87,6 +94,12 @@ function ClientProfil() {
     setProfileImage(null);
     setImagePreview(null);
     localStorage.removeItem('profileImage');
+    
+    // Afficher message de succès
+    setSuccessMessage("Photo de profil supprimée avec succès !");
+    setTimeout(() => {
+      setSuccessMessage('');
+    }, 3000);
   };
 
   const handleSave = async () => {
@@ -96,7 +109,12 @@ function ClientProfil() {
       });
       setUserInfo(response.data);
       setIsEditing(false);
-      alert("Profil mis à jour avec succès !");
+      setSuccessMessage("Profil modifié avec succès !");
+      
+      // Masquer le message après 3 secondes
+      setTimeout(() => {
+        setSuccessMessage('');
+      }, 3000);
     } catch (err) {
       console.error("Erreur lors de la sauvegarde:", err);
       alert("Erreur lors de la mise à jour du profil");
@@ -242,6 +260,20 @@ function ClientProfil() {
     hiddenInput: {
       display: 'none',
     },
+    successMessage: {
+      background: 'linear-gradient(135deg, #10b981, #059669)',
+      color: 'white',
+      padding: '1rem 2rem',
+      borderRadius: '12px',
+      marginBottom: '2rem',
+      textAlign: 'center',
+      fontSize: '1.1rem',
+      fontWeight: '500',
+      boxShadow: '0 4px 12px rgba(16, 185, 129, 0.3)',
+      transform: 'translateY(0)',
+      opacity: 1,
+      transition: 'all 0.3s ease-in-out',
+    },
     formGrid: {
       display: 'grid',
       gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
@@ -379,6 +411,13 @@ function ClientProfil() {
           </button>
         </div>
       </div>
+
+      {/* Message de succès */}
+      {successMessage && (
+        <div style={styles.successMessage}>
+          ✅ {successMessage}
+        </div>
+      )}
 
       {/* Profile Card */}
       <div style={styles.profileCard}>
