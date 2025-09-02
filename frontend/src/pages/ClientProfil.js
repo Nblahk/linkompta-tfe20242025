@@ -14,12 +14,6 @@ function ClientProfil() {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("role");
-    navigate("/?showLogin=true");
-  };
-
   const handleBackToDashboard = () => {
     navigate("/dashboard");
   };
@@ -383,33 +377,34 @@ function ClientProfil() {
   }
 
   return (
-    <div style={styles.container}>
-      {/* Header */}
-      <div style={styles.header}>
-        <button 
-          style={styles.backButton}
+    <div>
+      {/* Bouton retour en haut */}
+      <div style={{ padding: "10px 20px", backgroundColor: "#f8f9fa", borderBottom: "1px solid #e9ecef" }}>
+        <button
+          style={{
+            background: 'linear-gradient(135deg, #64748b, #475569)',
+            color: 'white',
+            border: 'none',
+            borderRadius: '8px',
+            padding: '0.75rem 1.5rem',
+            fontSize: '1rem',
+            fontWeight: '500',
+            cursor: 'pointer',
+            transition: 'all 0.3s ease',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+          }}
           onClick={handleBackToDashboard}
-          onMouseEnter={(e) => e.target.style.transform = 'translateY(-2px)'}
-          onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}
+          onMouseEnter={(e) => {
+            e.target.style.transform = 'translateY(-2px)';
+            e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.transform = 'translateY(0)';
+            e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+          }}
         >
           ← Retour au tableau de bord
         </button>
-        <div style={styles.userInfo}>
-          <span style={styles.userName}>
-            {userInfo.first_name} {userInfo.last_name}
-          </span>
-          <div style={styles.avatar}>
-            {userInfo.first_name?.[0]}{userInfo.last_name?.[0]}
-          </div>
-          <button 
-            style={styles.logoutButton}
-            onClick={handleLogout}
-            onMouseEnter={(e) => e.target.style.transform = 'translateY(-2px)'}
-            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}
-          >
-            Déconnexion
-          </button>
-        </div>
       </div>
 
       {/* Message de succès */}

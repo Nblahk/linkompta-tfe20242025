@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+﻿import React, { useEffect, useState } from "react";
 import api from "../api/axios";
 
 function RendezVousComptable() {
@@ -27,7 +27,7 @@ function RendezVousComptable() {
     fetchRendezVous();
   }, [token]);
 
-  // Mettre à jour le statut d'un rendez-vous
+  // Mettre Ã  jour le statut d'un rendez-vous
   const updateStatus = async (rdvId, newStatus) => {
     try {
       await api.patch(`rendezvous/${rdvId}/update-status/`, 
@@ -41,8 +41,8 @@ function RendezVousComptable() {
       });
       setRendezvous(res.data);
     } catch (err) {
-      console.error("Erreur lors de la mise à jour :", err);
-      setError("Erreur lors de la mise à jour du statut");
+      console.error("Erreur lors de la mise Ã  jour :", err);
+      setError("Erreur lors de la mise Ã  jour du statut");
     }
   };
 
@@ -59,9 +59,9 @@ function RendezVousComptable() {
   const getStatusText = (statut) => {
     const statutMap = {
       'en_attente': 'En attente',
-      'accepte': 'Accepté',
-      'refuse': 'Refusé',
-      'termine': 'Terminé'
+      'accepte': 'AcceptÃ©',
+      'refuse': 'RefusÃ©',
+      'termine': 'TerminÃ©'
     };
     return statutMap[statut] || statut;
   };
@@ -69,10 +69,11 @@ function RendezVousComptable() {
   if (loading) return <div className="text-center py-4">Chargement...</div>;
 
   return (
-    <div className="container mx-auto px-4 py-6">
+    <div>
+      <div className="container mx-auto px-4 py-6">
       <div className="bg-white rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-bold text-gray-800 mb-6">
-          📅 Demandes de Rendez-vous
+          ðŸ“… Demandes de Rendez-vous
         </h2>
 
         {error && (
@@ -83,7 +84,7 @@ function RendezVousComptable() {
 
         {rendezvous.length === 0 ? (
           <div className="text-center py-8 text-gray-500">
-            <p>Aucune demande de rendez-vous trouvée.</p>
+            <p>Aucune demande de rendez-vous trouvÃ©e.</p>
           </div>
         ) : (
           <div className="space-y-4">
@@ -102,11 +103,11 @@ function RendezVousComptable() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-3">
                       <div>
-                        <span className="text-sm font-medium text-gray-700">📧 Email:</span>
+                        <span className="text-sm font-medium text-gray-700">ðŸ“§ Email:</span>
                         <p className="text-sm text-gray-600">{rdv.client?.email}</p>
                       </div>
                       <div>
-                        <span className="text-sm font-medium text-gray-700">📅 Date souhaitée:</span>
+                        <span className="text-sm font-medium text-gray-700">ðŸ“… Date souhaitÃ©e:</span>
                         <p className="text-sm text-gray-600">
                           {new Date(rdv.date).toLocaleDateString('fr-FR', {
                             weekday: 'long',
@@ -119,7 +120,7 @@ function RendezVousComptable() {
                         </p>
                       </div>
                       <div>
-                        <span className="text-sm font-medium text-gray-700">📝 Demandé le:</span>
+                        <span className="text-sm font-medium text-gray-700">ðŸ“ DemandÃ© le:</span>
                         <p className="text-sm text-gray-600">
                           {new Date(rdv.date_creation).toLocaleDateString('fr-FR')}
                         </p>
@@ -127,7 +128,7 @@ function RendezVousComptable() {
                     </div>
 
                     <div className="mb-3">
-                      <span className="text-sm font-medium text-gray-700">💼 Motif:</span>
+                      <span className="text-sm font-medium text-gray-700">ðŸ’¼ Motif:</span>
                       <p className="text-sm text-gray-600 mt-1">{rdv.motif}</p>
                     </div>
                   </div>
@@ -140,13 +141,13 @@ function RendezVousComptable() {
                           onClick={() => updateStatus(rdv.id, 'accepte')}
                           className="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700"
                         >
-                          ✅ Accepter
+                          âœ… Accepter
                         </button>
                         <button
                           onClick={() => updateStatus(rdv.id, 'refuse')}
                           className="bg-red-600 text-white px-3 py-1 rounded text-sm hover:bg-red-700"
                         >
-                          ❌ Refuser
+                          âŒ Refuser
                         </button>
                       </>
                     )}
@@ -156,7 +157,7 @@ function RendezVousComptable() {
                         onClick={() => updateStatus(rdv.id, 'termine')}
                         className="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700"
                       >
-                        ✅ Marquer terminé
+                        âœ… Marquer terminÃ©
                       </button>
                     )}
                   </div>
@@ -165,6 +166,7 @@ function RendezVousComptable() {
             ))}
           </div>
         )}
+      </div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+﻿import React, { useEffect, useState } from "react";
 import api from "../api/axios";
 
 function Messagerie() {
@@ -17,7 +17,7 @@ function Messagerie() {
   const token = localStorage.getItem("token");
   const userRole = localStorage.getItem("role");
 
-  // Charger les données
+  // Charger les donnÃ©es
   useEffect(() => {
     fetchMessages();
     fetchUsers();
@@ -28,11 +28,11 @@ function Messagerie() {
       setLoading(true);
       const headers = { Authorization: `Bearer ${token}` };
       
-      // Messages reçus
+      // Messages reÃ§us
       const recusRes = await api.get("messagerie/recus/", { headers });
       setMessages(recusRes.data);
       
-      // Messages envoyés
+      // Messages envoyÃ©s
       const envoyesRes = await api.get("messagerie/envoyes/", { headers });
       setMessagesEnvoyes(envoyesRes.data);
       
@@ -50,13 +50,13 @@ function Messagerie() {
       const headers = { Authorization: `Bearer ${token}` };
       let endpoint = "";
       
-      // Selon le rôle, on charge différents utilisateurs
+      // Selon le rÃ´le, on charge diffÃ©rents utilisateurs
       if (userRole === 'admin') {
         endpoint = "users/admin-list/";
       } else if (userRole === 'comptable') {
         endpoint = "clients/comptable-list/"; // Ses clients
       } else {
-        // Pour un client, on ne peut écrire qu'à son comptable
+        // Pour un client, on ne peut Ã©crire qu'Ã  son comptable
         const userRes = await api.get("users/me/", { headers });
         if (userRes.data.client_profile?.comptable) {
           setUsers([userRes.data.client_profile.comptable]);
@@ -120,20 +120,21 @@ function Messagerie() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-6">
+    <div>
+      <div className="container mx-auto px-4 py-6">
       <div className="bg-white rounded-lg shadow-md">
         
         {/* Header */}
         <div className="border-b border-gray-200 p-6">
           <div className="flex justify-between items-center">
             <h2 className="text-2xl font-bold text-gray-800">
-              💬 Messagerie
+              ðŸ’¬ Messagerie
             </h2>
             <button
               onClick={() => setShowSendForm(!showSendForm)}
               className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
             >
-              ✉️ Nouveau Message
+              âœ‰ï¸ Nouveau Message
             </button>
           </div>
         </div>
@@ -159,7 +160,7 @@ function Messagerie() {
                   className="w-full border border-gray-300 rounded-md px-3 py-2"
                   required
                 >
-                  <option value="">Sélectionner un destinataire</option>
+                  <option value="">SÃ©lectionner un destinataire</option>
                   {users.map((user) => (
                     <option key={user.id || user.user?.id} value={user.id || user.user?.id}>
                       {user.first_name || user.user?.first_name} {user.last_name || user.user?.last_name}
@@ -201,7 +202,7 @@ function Messagerie() {
                   className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
                   disabled={loading}
                 >
-                  📤 Envoyer
+                  ðŸ“¤ Envoyer
                 </button>
                 <button
                   type="button"
@@ -226,7 +227,7 @@ function Messagerie() {
                   : 'border-transparent text-gray-500 hover:text-gray-700'
               }`}
             >
-              📥 Messages Reçus ({messages.length})
+              ðŸ“¥ Messages ReÃ§us ({messages.length})
             </button>
             <button
               onClick={() => setActiveTab('envoyes')}
@@ -236,7 +237,7 @@ function Messagerie() {
                   : 'border-transparent text-gray-500 hover:text-gray-700'
               }`}
             >
-              📤 Messages Envoyés ({messagesEnvoyes.length})
+              ðŸ“¤ Messages EnvoyÃ©s ({messagesEnvoyes.length})
             </button>
           </nav>
         </div>
@@ -244,10 +245,10 @@ function Messagerie() {
         {/* Liste des messages */}
         <div className="p-6">
           {activeTab === 'recus' ? (
-            // Messages reçus
+            // Messages reÃ§us
             messages.length === 0 ? (
               <div className="text-center py-8 text-gray-500">
-                <p>Aucun message reçu.</p>
+                <p>Aucun message reÃ§u.</p>
               </div>
             ) : (
               <div className="space-y-3">
@@ -291,10 +292,10 @@ function Messagerie() {
               </div>
             )
           ) : (
-            // Messages envoyés
+            // Messages envoyÃ©s
             messagesEnvoyes.length === 0 ? (
               <div className="text-center py-8 text-gray-500">
-                <p>Aucun message envoyé.</p>
+                <p>Aucun message envoyÃ©.</p>
               </div>
             ) : (
               <div className="space-y-3">
@@ -303,7 +304,7 @@ function Messagerie() {
                     <div className="flex justify-between items-start mb-2">
                       <div>
                         <div className="font-medium text-gray-900">
-                          À: {message.destinataire?.first_name} {message.destinataire?.last_name}
+                          Ã€: {message.destinataire?.first_name} {message.destinataire?.last_name}
                         </div>
                         <div className="text-sm text-gray-600">{message.destinataire?.email}</div>
                       </div>
@@ -325,6 +326,7 @@ function Messagerie() {
             )
           )}
         </div>
+      </div>
       </div>
     </div>
   );

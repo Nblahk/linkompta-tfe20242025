@@ -147,8 +147,8 @@ function DocumentsClient() {
 
   return (
     <div>
-      {/* Bouton retour en haut */}
-      <div style={{ padding: "10px 20px", backgroundColor: "#f8f9fa", borderBottom: "1px solid #e9ecef" }}>
+      <div style={{ padding: "20px" }}>
+        {/* Bouton retour */}
         <button
           style={{
             background: 'linear-gradient(135deg, #64748b, #475569)',
@@ -160,23 +160,15 @@ function DocumentsClient() {
             fontWeight: '500',
             cursor: 'pointer',
             transition: 'all 0.3s ease',
-            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            marginBottom: '1rem',
           }}
           onClick={handleBackToDashboard}
-          onMouseEnter={(e) => {
-            e.target.style.transform = 'translateY(-2px)';
-            e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.transform = 'translateY(0)';
-            e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-          }}
+          onMouseEnter={(e) => e.target.style.transform = 'translateY(-2px)'}
+          onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}
         >
           ← Retour au tableau de bord
         </button>
-      </div>
-      
-      <div style={{ padding: "20px" }}>
+        
         <h2>📂 Mes Documents</h2>
 
         {error && (

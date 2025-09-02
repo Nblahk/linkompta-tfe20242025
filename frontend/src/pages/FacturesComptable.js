@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+﻿import React, { useEffect, useState } from "react";
 import api from "../api/axios";
 
 function FacturesComptable() {
@@ -34,7 +34,7 @@ function FacturesComptable() {
         setError(null);
       } catch (err) {
         console.error("Erreur lors du chargement :", err);
-        setError("Erreur lors du chargement des données");
+        setError("Erreur lors du chargement des donnÃ©es");
       } finally {
         setLoading(false);
       }
@@ -42,7 +42,7 @@ function FacturesComptable() {
     fetchData();
   }, [token]);
 
-  // Créer une nouvelle facture
+  // CrÃ©er une nouvelle facture
   const handleCreateFacture = async (e) => {
     e.preventDefault();
     try {
@@ -68,8 +68,8 @@ function FacturesComptable() {
       setShowCreateForm(false);
       setError(null);
     } catch (err) {
-      console.error("Erreur lors de la création :", err);
-      setError("Erreur lors de la création de la facture");
+      console.error("Erreur lors de la crÃ©ation :", err);
+      setError("Erreur lors de la crÃ©ation de la facture");
     } finally {
       setLoading(false);
     }
@@ -87,8 +87,8 @@ function FacturesComptable() {
   const getStatusText = (statut) => {
     const statutMap = {
       'en_attente': 'En attente',
-      'payee': 'Payée',
-      'annulee': 'Annulée'
+      'payee': 'PayÃ©e',
+      'annulee': 'AnnulÃ©e'
     };
     return statutMap[statut] || statut;
   };
@@ -96,11 +96,12 @@ function FacturesComptable() {
   if (loading) return <div className="text-center py-4">Chargement...</div>;
 
   return (
-    <div className="container mx-auto px-4 py-6">
+    <div>
+      <div className="container mx-auto px-4 py-6">
       <div className="bg-white rounded-lg shadow-md p-6">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-gray-800">
-            💰 Gestion des Factures
+            ðŸ’° Gestion des Factures
           </h2>
           <button
             onClick={() => setShowCreateForm(!showCreateForm)}
@@ -116,10 +117,10 @@ function FacturesComptable() {
           </div>
         )}
 
-        {/* Formulaire de création */}
+        {/* Formulaire de crÃ©ation */}
         {showCreateForm && (
           <div className="mb-6 bg-gray-50 p-4 rounded-lg">
-            <h3 className="text-lg font-semibold mb-4">Créer une nouvelle facture</h3>
+            <h3 className="text-lg font-semibold mb-4">CrÃ©er une nouvelle facture</h3>
             <form onSubmit={handleCreateFacture} className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -131,7 +132,7 @@ function FacturesComptable() {
                   className="w-full border border-gray-300 rounded-md px-3 py-2"
                   required
                 >
-                  <option value="">Sélectionner un client</option>
+                  <option value="">SÃ©lectionner un client</option>
                   {clients.map((client) => (
                     <option key={client.id} value={client.id}>
                       {client.user?.first_name} {client.user?.last_name}
@@ -167,7 +168,7 @@ function FacturesComptable() {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Montant HTVA (€) *
+                  Montant HTVA (â‚¬) *
                 </label>
                 <input
                   type="number"
@@ -201,7 +202,7 @@ function FacturesComptable() {
                   className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
                   disabled={loading}
                 >
-                  Créer la Facture
+                  CrÃ©er la Facture
                 </button>
                 <button
                   type="button"
@@ -218,14 +219,14 @@ function FacturesComptable() {
         {/* Liste des factures */}
         {factures.length === 0 ? (
           <div className="text-center py-8 text-gray-500">
-            <p>Aucune facture trouvée.</p>
+            <p>Aucune facture trouvÃ©e.</p>
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="min-w-full table-auto">
               <thead>
                 <tr className="bg-gray-100">
-                  <th className="px-4 py-2 text-left">N° Facture</th>
+                  <th className="px-4 py-2 text-left">NÂ° Facture</th>
                   <th className="px-4 py-2 text-left">Client</th>
                   <th className="px-4 py-2 text-left">Titre</th>
                   <th className="px-4 py-2 text-left">Montant HTVA</th>
@@ -253,9 +254,9 @@ function FacturesComptable() {
                         <div className="text-sm text-gray-500">{facture.description}</div>
                       )}
                     </td>
-                    <td className="px-4 py-3">{facture.montant_htva} €</td>
+                    <td className="px-4 py-3">{facture.montant_htva} â‚¬</td>
                     <td className="px-4 py-3">{facture.tva}%</td>
-                    <td className="px-4 py-3 font-bold">{facture.montant_tvac} €</td>
+                    <td className="px-4 py-3 font-bold">{facture.montant_tvac} â‚¬</td>
                     <td className="px-4 py-3">
                       <span className={`px-2 py-1 text-xs font-semibold rounded-full ${getStatusBadgeClass(facture.statut)}`}>
                         {getStatusText(facture.statut)}
@@ -270,6 +271,7 @@ function FacturesComptable() {
             </table>
           </div>
         )}
+      </div>
       </div>
     </div>
   );

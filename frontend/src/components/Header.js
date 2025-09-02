@@ -1,10 +1,27 @@
-import React, { useEffect, useState } from "react";
-import api from "../api/axios";
+import React from "react";
 
-function Header() {
-  const [user, setUser] = useState(null);
-  const role = localStorage.getItem("role");
-  const token = localStorage.getItem("token");
+function Header({ userType = 'client' }) {
+  return (
+    <header style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      zIndex: 1000,
+      backgroundColor: 'white',
+      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+      padding: '1rem 2rem',
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    }}>
+      <div>LINKOMPTA</div>
+      <div>Header Simple - {userType}</div>
+    </header>
+  );
+}
+
+export default Header;
 
   useEffect(() => {
     const fetchUserInfo = async () => {
@@ -23,70 +40,229 @@ function Header() {
     }
   }, [token]);
 
-  const getRoleText = (role) => {
-    switch (role) {
-      case 'admin': return 'Administrateur';
-      case 'comptable': return 'Comptable';
-      case 'client': return 'Client';
-      default: return role;
+  // Charger l'image de profil depuis localStorage
+  useEffect(() => {
+    const savedImage = localStorage.getItem('profileImage');
+    if (savedImage) {
+      setProfileImage(savedImage);
+    }
+
+    // Écouter les changements de localStorage
+    const handleStorageChange = () => {
+      const updatedImage = localStorage.getItem('profileImage');
+      setProfileImage(updatedImage);
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    
+    const checkForChanges = () => {
+      const currentImage = localStorage.getItem('profileImage');
+      if (currentImage !== profileImage) {
+        setProfileImage(currentImage);
+      }
+    };
+
+    const interval = setInterval(checkForChanges, 1000);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      clearInterval(interval);
+    };
+  }, [profileImage]);
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    localStorage.removeItem('role');
+    localStorage.removeItem('profileImage');
+    navigate('/');
+  };
+
+  const handleProfileClick = () => {
+    if (role === 'client' || userType === 'client') {
+      navigate('/client-profil');
+    } else if (userType === 'admin') {
+      navigate('/admin-panel');
+    } else {
+      navigate('/profil');
     }
   };
 
-  const getRoleBadgeClass = (role) => {
-    switch (role) {
-      case 'admin': return 'bg-red-500';
-      case 'comptable': return 'bg-blue-500';
-      case 'client': return 'bg-green-500';
-      default: return 'bg-gray-500';
+  const handleLogoClick = () => {
+    if (role === 'client' || userType === 'client') {
+      navigate('/client-dashboard');
+    } else if (userType === 'admin') {
+      navigate('/admin-panel');
+    } else {
+      navigate('/dashboard');
     }
+  };
+
+  const styles = {
+    header: {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      zIndex: 1000,
+      backgroundColor: 'white',
+      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+      padding: '1rem 2rem',
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+    logoSection: {
+      flex: '0 0 auto',
+      display: 'flex',
+      alignItems: 'center',
+    },
+    logoText: {
+      fontSize: '1.8rem',
+      fontWeight: '900',
+      color: '#1e293b',
+      letterSpacing: '2px',
+      textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)',
+      cursor: 'pointer',
+    },
+    searchSection: {
+      flex: '1',
+      display: 'flex',
+      justifyContent: 'center',
+      maxWidth: '500px',
+      margin: '0 2rem',
+    },
+    searchBar: {
+      position: 'relative',
+      width: '100%',
+      maxWidth: '400px',
+    },
+    searchInput: {
+      width: '100%',
+      padding: '0.75rem 1rem 0.75rem 3rem',
+      border: '2px solid #e2e8f0',
+      borderRadius: '12px',
+      fontSize: '1rem',
+      background: 'white',
+      transition: 'all 0.3s ease',
+    },
+    searchIcon: {
+      position: 'absolute',
+      left: '1rem',
+      top: '50%',
+      transform: 'translateY(-50%)',
+      color: '#64748b',
+      fontSize: '1.2rem',
+    },
+    userInfo: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '1rem',
+      flex: '0 0 auto',
+    },
+    userName: {
+      fontSize: '1rem',
+      fontWeight: '600',
+      color: '#1e293b',
+      background: 'rgba(226, 232, 240, 0.4)',
+      border: 'none',
+      cursor: 'pointer',
+      padding: '0.5rem 1rem',
+      borderRadius: '8px',
+      transition: 'all 0.3s ease',
+    },
+    logoutButton: {
+      background: 'linear-gradient(135deg, #ef4444, #dc2626)',
+      color: 'white',
+      border: 'none',
+      borderRadius: '8px',
+      padding: '0.5rem 1rem',
+      fontSize: '0.9rem',
+      fontWeight: '500',
+      cursor: 'pointer',
+      transition: 'all 0.3s ease',
+    },
+    avatar: {
+      width: '40px',
+      height: '40px',
+      borderRadius: '50%',
+      background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: 'white',
+      fontWeight: 'bold',
+      fontSize: '1.2rem',
+      overflow: 'hidden',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      cursor: 'pointer',
+    },
   };
 
   return (
-    <header className="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
-      <div className="flex justify-between items-center">
-        {/* Titre de la page courante */}
-        <div>
-          <h1 className="text-2xl font-semibold text-gray-800">
-            {window.location.pathname === '/' && 'Tableau de bord'}
-            {window.location.pathname === '/documents' && (role === 'client' ? 'Mes Documents' : 'Documents Clients')}
-            {window.location.pathname === '/factures' && (role === 'client' ? 'Mes Factures' : 'Gestion des Factures')}
-            {window.location.pathname === '/rendezvous' && (role === 'client' ? 'Mes Rendez-vous' : 'Demandes de Rendez-vous')}
-            {window.location.pathname === '/clients' && 'Mes Clients'}
-            {window.location.pathname === '/messagerie' && 'Messagerie'}
-            {window.location.pathname === '/admin' && 'Administration'}
-            {window.location.pathname === '/profil' && 'Mon Profil'}
-          </h1>
-          <p className="text-sm text-gray-600 mt-1">
-            {new Date().toLocaleDateString('fr-FR', {
-              weekday: 'long',
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })}
-          </p>
+    <header style={styles.header}>
+      {/* Section Logo */}
+      <div style={styles.logoSection}>
+        <div style={styles.logoText} onClick={handleLogoClick}>
+          LINKOMPTA
         </div>
+      </div>
 
-        {/* Informations utilisateur */}
-        <div className="flex items-center space-x-4">
-          {user && (
-            <div className="text-right">
-              <div className="text-sm font-medium text-gray-900">
-                {user.first_name} {user.last_name}
-              </div>
-              <div className="flex items-center justify-end space-x-2">
-                <span className="text-xs text-gray-500">{user.email}</span>
-                <span className={`px-2 py-1 text-xs font-semibold rounded-full text-white ${getRoleBadgeClass(role)}`}>
-                  {getRoleText(role)}
-                </span>
-              </div>
-            </div>
-          )}
-          
-          {/* Avatar */}
-          <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
-            {user ? `${user.first_name?.[0] || ''}${user.last_name?.[0] || ''}` : '👤'}
-          </div>
+      {/* Section Recherche */}
+      <div style={styles.searchSection}>
+        <div style={styles.searchBar}>
+          <span style={styles.searchIcon}>🔍</span>
+          <input
+            type="text"
+            placeholder="Rechercher..."
+            style={styles.searchInput}
+          />
         </div>
+      </div>
+
+      {/* Section Utilisateur */}
+      <div style={styles.userInfo}>
+        <span style={{ fontSize: '1.2rem' }}>🔔</span>
+        <button
+          onClick={handleProfileClick}
+          style={styles.userName}
+          onMouseEnter={(e) => {
+            e.target.style.background = 'linear-gradient(135deg, #e2e8f0, #cbd5e1)';
+            e.target.style.transform = 'translateY(-1px)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.background = 'rgba(226, 232, 240, 0.4)';
+            e.target.style.transform = 'translateY(0)';
+          }}
+        >
+          {user ? `${user.first_name} ${user.last_name}` : 'Utilisateur'}
+        </button>
+        <div
+          style={{
+            ...styles.avatar,
+            backgroundImage: profileImage ? `url(${profileImage})` : 'none'
+          }}
+          onClick={handleProfileClick}
+        >
+          {!profileImage && (user ? user.first_name?.[0]?.toUpperCase() || 'U' : 'U')}
+        </div>
+        <button
+          onClick={handleLogout}
+          style={styles.logoutButton}
+          onMouseEnter={(e) => {
+            e.target.style.background = 'linear-gradient(135deg, #dc2626, #b91c1c)';
+            e.target.style.transform = 'translateY(-1px)';
+            e.target.style.boxShadow = '0 4px 12px rgba(239, 68, 68, 0.4)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+            e.target.style.transform = 'translateY(0)';
+            e.target.style.boxShadow = 'none';
+          }}
+        >
+          Déconnexion
+        </button>
       </div>
     </header>
   );

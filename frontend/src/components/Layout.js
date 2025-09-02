@@ -1,24 +1,24 @@
 import React from "react";
-import Sidebar from "./Sidebar";
 import Header from "./Header";
 
-function Layout({ children, onLogout }) {
-  const role = localStorage.getItem("role");
+function Layout({ children, userType = 'client' }) {
+  const styles = {
+    container: {
+      minHeight: '100vh',
+      paddingTop: '5rem', // Espace pour le header fixe
+    },
+    content: {
+      padding: '2rem',
+      background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)',
+      minHeight: 'calc(100vh - 5rem)',
+    }
+  };
 
   return (
-    <div className="flex h-screen bg-gray-100">
-      {/* Sidebar */}
-      <Sidebar role={role} onLogout={onLogout} />
-      
-      {/* Contenu principal */}
-      <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Header */}
-        <Header />
-        
-        {/* Zone de contenu */}
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100">
-          {children}
-        </main>
+    <div style={styles.container}>
+      <Header userType={userType} />
+      <div style={styles.content}>
+        {children}
       </div>
     </div>
   );

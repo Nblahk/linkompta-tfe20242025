@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+﻿import React, { useEffect, useState } from "react";
 import api from "../api/axios";
 
 function DocumentsComptable() {
@@ -27,7 +27,7 @@ function DocumentsComptable() {
     fetchDocuments();
   }, [token]);
 
-  // Mettre à jour le statut d'un document
+  // Mettre Ã  jour le statut d'un document
   const updateStatus = async (documentId, newStatus) => {
     try {
       await api.patch(`documents/${documentId}/update-status/`, 
@@ -41,8 +41,8 @@ function DocumentsComptable() {
       });
       setDocuments(res.data);
     } catch (err) {
-      console.error("Erreur lors de la mise à jour :", err);
-      setError("Erreur lors de la mise à jour du statut");
+      console.error("Erreur lors de la mise Ã  jour :", err);
+      setError("Erreur lors de la mise Ã  jour du statut");
     }
   };
 
@@ -66,10 +66,10 @@ function DocumentsComptable() {
 
   const getStatusText = (status) => {
     const statusMap = {
-      'envoye': 'Envoyé',
-      'recu': 'Reçu',
+      'envoye': 'EnvoyÃ©',
+      'recu': 'ReÃ§u',
       'en_cours': 'En cours',
-      'traite': 'Traité'
+      'traite': 'TraitÃ©'
     };
     return statusMap[status] || status;
   };
@@ -77,10 +77,11 @@ function DocumentsComptable() {
   if (loading) return <div className="text-center py-4">Chargement...</div>;
 
   return (
-    <div className="container mx-auto px-4 py-6">
+    <div>
+      <div className="container mx-auto px-4 py-6">
       <div className="bg-white rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-bold text-gray-800 mb-6">
-          📁 Documents de mes clients
+          ðŸ“ Documents de mes clients
         </h2>
 
         {error && (
@@ -91,7 +92,7 @@ function DocumentsComptable() {
 
         {documents.length === 0 ? (
           <div className="text-center py-8 text-gray-500">
-            <p>Aucun document trouvé.</p>
+            <p>Aucun document trouvÃ©.</p>
           </div>
         ) : (
           <div className="overflow-x-auto">
@@ -140,10 +141,10 @@ function DocumentsComptable() {
                             onChange={(e) => updateStatus(doc.id, e.target.value)}
                             className="text-sm border border-gray-300 rounded px-2 py-1"
                           >
-                            <option value="envoye">Envoyé</option>
-                            <option value="recu">Reçu</option>
+                            <option value="envoye">EnvoyÃ©</option>
+                            <option value="recu">ReÃ§u</option>
                             <option value="en_cours">En cours</option>
-                            <option value="traite">Traité</option>
+                            <option value="traite">TraitÃ©</option>
                           </select>
                         )}
                         
@@ -153,7 +154,7 @@ function DocumentsComptable() {
                           rel="noopener noreferrer"
                           className="text-blue-600 hover:text-blue-800 text-sm font-medium"
                         >
-                          Télécharger
+                          TÃ©lÃ©charger
                         </a>
                       </div>
                     </td>
@@ -163,6 +164,7 @@ function DocumentsComptable() {
             </table>
           </div>
         )}
+      </div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+﻿import React, { useEffect, useState } from "react";
 import api from "../api/axios";
 
 function ClientsComptable() {
@@ -29,7 +29,7 @@ function ClientsComptable() {
     fetchClients();
   }, [token]);
 
-  // Charger les détails d'un client (documents, factures, etc.)
+  // Charger les dÃ©tails d'un client (documents, factures, etc.)
   const loadClientDetails = async (client) => {
     try {
       setSelectedClient(client);
@@ -53,22 +53,23 @@ function ClientsComptable() {
         rendezvous: clientRdv
       });
     } catch (err) {
-      console.error("Erreur lors du chargement des détails :", err);
-      setError("Erreur lors du chargement des détails du client");
+      console.error("Erreur lors du chargement des dÃ©tails :", err);
+      setError("Erreur lors du chargement des dÃ©tails du client");
     }
   };
 
   if (loading) return <div className="text-center py-4">Chargement...</div>;
 
   return (
-    <div className="container mx-auto px-4 py-6">
+    <div>
+      <div className="container mx-auto px-4 py-6">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
         {/* Liste des clients */}
         <div className="lg:col-span-1">
           <div className="bg-white rounded-lg shadow-md p-6">
             <h2 className="text-xl font-bold text-gray-800 mb-4">
-              👥 Mes Clients ({clients.length})
+              ðŸ‘¥ Mes Clients ({clients.length})
             </h2>
 
             {error && (
@@ -79,7 +80,7 @@ function ClientsComptable() {
 
             {clients.length === 0 ? (
               <div className="text-center py-8 text-gray-500">
-                <p>Aucun client assigné.</p>
+                <p>Aucun client assignÃ©.</p>
               </div>
             ) : (
               <div className="space-y-2">
@@ -100,7 +101,7 @@ function ClientsComptable() {
                       {client.user?.email}
                     </div>
                     <div className="text-sm text-gray-500">
-                      📞 {client.phone}
+                      ðŸ“ž {client.phone}
                     </div>
                   </div>
                 ))}
@@ -109,15 +110,15 @@ function ClientsComptable() {
           </div>
         </div>
 
-        {/* Détails du client sélectionné */}
+        {/* DÃ©tails du client sÃ©lectionnÃ© */}
         <div className="lg:col-span-2">
           {selectedClient ? (
             <div className="space-y-6">
               
-              {/* Informations générales */}
+              {/* Informations gÃ©nÃ©rales */}
               <div className="bg-white rounded-lg shadow-md p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-4">
-                  📋 Profil de {selectedClient.user?.first_name} {selectedClient.user?.last_name}
+                  ðŸ“‹ Profil de {selectedClient.user?.first_name} {selectedClient.user?.last_name}
                 </h3>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -126,7 +127,7 @@ function ClientsComptable() {
                     <p className="text-gray-600">{selectedClient.user?.email}</p>
                   </div>
                   <div>
-                    <span className="text-sm font-medium text-gray-700">Téléphone:</span>
+                    <span className="text-sm font-medium text-gray-700">TÃ©lÃ©phone:</span>
                     <p className="text-gray-600">{selectedClient.phone}</p>
                   </div>
                   <div className="md:col-span-2">
@@ -136,14 +137,14 @@ function ClientsComptable() {
                 </div>
               </div>
 
-              {/* Résumé des activités */}
+              {/* RÃ©sumÃ© des activitÃ©s */}
               {clientDetails && (
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   
                   {/* Documents */}
                   <div className="bg-white rounded-lg shadow-md p-4">
                     <div className="flex items-center justify-between mb-3">
-                      <h4 className="font-medium text-gray-800">📁 Documents</h4>
+                      <h4 className="font-medium text-gray-800">ðŸ“ Documents</h4>
                       <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-1 rounded-full">
                         {clientDetails.documents.length}
                       </span>
@@ -168,7 +169,7 @@ function ClientsComptable() {
                   {/* Factures */}
                   <div className="bg-white rounded-lg shadow-md p-4">
                     <div className="flex items-center justify-between mb-3">
-                      <h4 className="font-medium text-gray-800">💰 Factures</h4>
+                      <h4 className="font-medium text-gray-800">ðŸ’° Factures</h4>
                       <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded-full">
                         {clientDetails.factures.length}
                       </span>
@@ -178,7 +179,7 @@ function ClientsComptable() {
                         <div key={facture.id} className="text-sm">
                           <div className="font-medium truncate">{facture.titre}</div>
                           <div className="text-gray-500 text-xs">
-                            {facture.montant_tvac} € - {facture.statut}
+                            {facture.montant_tvac} â‚¬ - {facture.statut}
                           </div>
                         </div>
                       ))}
@@ -193,7 +194,7 @@ function ClientsComptable() {
                   {/* Rendez-vous */}
                   <div className="bg-white rounded-lg shadow-md p-4">
                     <div className="flex items-center justify-between mb-3">
-                      <h4 className="font-medium text-gray-800">📅 RDV</h4>
+                      <h4 className="font-medium text-gray-800">ðŸ“… RDV</h4>
                       <span className="bg-purple-100 text-purple-800 text-xs font-semibold px-2 py-1 rounded-full">
                         {clientDetails.rendezvous.length}
                       </span>
@@ -222,12 +223,13 @@ function ClientsComptable() {
           ) : (
             <div className="bg-white rounded-lg shadow-md p-8 text-center">
               <div className="text-gray-500">
-                <p className="text-lg mb-2">👆 Sélectionnez un client</p>
-                <p>Cliquez sur un client à gauche pour voir ses détails</p>
+                <p className="text-lg mb-2">ðŸ‘† SÃ©lectionnez un client</p>
+                <p>Cliquez sur un client Ã  gauche pour voir ses dÃ©tails</p>
               </div>
             </div>
           )}
         </div>
+      </div>
       </div>
     </div>
   );

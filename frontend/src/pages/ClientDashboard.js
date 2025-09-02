@@ -15,6 +15,8 @@ function ClientDashboard() {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
+    localStorage.removeItem("user");
+    localStorage.removeItem("profileImage");
     navigate("/?showLogin=true");
   };
 
@@ -99,13 +101,21 @@ function ClientDashboard() {
     container: {
       minHeight: '100vh',
       background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)',
-      padding: '2rem',
+      paddingTop: '5rem', // Espace pour le header fixe
+      padding: '5rem 2rem 2rem 2rem',
     },
     header: {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      zIndex: 1000,
+      backgroundColor: 'white',
+      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+      padding: '1rem 2rem',
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      marginBottom: '2rem',
     },
     logoSection: {
       flex: '0 0 auto',
@@ -154,6 +164,36 @@ function ClientDashboard() {
       gap: '1rem',
       flex: '0 0 auto',
     },
+    notificationButton: {
+      position: 'relative',
+      background: 'transparent',
+      border: 'none',
+      fontSize: '1.5rem',
+      cursor: 'pointer',
+      padding: '0.5rem',
+      borderRadius: '8px',
+      transition: 'all 0.3s ease',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    notificationBadge: {
+      position: 'absolute',
+      top: '0',
+      right: '0',
+      background: '#ef4444',
+      color: 'white',
+      fontSize: '0.7rem',
+      fontWeight: '700',
+      padding: '0.15rem 0.4rem',
+      borderRadius: '10px',
+      minWidth: '1.2rem',
+      height: '1.2rem',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      transform: 'translate(25%, -25%)',
+    },
     userName: {
       fontSize: '1rem',
       fontWeight: '600',
@@ -164,10 +204,6 @@ function ClientDashboard() {
       padding: '0.5rem 1rem',
       borderRadius: '8px',
       transition: 'all 0.3s ease',
-    },
-    userNameHover: {
-      background: 'linear-gradient(135deg, #e2e8f0, #cbd5e1)',
-      transform: 'translateY(-1px)',
     },
     logoutButton: {
       background: 'linear-gradient(135deg, #ef4444, #dc2626)',
@@ -194,6 +230,7 @@ function ClientDashboard() {
       overflow: 'hidden',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
+      cursor: 'pointer',
     },
     avatarImage: {
       width: '100%',
@@ -352,7 +389,22 @@ function ClientDashboard() {
         
         {/* User Info Section */}
         <div style={styles.userInfo}>
-          <span>🔔</span>
+          <button 
+            style={styles.notificationButton}
+            onClick={() => navigate('/client/notifications')}
+            onMouseEnter={(e) => {
+              e.target.style.background = 'rgba(59, 130, 246, 0.1)';
+              e.target.style.transform = 'scale(1.1)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.background = 'transparent';
+              e.target.style.transform = 'scale(1)';
+            }}
+            title="Notifications"
+          >
+            🔔
+            <span style={styles.notificationBadge}>3</span>
+          </button>
           <button 
             style={styles.userName}
             onClick={handleProfileClick}
@@ -368,7 +420,7 @@ function ClientDashboard() {
           >
             {userInfo.first_name} {userInfo.last_name}
           </button>
-          <div style={styles.avatar}>
+          <div style={styles.avatar} onClick={handleProfileClick}>
             {profileImage ? (
               <img 
                 src={profileImage} 
@@ -382,8 +434,16 @@ function ClientDashboard() {
           <button 
             style={styles.logoutButton}
             onClick={handleLogout}
-            onMouseEnter={(e) => e.target.style.transform = 'translateY(-2px)'}
-            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}
+            onMouseEnter={(e) => {
+              e.target.style.background = 'linear-gradient(135deg, #dc2626, #b91c1c)';
+              e.target.style.transform = 'translateY(-1px)';
+              e.target.style.boxShadow = '0 4px 12px rgba(239, 68, 68, 0.4)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+              e.target.style.transform = 'translateY(0)';
+              e.target.style.boxShadow = 'none';
+            }}
           >
             Déconnexion
           </button>

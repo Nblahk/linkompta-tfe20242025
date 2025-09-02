@@ -10,12 +10,13 @@ import DocumentsClient from "./pages/DocumentsClient";
 import DocumentsComptable from "./pages/DocumentsComptable";
 import RendezVousClient from "./pages/RendezVousClient";
 import RendezVousComptable from "./pages/RendezVousComptable";
+import MessagesClient from "./pages/MessagesClient";
 import ClientsComptable from "./pages/ClientsComptable";
 import Messagerie from "./pages/Messagerie";
 import AdminPanel from "./pages/AdminPanel";
-import Layout from "./components/Layout";
 import Profil from "./pages/Profil";
 import ClientProfil from "./pages/ClientProfil";
+import NotificationsClient from "./pages/NotificationsClient";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token") || null);
@@ -48,6 +49,12 @@ function App() {
           <>
             <Route path="/dashboard" element={<ClientDashboard token={token} />} />
             <Route path="/profil" element={<ClientProfil />} />
+            <Route path="/client/profil" element={<ClientProfil />} />
+            <Route path="/client/documents" element={<DocumentsClient />} />
+            <Route path="/client/factures" element={<FacturesClient />} />
+            <Route path="/client/rendezvous" element={<RendezVousClient />} />
+            <Route path="/client/messages" element={<MessagesClient />} />
+            <Route path="/client/notifications" element={<NotificationsClient />} />
             <Route path="*" element={<Navigate to="/dashboard" />} />
           </>
         )}
@@ -55,7 +62,7 @@ function App() {
         {/* Routes protégées - Autres rôles dans le Layout */}
         {token && role !== "client" && (
           <Route path="/*" element={
-            <Layout onLogout={handleLogout}>
+            <div>
               <Routes>
                 {/* Dashboard pour comptables et admins */}
                 <Route path="/dashboard" element={<Dashboard token={token} />} />
@@ -88,7 +95,7 @@ function App() {
                   <Navigate to="/dashboard" />
                 } />
               </Routes>
-            </Layout>
+            </div>
           } />
         )}
         

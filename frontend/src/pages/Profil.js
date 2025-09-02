@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import { Box, Typography, TextField, Button, Avatar } from "@mui/material";
-import { Person as PersonIcon } from "@mui/icons-material"; // ✅ icône par défaut
+import { Person as PersonIcon } from "@mui/icons-material"; // âœ… icÃ´ne par dÃ©faut
 
 function Profil() {
   const [username] = useState(localStorage.getItem("username") || "");
   const [role] = useState(localStorage.getItem("role") || "client");
   const [avatar, setAvatar] = useState(localStorage.getItem("avatar") || "");
 
-  // 🔹 Changer l’avatar
+  // ðŸ”¹ Changer lâ€™avatar
   const handleAvatarChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -19,28 +19,31 @@ function Profil() {
     }
   };
 
-  // 🔹 Supprimer l’avatar (revient à l’icône par défaut)
+  // ðŸ”¹ Supprimer lâ€™avatar (revient Ã  lâ€™icÃ´ne par dÃ©faut)
   const handleDeleteAvatar = () => {
     setAvatar("");
     localStorage.removeItem("avatar");
   };
 
-  // 🔹 Sauvegarder
+  // ðŸ”¹ Sauvegarder
   const handleSave = () => {
     if (avatar) {
       localStorage.setItem("avatar", avatar);
     }
-    alert("Profil mis à jour ✅");
-    window.location.reload(); // recharge le Layout pour montrer l’avatar
+    alert("Profil mis Ã  jour âœ…");
+    window.location.reload(); // recharge le Layout pour montrer lâ€™avatar
   };
 
+  const userType = role === 'client' ? 'client' : 'comptable';
+
   return (
-    <Box sx={{ maxWidth: 500, mx: "auto", mt: 5, textAlign: "center" }}>
+    <div>
+      <Box sx={{ maxWidth: 500, mx: "auto", mt: 5, textAlign: "center" }}>
       <Typography variant="h4" gutterBottom>
         Mon Profil
       </Typography>
 
-      {/* ✅ Avatar ou icône par défaut */}
+      {/* âœ… Avatar ou icÃ´ne par dÃ©faut */}
       {avatar ? (
         <Avatar
           src={avatar}
@@ -57,11 +60,11 @@ function Profil() {
             bgcolor: "grey.400",
           }}
         >
-          <PersonIcon sx={{ fontSize: 60 }} /> {/* 👤 icône dessin par défaut */}
+          <PersonIcon sx={{ fontSize: 60 }} /> {/* ðŸ‘¤ icÃ´ne dessin par dÃ©faut */}
         </Avatar>
       )}
 
-      {/* ✅ Boutons */}
+      {/* âœ… Boutons */}
       <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mb: 2 }}>
         <Button variant="contained" component="label" color="primary">
           Changer la photo
@@ -84,7 +87,7 @@ function Profil() {
           sx={{ mb: 2 }}
         />
         <TextField
-          label="Rôle"
+          label="RÃ´le"
           value={role}
           fullWidth
           disabled
@@ -100,7 +103,8 @@ function Profil() {
       >
         Sauvegarder
       </Button>
-    </Box>
+      </Box>
+    </div>
   );
 }
 
